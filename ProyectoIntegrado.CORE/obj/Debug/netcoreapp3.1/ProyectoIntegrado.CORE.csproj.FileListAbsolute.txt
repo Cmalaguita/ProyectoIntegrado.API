@@ -1,0 +1,9 @@
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.CORE\bin\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.deps.json
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.CORE\bin\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.dll
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.CORE\bin\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.pdb
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.csprojAssemblyReference.cache
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.AssemblyInfoInputs.cache
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.AssemblyInfo.cs
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.csproj.CoreCompileInputs.cache
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.dll
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.pdb
