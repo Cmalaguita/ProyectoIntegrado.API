@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ProyectoIntegrado.DAL.Contracts
 {
-    interface IUsuarioRepository
+   public interface IUsuarioRepository
     {
         bool Login(Usuario u);
     }

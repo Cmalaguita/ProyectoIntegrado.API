@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ProyectoIntegrado.DAL.Repositories.Implementations
 {
-    class UsuarioRepository : IUsuarioRepository
+   public class UsuarioRepository : IUsuarioRepository
     {
         public proyectointegradodbContext _context { get; set; }
         public UsuarioRepository (proyectointegradodbContext context)
