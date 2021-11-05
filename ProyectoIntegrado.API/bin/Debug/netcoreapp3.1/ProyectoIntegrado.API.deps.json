@@ -653,7 +653,8 @@
       "ProyectoIntegrado.DAL/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.11",
-          "Pomelo.EntityFrameworkCore.MySql": "5.0.2"
+          "Pomelo.EntityFrameworkCore.MySql": "5.0.2",
+          "ProyectoIntegrado.CORE": "1.0.0"
         },
         "runtime": {
           "ProyectoIntegrado.DAL.dll": {}

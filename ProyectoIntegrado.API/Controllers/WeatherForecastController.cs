@@ -18,6 +18,7 @@ namespace ProyectoIntegrado.API.Controllers
         private IWeatherForecastBL weatherForecastBL;
         public WeatherForecastController(ILogger<WeatherForecastController> logger, IWeatherForecastBL weatherForecastBL)
         {
+
             _logger = logger;
             this.weatherForecastBL = weatherForecastBL;
         }

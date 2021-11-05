@@ -9,7 +9,8 @@ namespace ProyectoIntegrado.DAL.Entities
     public partial class proyectointegradodbContext : DbContext
     {
 
-        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Alumno> Alumnos { get; set; }
+        public DbSet<Empresa> Empresas { get; set; }
         public proyectointegradodbContext()
         {
         }

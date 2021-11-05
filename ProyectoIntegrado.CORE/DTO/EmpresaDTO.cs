@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace ProyectoIntegrado.DAL.Entities
+namespace ProyectoIntegrado.CORE.DTO
 {
-    public class Usuario
+   public class EmpresaDTO
     {
-        [Key]
-        public int Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+
     }
 }

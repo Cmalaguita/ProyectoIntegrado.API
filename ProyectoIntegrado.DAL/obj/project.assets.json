@@ -256,6 +256,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
         }
+      },
+      "ProyectoIntegrado.CORE/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/ProyectoIntegrado.CORE.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProyectoIntegrado.CORE.dll": {}
+        }
       }
     }
   },
@@ -818,6 +828,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "ProyectoIntegrado.CORE/1.0.0": {
+      "type": "project",
+      "path": "../ProyectoIntegrado.CORE/ProyectoIntegrado.CORE.csproj",
+      "msbuildProject": "../ProyectoIntegrado.CORE/ProyectoIntegrado.CORE.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -825,7 +840,8 @@
       "Microsoft.EntityFrameworkCore >= 5.0.11",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.11",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.11",
-      "Pomelo.EntityFrameworkCore.MySql >= 5.0.2"
+      "Pomelo.EntityFrameworkCore.MySql >= 5.0.2",
+      "ProyectoIntegrado.CORE >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -854,7 +870,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj": {
+              "projectPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

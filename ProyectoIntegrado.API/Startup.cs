@@ -45,8 +45,10 @@ namespace ProyectoIntegrado.API
             services.AddDbContext<proyectointegradodbContext>(opts => opts.UseMySql(Configuration["ConnectionString:proyectointegradodb"], ServerVersion.AutoDetect(Configuration["ConnectionString:proyectointegradodb"])));
             // inyecciones : interfaz-clase
             services.AddScoped<IWeatherForecastBL, WeatherForecastBL>();
-            services.AddScoped<IUsuarioBL, UsuarioBL>();
-            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<IAlumnoBL, AlumnoBL>();
+            services.AddScoped<IAlumnoRepository, AlumnoRepository>();
+            services.AddScoped<IEmpresaBL, EmpresaBL>();
+            services.AddScoped<IEmpresaRepository, EmpresaRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,12 +85,12 @@ namespace ProyectoIntegrado.API
 
                 options.SwaggerDoc(groupName, new OpenApiInfo
                 {
-                    Title = $"Foo {groupName}",
+                    Title = $"Neuro {groupName}",
                     Version = groupName,
-                    Description = "Foo API",
+                    Description = "Neuro",
                     Contact = new OpenApiContact
                     {
-                        Name = "Foo Company",
+                        Name = "Neuro Corp",
                         Email = string.Empty,
                         Url = new Uri("https://foo.com/"),
                     }
