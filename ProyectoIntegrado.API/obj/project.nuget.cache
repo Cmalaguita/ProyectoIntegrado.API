@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "pma6hYdm3VGG6ZW90EQNROkOnpPDGWSScH4DJNv3aGVdQqsWX2y/jW4reV8LHeBRW/ttuXnSxZtyCR5kN0wzkQ==",
+  "dgSpecHash": "jWDd86hAAXjwkUJCyKxCmNmPSKUM0gv8O0xy4cpNk3Bsg+ntg1bhaHE0TyfvFnKxwIRb7uneJ6eNEoMB3Ux8yg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.API\\ProyectoIntegrado.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Carlos\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.11\\microsoft.aspnetcore.cryptography.internal.5.0.11.nupkg.sha512",
+    "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.11\\microsoft.aspnetcore.cryptography.keyderivation.5.0.11.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.11\\microsoft.entityframeworkcore.5.0.11.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.11\\microsoft.entityframeworkcore.abstractions.5.0.11.nupkg.sha512",

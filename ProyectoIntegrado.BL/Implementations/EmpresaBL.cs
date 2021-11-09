@@ -1,5 +1,6 @@
 ﻿using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.CORE.DTO;
+using ProyectoIntegrado.CORE.Security;
 using ProyectoIntegrado.DAL.Contracts;
 using ProyectoIntegrado.DAL.Entities;
 using System;
@@ -11,12 +12,15 @@ namespace ProyectoIntegrado.BL.Implementations
     public class EmpresaBL : IEmpresaBL
     {
         public IEmpresaRepository empresaRepository { get; set; }
-        public EmpresaBL(IEmpresaRepository empresaRepository)
+        public IPasswordGenerator passwordGenerator  { get; set; }
+        public EmpresaBL(IEmpresaRepository empresaRepository, IPasswordGenerator passwordGenerator)
         {
             this.empresaRepository = empresaRepository;
+            this.passwordGenerator = passwordGenerator;
         }
         public bool Login(EmpresaDTO empresaDTO)
         {
+            empresaDTO.Password = passwordGenerator.Hash(empresaDTO.Password);
             var empresa = new Empresa
             {
                 Email = empresaDTO.Email,

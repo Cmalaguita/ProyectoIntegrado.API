@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "3acMZpo+Z7sgXkUwS/QHawg6EMA0gAhJMF32U4Cs+9e9czF8pjCjZ/aUaaQNEpyqlv7c8jrBpOIXvAPxldsMIA==",
+  "dgSpecHash": "Sku6R7EYPjPV9kRINGTJpnrx2lKUAWCM7FSihYS7ErliFiDi1PaTQP2FeGOzXt3+S0WCg3E4IvewfXDkQ6Hsvw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.11\\microsoft.aspnetcore.cryptography.internal.5.0.11.nupkg.sha512",
+    "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.11\\microsoft.aspnetcore.cryptography.keyderivation.5.0.11.nupkg.sha512",
+    "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

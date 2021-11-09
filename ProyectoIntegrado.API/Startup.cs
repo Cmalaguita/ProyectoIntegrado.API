@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.BL.Implementations;
+using ProyectoIntegrado.CORE.Security;
 using ProyectoIntegrado.DAL.Contracts;
 using ProyectoIntegrado.DAL.Entities;
 using ProyectoIntegrado.DAL.Repositories.Implementations;
@@ -22,12 +23,12 @@ namespace ProyectoIntegrado.API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public IConfiguration Configuration { get; }
+        public  Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -49,6 +50,7 @@ namespace ProyectoIntegrado.API
             services.AddScoped<IAlumnoRepository, AlumnoRepository>();
             services.AddScoped<IEmpresaBL, EmpresaBL>();
             services.AddScoped<IEmpresaRepository, EmpresaRepository>();
+            services.AddScoped<IPasswordGenerator, PasswordGenerator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
