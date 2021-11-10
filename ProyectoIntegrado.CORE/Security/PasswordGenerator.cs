@@ -10,7 +10,7 @@ namespace ProyectoIntegrado.CORE.Security
     public class PasswordGenerator: IPasswordGenerator
     {
     public IConfiguration Configuration { get; set; }
-        public PasswordGenerator()
+        public PasswordGenerator(IConfiguration Configuration)
         {
             this.Configuration = Configuration;
         }
