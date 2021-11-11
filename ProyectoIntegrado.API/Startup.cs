@@ -18,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static ProyectoIntegrado.CORE.AutomapperProfile.AutomapperProfile;
 
 namespace ProyectoIntegrado.API
 {
@@ -41,7 +42,10 @@ namespace ProyectoIntegrado.API
                     .AllowAnyMethod()
                     .AllowAnyHeader());
             });
+
             AddSwagger(services);
+
+            services.AddAutoMapper(cfg=>cfg.AddProfile(new AutoMapperProfile()));
             //aniade el contexto de la base de datos y la configuracion a traves del fichero appsettings.json
             services.AddDbContext<proyectointegradodbContext>(opts => opts.UseMySql(Configuration["ConnectionString:proyectointegradodb"], ServerVersion.AutoDetect(Configuration["ConnectionString:proyectointegradodb"])));
             // inyecciones : interfaz-clase

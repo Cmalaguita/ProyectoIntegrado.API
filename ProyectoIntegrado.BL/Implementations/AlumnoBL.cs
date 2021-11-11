@@ -1,4 +1,5 @@
-﻿using ProyectoIntegrado.BL.Contracts;
+﻿using AutoMapper;
+using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.CORE.DTO;
 using ProyectoIntegrado.CORE.Security;
 using ProyectoIntegrado.DAL.Contracts;
@@ -13,39 +14,31 @@ namespace ProyectoIntegrado.BL.Implementations
     {
         public IAlumnoRepository alumnoRepository { get; set; }
         public IPasswordGenerator passwordGenerator { get; set; }
-        public AlumnoBL(IAlumnoRepository alumnoRepository, IPasswordGenerator passwordGenerator)
+        public IMapper mapper { get; set; }
+        public AlumnoBL(IAlumnoRepository alumnoRepository, IPasswordGenerator passwordGenerator,IMapper mapper)
         {
             this.alumnoRepository = alumnoRepository;
             this.passwordGenerator = passwordGenerator;
+            this.mapper = mapper;
         }
         public bool Login(AlumnoDTO alumnoDTO)
         {
             alumnoDTO.Password = passwordGenerator.Hash(alumnoDTO.Password);
 
-            var alumno = new Alumno
-            {
-                Email = alumnoDTO.Email,
-                Password = alumnoDTO.Password
-            };
+            var alumno = mapper.Map<AlumnoDTO, Alumno>(alumnoDTO);
             return alumnoRepository.Login(alumno);
         }
 
         public AlumnoDTO CreateAlumno(AlumnoDTO alumnoDTO)
         {
-            var alumno = new Alumno
-            {
-                Email = alumnoDTO.Email,
-                Password = alumnoDTO.Password
-            };
+            alumnoDTO.Password = passwordGenerator.Hash(alumnoDTO.Password);
+            var alumno = mapper.Map<AlumnoDTO, Alumno>(alumnoDTO);
+           
             if (!alumnoRepository.Exists(alumno))
             {
-             var a= alumnoRepository.CreateAlumno(alumno);
-            var alumnoDTOCreado = new AlumnoDTO
-            {
-                Email = a.Email,
-                Password = a.Password
-            };
-                return alumnoDTOCreado;
+                var u = mapper.Map<Alumno, AlumnoDTO>(alumnoRepository.CreateAlumno(alumno));
+                u.Password = null;
+                return u;
             }
             return null;
         }

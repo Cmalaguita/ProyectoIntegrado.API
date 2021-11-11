@@ -1,4 +1,5 @@
-﻿using ProyectoIntegrado.BL.Contracts;
+﻿using AutoMapper;
+using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.CORE.DTO;
 using ProyectoIntegrado.CORE.Security;
 using ProyectoIntegrado.DAL.Contracts;
@@ -13,12 +14,21 @@ namespace ProyectoIntegrado.BL.Implementations
     {
         public IEmpresaRepository empresaRepository { get; set; }
         public IPasswordGenerator passwordGenerator  { get; set; }
-        public EmpresaBL(IEmpresaRepository empresaRepository, IPasswordGenerator passwordGenerator)
+        public IMapper mapper { get; set; }
+        public EmpresaBL(IEmpresaRepository empresaRepository, IPasswordGenerator passwordGenerator, IMapper mapper)
         {
             this.empresaRepository = empresaRepository;
             this.passwordGenerator = passwordGenerator;
+            this.mapper = mapper;
         }
         public bool Login(EmpresaDTO empresaDTO)
+        {
+            empresaDTO.Password = passwordGenerator.Hash(empresaDTO.Password);
+            var empresa = mapper.Map<EmpresaDTO,Empresa>(empresaDTO);
+            return empresaRepository.Login(empresa);
+        }
+
+        public  EmpresaDTO CreateEmpresa(EmpresaDTO empresaDTO)
         {
             empresaDTO.Password = passwordGenerator.Hash(empresaDTO.Password);
             var empresa = new Empresa
@@ -26,25 +36,11 @@ namespace ProyectoIntegrado.BL.Implementations
                 Email = empresaDTO.Email,
                 Password = empresaDTO.Password
             };
-            return empresaRepository.Login(empresa);
-        }
-
-        public  EmpresaDTO CreateEmpresa(EmpresaDTO empresaDTO)
-        {
-            var empresa = new Empresa
-            {
-                Email = empresaDTO.Email,
-                Password = empresaDTO.Password
-            };
             if (!empresaRepository.Exists(empresa))
             {
-             var e= empresaRepository.CreateEmpresa(empresa);
-            var empresaDTOCreado = new EmpresaDTO
-            {
-                Email = e.Email,
-                Password = e.Password
-            };
-                return empresaDTOCreado;
+             var e= mapper.Map <Empresa, EmpresaDTO>(empresaRepository.CreateEmpresa(empresa));
+                e.Password = null;
+                return e;
             }
             return null;
         }

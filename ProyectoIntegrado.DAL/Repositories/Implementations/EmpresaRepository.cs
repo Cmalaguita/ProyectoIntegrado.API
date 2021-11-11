@@ -1,10 +1,6 @@
 ﻿using ProyectoIntegrado.DAL.Contracts;
 using ProyectoIntegrado.DAL.Entities;
-using ProyectoIntegrado.CORE.DTO;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ProyectoIntegrado.DAL.Repositories.Implementations
 {
