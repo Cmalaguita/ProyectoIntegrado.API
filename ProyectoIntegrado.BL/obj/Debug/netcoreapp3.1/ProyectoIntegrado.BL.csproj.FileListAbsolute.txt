@@ -12,3 +12,17 @@ C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.BL\obj\Debu
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.BL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.BL.csproj.CopyComplete
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.BL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.BL.dll
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.BL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.BL.pdb
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.BL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.BL.deps.json
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.BL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.BL.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.BL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.BL.pdb
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.BL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.BL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.BL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.pdb
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.BL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.pdb
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.BL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.BL.csproj.AssemblyReference.cache
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.BL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.BL.AssemblyInfoInputs.cache
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.BL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.BL.AssemblyInfo.cs
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.BL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.BL.csproj.CoreCompileInputs.cache
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.BL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.BL.csproj.CopyComplete
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.BL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.BL.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.BL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.BL.pdb

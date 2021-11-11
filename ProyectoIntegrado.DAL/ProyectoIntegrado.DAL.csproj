@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProyectoIntegrado.CORE\ProyectoIntegrado.CORE.csproj" />
+  
   </ItemGroup>
 
 </Project>

@@ -13,3 +13,15 @@ C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Deb
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.dll
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.pdb
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.genruntimeconfig.cache
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.pdb
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.csproj.AssemblyReference.cache
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.AssemblyInfoInputs.cache
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.AssemblyInfo.cs
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.csproj.CoreCompileInputs.cache
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.pdb
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.deps.json
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.runtimeconfig.json
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.runtimeconfig.dev.json
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.genruntimeconfig.cache

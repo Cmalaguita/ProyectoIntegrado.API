@@ -10,3 +10,15 @@ C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\De
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.CORE\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.dll
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.CORE\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.pdb
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.csproj.CopyComplete
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.csproj.AssemblyReference.cache
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.AssemblyInfoInputs.cache
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.AssemblyInfo.cs
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.csproj.CoreCompileInputs.cache
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.pdb
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\bin\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.deps.json
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\bin\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\bin\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.pdb
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.pdb
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.csproj.CopyComplete
