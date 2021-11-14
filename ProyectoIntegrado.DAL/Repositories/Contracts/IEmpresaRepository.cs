@@ -6,7 +6,7 @@ namespace ProyectoIntegrado.DAL.Contracts
 {
    public interface IEmpresaRepository
     {
-        bool Login(Empresa e);
+        Empresa Login(Empresa e);
         Empresa CreateEmpresa(Empresa empresa);
         bool Exists(Empresa empresa);
     }

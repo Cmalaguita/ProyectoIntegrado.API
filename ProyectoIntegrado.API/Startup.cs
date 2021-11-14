@@ -35,6 +35,7 @@ namespace ProyectoIntegrado.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //Habilitar cors en la API
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -74,6 +75,7 @@ namespace ProyectoIntegrado.API
             });
 
             app.UseRouting();
+            app.UseCors();
 
             app.UseAuthorization();
 

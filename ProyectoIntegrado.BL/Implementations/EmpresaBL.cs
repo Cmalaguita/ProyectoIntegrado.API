@@ -21,11 +21,17 @@ namespace ProyectoIntegrado.BL.Implementations
             this.passwordGenerator = passwordGenerator;
             this.mapper = mapper;
         }
-        public bool Login(EmpresaDTO empresaDTO)
+        public EmpresaDTO Login(EmpresaDTO empresaDTO)
         {
             empresaDTO.Password = passwordGenerator.Hash(empresaDTO.Password);
             var empresa = mapper.Map<EmpresaDTO,Empresa>(empresaDTO);
-            return empresaRepository.Login(empresa);
+            empresaDTO = mapper.Map<Empresa, EmpresaDTO>(empresaRepository.Login(empresa));
+            if (empresaDTO!=null)
+            {
+
+            empresa.Password = null;
+            }
+            return empresaDTO;
         }
 
         public  EmpresaDTO CreateEmpresa(EmpresaDTO empresaDTO)

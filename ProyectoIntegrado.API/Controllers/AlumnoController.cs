@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.BL.Implementations;
@@ -21,7 +22,8 @@ namespace ProyectoIntegrado.API.Controllers
         }
         
         [HttpPost]
-        [Route("Login Alumno")]
+   
+        [Route("Login_Alumno")]
         public ActionResult Login(AlumnoDTO alumnoDTO)
         {
             if (AlumnoBL.Login(alumnoDTO))
@@ -35,7 +37,7 @@ namespace ProyectoIntegrado.API.Controllers
             }
         }
         [HttpPost]
-        [Route("Sign up Alumno")]
+        [Route("Sign_up_Alumno")]
         public ActionResult<AlumnoDTO> CreateAlumno(AlumnoDTO alumnoDTO)
         {
             var alumno = AlumnoBL.CreateAlumno(alumnoDTO);

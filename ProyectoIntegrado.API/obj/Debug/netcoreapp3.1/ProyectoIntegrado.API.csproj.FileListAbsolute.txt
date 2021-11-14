@@ -106,3 +106,5 @@ C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrad
 C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\obj\Debug\netcoreapp3.1\ProyectoIntegrado.API.RazorTargetAssemblyInfo.cache
 C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\obj\Debug\netcoreapp3.1\ProyectoIntegrado.API.csproj.CopyComplete
 C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\obj\Debug\netcoreapp3.1\ProyectoIntegrado.API.genruntimeconfig.cache
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.BL.Implementations;
@@ -21,10 +22,12 @@ namespace ProyectoIntegrado.API.Controllers
         }
         
         [HttpPost]
-        [Route("Login Empresa")]
-        public ActionResult Login(EmpresaDTO empresaDTO)
+        [EnableCors("CorsPolicy")]
+        [Route("Login_Empresa")]
+        public ActionResult<EmpresaDTO> Login(EmpresaDTO empresaDTO)
         {
-            if (EmpresaBL.Login(empresaDTO))
+            EmpresaDTO empresa;
+            if ((empresa=EmpresaBL.Login(empresaDTO)) !=null)
             {
             return Ok();
 
@@ -35,7 +38,7 @@ namespace ProyectoIntegrado.API.Controllers
             }
         }
         [HttpPost]
-        [Route("Sign up Empresa")]
+        [Route("Sign_up_Empresa")]
         public ActionResult<EmpresaDTO> CreateEmpresa(EmpresaDTO empresaDTO)
         {
             var empresa = EmpresaBL.CreateEmpresa(empresaDTO);
