@@ -22,3 +22,4 @@ C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrad
 C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.dll
 C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.pdb
 C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.csproj.CopyComplete
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.CORE\obj\Debug\netcoreapp3.1\ProyectoIntegrado.CORE.GeneratedMSBuildEditorConfig.editorconfig

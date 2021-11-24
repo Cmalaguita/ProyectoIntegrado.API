@@ -22,12 +22,12 @@ namespace ProyectoIntegrado.API.Controllers
         }
         
         [HttpPost]
-        [EnableCors("CorsPolicy")]
+        
         [Route("Login_Empresa")]
-        public ActionResult<EmpresaDTO> Login(EmpresaDTO empresaDTO)
+        public ActionResult Login(EmpresaDTO empresaDTO)
         {
-            EmpresaDTO empresa;
-            if ((empresa=EmpresaBL.Login(empresaDTO)) !=null)
+           
+            if (EmpresaBL.Login(empresaDTO))
             {
             return Ok();
 

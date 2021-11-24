@@ -22,3 +22,4 @@ C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrad
 C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.runtimeconfig.json
 C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.runtimeconfig.dev.json
 C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.genruntimeconfig.cache
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.GeneratedMSBuildEditorConfig.editorconfig

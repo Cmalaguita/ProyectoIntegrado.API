@@ -11,9 +11,9 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             {
             this._context = context;
             }
-        public Empresa Login(Empresa empresa)
+        public bool Login(Empresa empresa)
         {
-           return _context.Empresas.FirstOrDefault(u => u.Email == empresa.Email && u.Password == empresa.Password);
+           return _context.Empresas.Any(u => u.Email == empresa.Email && u.Password == empresa.Password);
         }
 
         public Empresa CreateEmpresa(Empresa empresa)
