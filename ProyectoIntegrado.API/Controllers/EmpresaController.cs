@@ -20,9 +20,8 @@ namespace ProyectoIntegrado.API.Controllers
         {
             this.EmpresaBL = empresaBL;
         }
-        
+        [EnableCors("CorsPolicy")]
         [HttpPost]
-        
         [Route("Login_Empresa")]
         public ActionResult Login(EmpresaDTO empresaDTO)
         {
