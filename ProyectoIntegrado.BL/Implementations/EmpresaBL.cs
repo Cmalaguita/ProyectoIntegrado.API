@@ -50,5 +50,25 @@ namespace ProyectoIntegrado.BL.Implementations
         {
             throw new NotImplementedException();
         }
+
+        public List<EmpresaCompletaDTO> ObtenerEmpresas()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool BorrarEmpresa(Empresa empresa)
+        {
+            throw new NotImplementedException();
+        }
+
+        public EmpresaCompletaDTO BuscarEmpresa(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ActualizarEmpresa(Empresa empresa)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

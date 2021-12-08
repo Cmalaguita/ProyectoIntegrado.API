@@ -31,5 +31,35 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         {
             return _context.Alumnos.Any(a => a.Email == alumno.Email);
         }
+
+        public List<Alumno> ObtenerAlumnos()
+        {
+            return _context.Alumnos.ToList();
+        }
+
+        public bool BorrarAlumno(Alumno alumno)
+        {
+            if (Exists(alumno))
+            {
+            _context.Alumnos.Remove(alumno);
+                return true;
+            }
+            return false;
+        }
+
+        public Alumno BuscarAlumno(string email)
+        {
+            return _context.Alumnos.Where(a => a.Email == email).FirstOrDefault();
+        }
+
+        public bool ActualizarAlumno(Alumno alumno)
+        {
+            if (Exists(alumno))
+            {
+            _context.Alumnos.Update(alumno);
+                return true;
+            }
+            return false;
+        }
     }
 }

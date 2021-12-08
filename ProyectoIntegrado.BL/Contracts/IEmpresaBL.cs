@@ -11,5 +11,9 @@ namespace ProyectoIntegrado.BL.Contracts
         public bool Login(EmpresaDTO empresaDTO);
         public EmpresaDTO CreateEmpresa(EmpresaDTO empresaDTO);
         public bool Exists(Empresa empresa);
+        List<EmpresaCompletaDTO> ObtenerEmpresas();
+        bool BorrarEmpresa(Empresa empresa);
+        EmpresaCompletaDTO BuscarEmpresa(string email);
+        bool ActualizarEmpresa(Empresa empresa);
     }
 }

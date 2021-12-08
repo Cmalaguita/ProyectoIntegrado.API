@@ -47,5 +47,30 @@ namespace ProyectoIntegrado.BL.Implementations
         {
             throw new NotImplementedException();
         }
+
+        public bool Exists(AlumnoDTO alumno)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<AlumnoCompletoDTO> ObtenerAlumnos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool BorrarAlumno(AlumnoCompletoDTO alumno)
+        {
+            throw new NotImplementedException();
+        }
+
+        public AlumnoCompletoDTO BuscarAlumno(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ActualizarAlumno(AlumnoCompletoDTO alumno)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

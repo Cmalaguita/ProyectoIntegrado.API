@@ -11,6 +11,8 @@ namespace ProyectoIntegrado.DAL.Entities
 
         public DbSet<Alumno> Alumnos { get; set; }
         public DbSet<Empresa> Empresas { get; set; }
+        public DbSet<Provincia> Provincias { get; set; }
+        public DbSet<PosicionDeTrabajoDTO> Posiciones { get; set; }
         public proyectointegradodbContext()
         {
         }

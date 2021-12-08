@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace ProyectoIntegrado.DAL.Entities
@@ -9,7 +10,16 @@ namespace ProyectoIntegrado.DAL.Entities
     {
         [Key]
         public int Id { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
         public string Password { get; set; }
+        public string Nombre { get; set; }
+        public int ProvinciaId { get; set; }
+        [ForeignKey("ProvinciaId")]
+        public Provincia Provincia { get; set; }
+        public string Localidad { get; set; }
+        public string Direccion { get; set; }
+
     }
 }

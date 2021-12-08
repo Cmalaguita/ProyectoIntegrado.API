@@ -1,6 +1,6 @@
 ﻿
 using ProyectoIntegrado.DAL.Entities;
-
+using System.Collections.Generic;
 
 namespace ProyectoIntegrado.DAL.Contracts
 {
@@ -9,5 +9,9 @@ namespace ProyectoIntegrado.DAL.Contracts
         bool Login(Empresa e);
         Empresa CreateEmpresa(Empresa empresa);
         bool Exists(Empresa empresa);
+        List<Empresa> ObtenerEmpresas();
+        bool BorrarEmpresa(Empresa empresa);
+        Empresa BuscarEmpresa(string email);
+        bool ActualizarEmpresa(Empresa empresa);
     }
 }
