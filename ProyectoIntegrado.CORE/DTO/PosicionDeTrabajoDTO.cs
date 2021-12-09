@@ -17,7 +17,6 @@ namespace ProyectoIntegrado.CORE.DTO
         public DateTime FechaFin { get; set; }
         public int Id { get; set; }
         public int EmpresaId { get; set; }
-        [ForeignKey("EmpresaId")]
         public Empresa Empresa { get; set; }
         public ICollection<Ciclo> Ciclos { get; set; }
         public string Nombre { get; set; }

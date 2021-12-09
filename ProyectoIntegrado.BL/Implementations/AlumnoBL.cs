@@ -29,48 +29,51 @@ namespace ProyectoIntegrado.BL.Implementations
             return alumnoRepository.Login(alumno);
         }
 
-        public AlumnoDTO CreateAlumno(AlumnoDTO alumnoDTO)
+        public bool CreateAlumno(AlumnoDTO alumnoCompletoDTO)
         {
-            alumnoDTO.Password = passwordGenerator.Hash(alumnoDTO.Password);
-            var alumno = mapper.Map<AlumnoDTO, Alumno>(alumnoDTO);
+            alumnoCompletoDTO.Password = passwordGenerator.Hash(alumnoCompletoDTO.Password);
+            var alumno = mapper.Map<AlumnoDTO, Alumno>(alumnoCompletoDTO);
            
             if (!alumnoRepository.Exists(alumno))
             {
-                var u = mapper.Map<Alumno, AlumnoDTO>(alumnoRepository.CreateAlumno(alumno));
-                u.Password = null;
-                return u;
-            }
-            return null;
-        }
 
-        public bool Exists(Alumno alumno)
-        {
-            throw new NotImplementedException();
+                return alumnoRepository.CreateAlumno(alumno);
+
+            }
+            return false;
         }
 
         public bool Exists(AlumnoDTO alumno)
         {
-            throw new NotImplementedException();
+
+            var a = mapper.Map<AlumnoDTO, Alumno>(alumno);
+            return alumnoRepository.Exists(a);
         }
 
-        public List<AlumnoCompletoDTO> ObtenerAlumnos()
+        public List<AlumnoDTO> ObtenerAlumnos()
         {
-            throw new NotImplementedException();
+              List<AlumnoDTO> list = mapper.Map<List<Alumno>,List<AlumnoDTO>>(alumnoRepository.ObtenerAlumnos());
+            return list;
         }
 
-        public bool BorrarAlumno(AlumnoCompletoDTO alumno)
+        public bool BorrarAlumno(AlumnoDTO alumno)
         {
-            throw new NotImplementedException();
+            var a = mapper.Map<AlumnoDTO, Alumno>(alumno);
+            return alumnoRepository.BorrarAlumno(a);
         }
 
-        public AlumnoCompletoDTO BuscarAlumno(string email)
+        public AlumnoDTO BuscarAlumno(int id)
         {
-            throw new NotImplementedException();
+                var a= mapper.Map<Alumno,AlumnoDTO>(alumnoRepository.BuscarAlumno(id));
+            return a;
         }
 
-        public bool ActualizarAlumno(AlumnoCompletoDTO alumno)
+        public AlumnoDTO ActualizarAlumno(AlumnoDTO alumno)
         {
-            throw new NotImplementedException();
+            var a = mapper.Map<AlumnoDTO, Alumno>(alumno);
+
+               AlumnoDTO actualizado=mapper.Map<Alumno,AlumnoDTO>(alumnoRepository.ActualizarAlumno(a));
+            return actualizado;
         }
     }
 }

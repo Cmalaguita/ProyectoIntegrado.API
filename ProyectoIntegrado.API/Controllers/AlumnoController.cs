@@ -29,7 +29,6 @@ namespace ProyectoIntegrado.API.Controllers
             if (AlumnoBL.Login(alumnoDTO))
             {
             return Ok();
-
             }
             else
             {
@@ -38,12 +37,12 @@ namespace ProyectoIntegrado.API.Controllers
         }
         [HttpPost]
         [Route("Sign_up_Alumno")]
-        public ActionResult<AlumnoDTO> CreateAlumno(AlumnoDTO alumnoDTO)
+        public ActionResult CreateAlumno(AlumnoDTO alumnoCompletoDTO)
         {
-            var alumno = AlumnoBL.CreateAlumno(alumnoDTO);
-            if (alumno != null)
+            var creado = AlumnoBL.CreateAlumno(alumnoCompletoDTO);
+            if (creado)
             {
-                return Ok(alumno);
+                return Ok();
             }
             else
             {

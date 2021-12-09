@@ -8,12 +8,12 @@ namespace ProyectoIntegrado.BL.Contracts
 {
    public interface IEmpresaBL
     {
-        public bool Login(EmpresaDTO empresaDTO);
-        public EmpresaDTO CreateEmpresa(EmpresaDTO empresaDTO);
-        public bool Exists(Empresa empresa);
-        List<EmpresaCompletaDTO> ObtenerEmpresas();
-        bool BorrarEmpresa(Empresa empresa);
-        EmpresaCompletaDTO BuscarEmpresa(string email);
-        bool ActualizarEmpresa(Empresa empresa);
+        public bool Login(EmpresaDTO empresaCompletaDTO);
+        public bool CreateEmpresa(EmpresaDTO empresaCompletaDTO);
+        public bool Exists(EmpresaDTO empresa);
+        List<EmpresaDTO> ObtenerEmpresas();
+        bool BorrarEmpresa(EmpresaDTO empresaCompletaDTO);
+        EmpresaDTO BuscarEmpresa(int id);
+        EmpresaDTO ActualizarEmpresa(EmpresaDTO empresaCompletaDTO);
     }
 }

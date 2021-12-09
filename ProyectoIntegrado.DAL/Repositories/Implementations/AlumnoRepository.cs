@@ -20,11 +20,11 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
            return _context.Alumnos.Any(u => u.Email == alumno.Email && u.Password ==alumno.Password);
         }
 
-        public Alumno CreateAlumno(Alumno alumno)
+        public bool CreateAlumno(Alumno alumno)
         {
-           var a=_context.Alumnos.Add(alumno);
+            _context.Alumnos.Add(alumno);
             _context.SaveChanges();
-            return a.Entity;
+            return true;
         }
 
         public bool Exists(Alumno alumno)
@@ -47,19 +47,20 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             return false;
         }
 
-        public Alumno BuscarAlumno(string email)
+        public Alumno BuscarAlumno(int id)
         {
-            return _context.Alumnos.Where(a => a.Email == email).FirstOrDefault();
+            return _context.Alumnos.Where(a => a.Id == id).FirstOrDefault();
         }
 
-        public bool ActualizarAlumno(Alumno alumno)
+        public Alumno ActualizarAlumno(Alumno alumno)
         {
             if (Exists(alumno))
             {
-            _context.Alumnos.Update(alumno);
-                return true;
+                var a = _context.Alumnos.Update(alumno);
+                return a.Entity;
+           
             }
-            return false;
+            return null;
         }
     }
 }

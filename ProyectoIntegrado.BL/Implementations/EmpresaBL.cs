@@ -21,54 +21,58 @@ namespace ProyectoIntegrado.BL.Implementations
             this.passwordGenerator = passwordGenerator;
             this.mapper = mapper;
         }
-        public bool Login(EmpresaDTO empresaDTO)
+        public bool Login(EmpresaDTO empresaCompletaDTO)
         {
-            empresaDTO.Password = passwordGenerator.Hash(empresaDTO.Password);
+            empresaCompletaDTO.Password = passwordGenerator.Hash(empresaCompletaDTO.Password);
 
-            var empresa = mapper.Map<EmpresaDTO, Empresa>(empresaDTO);
+            var empresa = mapper.Map<EmpresaDTO, Empresa>(empresaCompletaDTO);
             return empresaRepository.Login(empresa);
         }
 
-        public  EmpresaDTO CreateEmpresa(EmpresaDTO empresaDTO)
+        public  bool CreateEmpresa(EmpresaDTO empresaCompletaDTO)
         {
-            empresaDTO.Password = passwordGenerator.Hash(empresaDTO.Password);
-            var empresa = new Empresa
-            {
-                Email = empresaDTO.Email,
-                Password = empresaDTO.Password
-            };
+            empresaCompletaDTO.Password = passwordGenerator.Hash(empresaCompletaDTO.Password);
+            var empresa = mapper.Map<EmpresaDTO, Empresa>(empresaCompletaDTO);
+
             if (!empresaRepository.Exists(empresa))
             {
-             var e= mapper.Map <Empresa, EmpresaDTO>(empresaRepository.CreateEmpresa(empresa));
-                e.Password = null;
+             var e= empresaRepository.CreateEmpresa(empresa);
+                
                 return e;
             }
-            return null;
+            return false;
         }
 
-        public bool Exists(Empresa empresa)
+        public bool Exists(EmpresaDTO empresa)
         {
-            throw new NotImplementedException();
+            var a = mapper.Map<EmpresaDTO, Empresa>(empresa);
+            return empresaRepository.Exists(a);
         }
 
-        public List<EmpresaCompletaDTO> ObtenerEmpresas()
+        public List<EmpresaDTO> ObtenerEmpresas()
         {
-            throw new NotImplementedException();
+            List<EmpresaDTO> list = mapper.Map<List<Empresa>, List<EmpresaDTO>>(empresaRepository.ObtenerEmpresas());
+            return list;
         }
 
-        public bool BorrarEmpresa(Empresa empresa)
+        public bool BorrarEmpresa(EmpresaDTO empresa)
         {
-            throw new NotImplementedException();
+            var e = mapper.Map<EmpresaDTO, Empresa>(empresa);
+            return empresaRepository.BorrarEmpresa(e);
         }
 
-        public EmpresaCompletaDTO BuscarEmpresa(string email)
+        public EmpresaDTO BuscarEmpresa(int id)
         {
-            throw new NotImplementedException();
+            var a = mapper.Map<Empresa, EmpresaDTO>(empresaRepository.BuscarEmpresa(id));
+            return a;
         }
 
-        public bool ActualizarEmpresa(Empresa empresa)
+        public EmpresaDTO ActualizarEmpresa(EmpresaDTO empresa)
         {
-            throw new NotImplementedException();
+            var e = mapper.Map<EmpresaDTO, Empresa>(empresa);
+
+            EmpresaDTO actualizado = mapper.Map<Empresa, EmpresaDTO>(empresaRepository.ActualizarEmpresa(e));
+            return actualizado;
         }
     }
 }

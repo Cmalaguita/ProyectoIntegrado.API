@@ -7,11 +7,11 @@ namespace ProyectoIntegrado.DAL.Contracts
    public interface IEmpresaRepository
     {
         bool Login(Empresa e);
-        Empresa CreateEmpresa(Empresa empresa);
+        bool CreateEmpresa(Empresa empresa);
         bool Exists(Empresa empresa);
         List<Empresa> ObtenerEmpresas();
         bool BorrarEmpresa(Empresa empresa);
-        Empresa BuscarEmpresa(string email);
-        bool ActualizarEmpresa(Empresa empresa);
+        Empresa BuscarEmpresa(int id);
+        Empresa ActualizarEmpresa(Empresa empresa);
     }
 }

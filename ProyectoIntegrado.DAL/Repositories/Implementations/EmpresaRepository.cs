@@ -17,11 +17,11 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             return _context.Empresas.Any(u => u.Email == empresa.Email && u.Password == empresa.Password);
         }
 
-        public Empresa CreateEmpresa(Empresa empresa)
+        public bool CreateEmpresa(Empresa empresa)
         {
-            var e = _context.Empresas.Add(empresa);
+            _context.Empresas.Add(empresa);
             _context.SaveChanges();
-            return e.Entity;
+            return true;
         }
 
         public bool Exists(Empresa empresa)
@@ -44,20 +44,20 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             return false;
         }
 
-        public Empresa BuscarEmpresa(string email)
+        public Empresa BuscarEmpresa(int id)
         {
-            return _context.Empresas.Where(e => e.Email == email).FirstOrDefault();
+            return _context.Empresas.Where(e => e.Id == id).FirstOrDefault();
         }
 
-        public bool ActualizarEmpresa(Empresa empresa)
+        public Empresa ActualizarEmpresa(Empresa empresa)
         {
 
             if (Exists(empresa))
             {
-                _context.Empresas.Update(empresa);
-                return true;
+
+                return _context.Empresas.Update(empresa).Entity;
             }
-            return false;
+            return null;
         }
     }
 }
