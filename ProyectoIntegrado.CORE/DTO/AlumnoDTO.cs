@@ -10,7 +10,6 @@ namespace ProyectoIntegrado.CORE.DTO
     {
        
         public int Id { get; set; }
-       
         public string Email { get; set; }
       
         public string Password { get; set; }
@@ -23,7 +22,6 @@ namespace ProyectoIntegrado.CORE.DTO
         //public byte[] Foto { get; set; }
         public string Localidad { get; set; }
         public int IdProvincia { get; set; }
-        public Provincia Provincia { get; set; }
         public double NotaMedia { get; set; }
     }
 }

@@ -29,7 +29,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public bool Exists(Alumno alumno)
         {
-            return _context.Alumnos.Any(a => a.Email == alumno.Email);
+            return _context.Alumnos.Any(a => a.Id == alumno.Id);
         }
 
         public List<Alumno> ObtenerAlumnos()
@@ -42,6 +42,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             if (Exists(alumno))
             {
             _context.Alumnos.Remove(alumno);
+                _context.SaveChanges();
                 return true;
             }
             return false;
@@ -56,9 +57,9 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         {
             if (Exists(alumno))
             {
-                var a = _context.Alumnos.Update(alumno);
-                return a.Entity;
-           
+                var a = _context.Alumnos.Update(alumno).Entity;
+                _context.SaveChanges();
+                return a;          
             }
             return null;
         }

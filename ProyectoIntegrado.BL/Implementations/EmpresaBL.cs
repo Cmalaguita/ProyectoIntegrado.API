@@ -65,12 +65,13 @@ namespace ProyectoIntegrado.BL.Implementations
         {
             var a = mapper.Map<Empresa, EmpresaDTO>(empresaRepository.BuscarEmpresa(id));
             return a;
+
         }
 
         public EmpresaDTO ActualizarEmpresa(EmpresaDTO empresa)
         {
+            empresa.Password = passwordGenerator.Hash(empresa.Password);
             var e = mapper.Map<EmpresaDTO, Empresa>(empresa);
-
             EmpresaDTO actualizado = mapper.Map<Empresa, EmpresaDTO>(empresaRepository.ActualizarEmpresa(e));
             return actualizado;
         }

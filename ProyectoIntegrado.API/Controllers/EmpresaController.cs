@@ -38,18 +38,53 @@ namespace ProyectoIntegrado.API.Controllers
         }
         [HttpPost]
         [Route("Sign_up_Empresa")]
-        public ActionResult<EmpresaDTO> CreateEmpresa(EmpresaDTO empresaDTO)
+        public ActionResult CreateEmpresa(EmpresaDTO empresaDTO)
         {
             var empresa = EmpresaBL.CreateEmpresa(empresaDTO);
-            if (empresa!=null)
+            if (empresa)
             {
-                return Ok(empresa);
+                return Ok();
             }
             else
             {
 
                 return BadRequest();
             }
+        }
+        [HttpGet]
+        [Route("Obtener_Todas_Las_Empresas")]
+        public List<EmpresaDTO> ObtenerEmpresas()
+        {
+
+            return EmpresaBL.ObtenerEmpresas();
+        }
+        [HttpGet]
+        [Route("Buscar_Empresa_Id")]
+        public EmpresaDTO BuscarEmpresa(int id)
+        {
+            return EmpresaBL.BuscarEmpresa(id);
+        }
+        [HttpDelete]
+        [Route("Eliminar_Empresa")]
+        public ActionResult EliminarAlumno(int id)
+        {
+            var a = EmpresaBL.BuscarEmpresa(id);
+            if (EmpresaBL.Exists(a))
+            {
+                EmpresaBL.BorrarEmpresa(a);
+                return Ok();
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        [Route("Actualizar_Empresa")]
+        public ActionResult<EmpresaDTO> ActualizarEmpresa(EmpresaDTO empresa)
+        {
+            if (EmpresaBL.Exists(empresa))
+            {
+                return EmpresaBL.ActualizarEmpresa(empresa);
+            }
+            return NotFound();
         }
     }
 }

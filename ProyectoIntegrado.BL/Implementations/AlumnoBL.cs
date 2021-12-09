@@ -29,10 +29,10 @@ namespace ProyectoIntegrado.BL.Implementations
             return alumnoRepository.Login(alumno);
         }
 
-        public bool CreateAlumno(AlumnoDTO alumnoCompletoDTO)
+        public bool CreateAlumno(AlumnoDTO alumnoDTO)
         {
-            alumnoCompletoDTO.Password = passwordGenerator.Hash(alumnoCompletoDTO.Password);
-            var alumno = mapper.Map<AlumnoDTO, Alumno>(alumnoCompletoDTO);
+            alumnoDTO.Password = passwordGenerator.Hash(alumnoDTO.Password);
+            var alumno = mapper.Map<AlumnoDTO, Alumno>(alumnoDTO);
            
             if (!alumnoRepository.Exists(alumno))
             {
@@ -70,6 +70,8 @@ namespace ProyectoIntegrado.BL.Implementations
 
         public AlumnoDTO ActualizarAlumno(AlumnoDTO alumno)
         {
+            alumno.Password = passwordGenerator.Hash(alumno.Password);
+            
             var a = mapper.Map<AlumnoDTO, Alumno>(alumno);
 
                AlumnoDTO actualizado=mapper.Map<Alumno,AlumnoDTO>(alumnoRepository.ActualizarAlumno(a));

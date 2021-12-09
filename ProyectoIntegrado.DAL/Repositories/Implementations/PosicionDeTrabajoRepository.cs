@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ProyectoIntegrado.DAL.Repositories.Implementations
 {
-    class PosicionDeTrabajoRepository : IPosicionDeTrabajoRepository
+   public class PosicionDeTrabajoRepository : IPosicionDeTrabajoRepository
     {
         public proyectointegradodbContext _context { get; set; }
         public PosicionDeTrabajoRepository(proyectointegradodbContext context)

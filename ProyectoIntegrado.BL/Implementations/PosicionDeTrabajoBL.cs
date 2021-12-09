@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ProyectoIntegrado.BL.Implementations
 {
-    class PosicionDeTrabajoBL : IPosicionDeTrabajoBL
+    public class PosicionDeTrabajoBL : IPosicionDeTrabajoBL
     {
         public bool ActualizarPosicionDeTrabajo(PosicionDeTrabajoDTO posicionDeTrabajoDTO)
         {

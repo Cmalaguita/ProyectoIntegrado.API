@@ -26,7 +26,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public bool Exists(Empresa empresa)
         {
-            return _context.Empresas.Any(u => u.Email == empresa.Email);
+            return _context.Empresas.Any(u => u.Id == empresa.Id);
         }
 
         public List<Empresa> ObtenerEmpresas()
@@ -54,8 +54,9 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
             if (Exists(empresa))
             {
-
-                return _context.Empresas.Update(empresa).Entity;
+                var e =_context.Empresas.Update(empresa).Entity;
+                _context.SaveChanges();
+                return e;
             }
             return null;
         }

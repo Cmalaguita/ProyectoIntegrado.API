@@ -16,5 +16,6 @@ namespace ProyectoIntegrado.DAL.Entities
         public int IdPosicion { get; set; }
         [ForeignKey("IdPosicion")]
         public PosicionDeTrabajoDTO posicion { get; set; }
+
     }
 }

@@ -13,6 +13,7 @@ using ProyectoIntegrado.BL.Implementations;
 using ProyectoIntegrado.CORE.Security;
 using ProyectoIntegrado.DAL.Contracts;
 using ProyectoIntegrado.DAL.Entities;
+using ProyectoIntegrado.DAL.Repositories.Contracts;
 using ProyectoIntegrado.DAL.Repositories.Implementations;
 using System;
 using System.Collections.Generic;
@@ -56,8 +57,10 @@ namespace ProyectoIntegrado.API
             services.AddScoped<IEmpresaBL, EmpresaBL>();
             services.AddScoped<IEmpresaRepository, EmpresaRepository>();
             services.AddScoped<IPasswordGenerator, PasswordGenerator>();
-        }
+            services.AddScoped<IPosicionDeTrabajoBL, PosicionDeTrabajoBL>();
+            services.AddScoped<IPosicionDeTrabajoRepository, PosicionDeTrabajoRepository>();
 
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
