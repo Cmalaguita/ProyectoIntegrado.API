@@ -6,18 +6,12 @@ using System.Text;
 
 namespace ProyectoIntegrado.CORE.DTO
 {
-    class PosicionDeTrabajoDTO
+   public class PosicionDeTrabajoDTO
     {
-
-        public PosicionDeTrabajoDTO()
-        {
-            this.Ciclos = new HashSet<Ciclo>();
-        }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
         public int Id { get; set; }
         public int EmpresaId { get; set; }
-        public Empresa Empresa { get; set; }
         public ICollection<Ciclo> Ciclos { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }

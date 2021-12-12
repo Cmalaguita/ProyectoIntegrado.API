@@ -7,12 +7,14 @@ namespace ProyectoIntegrado.DAL.Repositories.Contracts
 {
     public interface IPosicionDeTrabajoRepository
     {
-        PosicionDeTrabajoDTO CreatePosicionDeTrabajo(PosicionDeTrabajoDTO posicionDeTrabajo);
-        bool Exists(PosicionDeTrabajoDTO posicionDeTrabajo);
-        List<PosicionDeTrabajoDTO> ObtenerPosicionesDeTrabajo();
-        bool BorrarPosicion(PosicionDeTrabajoDTO posicionDeTrabajo);
-        List <PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoActivasHoy();
-        List<PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoPorNombre(string nombre);
-        bool ActualizarPosicionDeTrabajo(PosicionDeTrabajoDTO posicionDeTrabajo);
+        PosicionDeTrabajo CreatePosicionDeTrabajo(PosicionDeTrabajo posicionDeTrabajo);
+        bool Exists(PosicionDeTrabajo posicionDeTrabajo);
+        List<PosicionDeTrabajo> ObtenerPosicionesDeTrabajo();
+        bool BorrarPosicion(PosicionDeTrabajo posicionDeTrabajo);
+        List <PosicionDeTrabajo> BuscarPosicionesDeTrabajoActivasHoy();
+        List<PosicionDeTrabajo> BuscarPosicionesDeTrabajoPorNombre(string nombre);
+        PosicionDeTrabajo ActualizarPosicionDeTrabajo(PosicionDeTrabajo posicionDeTrabajo);
+        PosicionDeTrabajo BuscarPosicionDeTrabajoId(int id);
+
     }
 }

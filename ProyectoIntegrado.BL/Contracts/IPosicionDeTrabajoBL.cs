@@ -14,6 +14,7 @@ namespace ProyectoIntegrado.BL.Contracts
         bool BorrarPosicion(PosicionDeTrabajoDTO posicionDeTrabajoDTO);
         List<PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoActivasHoy();
         List<PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoPorNombre(string nombre);
-        bool ActualizarPosicionDeTrabajo(PosicionDeTrabajoDTO posicionDeTrabajoDTO);
+        PosicionDeTrabajoDTO BuscarPosicionDeTrabajoId(int id);
+        PosicionDeTrabajoDTO ActualizarPosicionDeTrabajo(PosicionDeTrabajoDTO posicionDeTrabajoDTO);
     }
 }

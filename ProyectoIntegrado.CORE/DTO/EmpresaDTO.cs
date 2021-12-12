@@ -14,6 +14,7 @@ namespace ProyectoIntegrado.CORE.DTO
         public string Password { get; set; }
         public string Nombre { get; set; }
         public int ProvinciaId { get; set; }
+        public Provincia provincia { get; set; }
         public string Localidad { get; set; }
         public string Direccion { get; set; }
 

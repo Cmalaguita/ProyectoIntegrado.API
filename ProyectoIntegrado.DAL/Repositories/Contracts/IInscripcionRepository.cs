@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ProyectoIntegrado.DAL.Repositories.Contracts
 {
-    interface IInscripcionRepository
+    public interface IInscripcionRepository
     {
         Inscripcion CreateInscripcion(Inscripcion inscripcion);
         bool Exists(Inscripcion inscripcion);

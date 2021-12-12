@@ -12,12 +12,28 @@ namespace ProyectoIntegrado.CORE.AutomapperProfile
             {
                 CreateMap<AlumnoDTO, Alumno>();
                 CreateMap<Alumno, AlumnoDTO>();
-                CreateMap<AlumnoDTO, Alumno>();
-                CreateMap<Alumno, AlumnoDTO>();
+              
                 CreateMap<EmpresaDTO, Empresa>();
                 CreateMap<Empresa, EmpresaDTO>();
-                CreateMap<EmpresaDTO, Empresa>();
-                CreateMap<Empresa, EmpresaDTO>();
+
+                CreateMap<ProvinciaDTO, Provincia>();
+                CreateMap<Provincia, ProvinciaDTO>();
+        
+                CreateMap<PosicionDeTrabajoDTO, PosicionDeTrabajo>();
+                CreateMap<PosicionDeTrabajo, PosicionDeTrabajoDTO>();
+
+                CreateMap<FamiliaProfesionalDTO, FamiliaProfesional>();
+                CreateMap<FamiliaProfesional, FamiliaProfesionalDTO>();
+                
+                CreateMap<CicloDTO, Ciclo>();
+                CreateMap<Ciclo, CicloDTO>();
+                
+                CreateMap<TipoDeCicloDTO, TipoDeCiclo>();
+                CreateMap<TipoDeCiclo, TipoDeCicloDTO>();
+                
+                CreateMap<InscripcionDTO, Inscripcion>();
+                CreateMap<Inscripcion, InscripcionDTO>();
+
             }
         }
     }

@@ -51,15 +51,31 @@ namespace ProyectoIntegrado.API
             //aniade el contexto de la base de datos y la configuracion a traves del fichero appsettings.json
             services.AddDbContext<proyectointegradodbContext>(opts => opts.UseMySql(Configuration["ConnectionString:proyectointegradodb"], ServerVersion.AutoDetect(Configuration["ConnectionString:proyectointegradodb"])));
             // inyecciones : interfaz-clase
-            services.AddScoped<IWeatherForecastBL, WeatherForecastBL>();
             services.AddScoped<IAlumnoBL, AlumnoBL>();
             services.AddScoped<IAlumnoRepository, AlumnoRepository>();
+
             services.AddScoped<IEmpresaBL, EmpresaBL>();
             services.AddScoped<IEmpresaRepository, EmpresaRepository>();
+
             services.AddScoped<IPasswordGenerator, PasswordGenerator>();
+
             services.AddScoped<IPosicionDeTrabajoBL, PosicionDeTrabajoBL>();
             services.AddScoped<IPosicionDeTrabajoRepository, PosicionDeTrabajoRepository>();
 
+            services.AddScoped<IProvinciaBL, ProvinciaBL>();
+            services.AddScoped<IProvinciaRepository, ProvinciaRepository>();
+
+            services.AddScoped<IFamiliaProfesionalBL, FamiliaProfesionalBL>();
+            services.AddScoped<IFamiliaProfesionalRepository, FamiliaProfesionalRepository>();
+
+            services.AddScoped<ITipoDeCicloBL, TipoDeCicloBL>();
+            services.AddScoped<ITipoDeCicloRepository, TipoDeCicloRepository>();
+
+            services.AddScoped<ICicloBL, CicloBL>();
+            services.AddScoped<ICicloRepository, CicloRepository>();
+
+            services.AddScoped<IInscripcionBL, InscripcionBL>();
+            services.AddScoped<IInscripcionRepository, InscripcionRepository>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -74,7 +90,7 @@ namespace ProyectoIntegrado.API
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Foo API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Proyecto_Integrado API V1");
             });
 
             app.UseRouting();
@@ -98,10 +114,10 @@ namespace ProyectoIntegrado.API
                 {
                     Title = $"Neuro {groupName}",
                     Version = groupName,
-                    Description = "Neuro",
+                    Description = "Proyecto_Integrado",
                     Contact = new OpenApiContact
                     {
-                        Name = "Neuro Corp",
+                        Name = "Proyecto_Integrado",
                         Email = string.Empty,
                         Url = new Uri("https://foo.com/"),
                     }

@@ -22,7 +22,6 @@ namespace ProyectoIntegrado.API.Controllers
         }
         
         [HttpPost]
-   
         [Route("Login_Alumno")]
         public ActionResult Login(AlumnoDTO alumnoDTO)
         {

@@ -19,6 +19,21 @@ namespace ProyectoIntegrado.DAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.11");
 
+            modelBuilder.Entity("CicloPosicionDeTrabajo", b =>
+                {
+                    b.Property<int>("CiclosId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PosicionesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CiclosId", "PosicionesId");
+
+                    b.HasIndex("PosicionesId");
+
+                    b.ToTable("CicloPosicionDeTrabajo");
+                });
+
             modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.Alumno", b =>
                 {
                     b.Property<int>("Id")
@@ -70,14 +85,8 @@ namespace ProyectoIntegrado.DAL.Migrations
                     b.Property<int>("IdTipo")
                         .HasColumnType("int");
 
-                    b.Property<int>("MyProperty")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nombre")
                         .HasColumnType("longtext");
-
-                    b.Property<int?>("PosicionDeTrabajoId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -85,9 +94,7 @@ namespace ProyectoIntegrado.DAL.Migrations
 
                     b.HasIndex("IdTipo");
 
-                    b.HasIndex("PosicionDeTrabajoId");
-
-                    b.ToTable("Ciclo");
+                    b.ToTable("Ciclos");
                 });
 
             modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.Empresa", b =>
@@ -134,7 +141,39 @@ namespace ProyectoIntegrado.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("FamiliaProfesional");
+                    b.ToTable("FamiliasP");
+                });
+
+            modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.Inscripcion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("AlumnoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EmpresaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EstadoInscripcion")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("FechaInscripcion")
+                        .HasColumnType("Date");
+
+                    b.Property<int>("PosicionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AlumnoId");
+
+                    b.HasIndex("EmpresaId");
+
+                    b.HasIndex("PosicionId");
+
+                    b.ToTable("Inscripciones");
                 });
 
             modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.PosicionDeTrabajo", b =>
@@ -191,12 +230,27 @@ namespace ProyectoIntegrado.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Nombre")
+                    b.Property<string>("nombre")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.ToTable("TipoDeCiclo");
+                    b.ToTable("TipoCiclos");
+                });
+
+            modelBuilder.Entity("CicloPosicionDeTrabajo", b =>
+                {
+                    b.HasOne("ProyectoIntegrado.DAL.Entities.Ciclo", null)
+                        .WithMany()
+                        .HasForeignKey("CiclosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProyectoIntegrado.DAL.Entities.PosicionDeTrabajo", null)
+                        .WithMany()
+                        .HasForeignKey("PosicionesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.Alumno", b =>
@@ -224,10 +278,6 @@ namespace ProyectoIntegrado.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ProyectoIntegrado.DAL.Entities.PosicionDeTrabajo", null)
-                        .WithMany("Ciclos")
-                        .HasForeignKey("PosicionDeTrabajoId");
-
                     b.Navigation("familia");
 
                     b.Navigation("TipoCiclo");
@@ -244,6 +294,33 @@ namespace ProyectoIntegrado.DAL.Migrations
                     b.Navigation("Provincia");
                 });
 
+            modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.Inscripcion", b =>
+                {
+                    b.HasOne("ProyectoIntegrado.DAL.Entities.Alumno", "alumno")
+                        .WithMany()
+                        .HasForeignKey("AlumnoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProyectoIntegrado.DAL.Entities.Empresa", "Empresa")
+                        .WithMany()
+                        .HasForeignKey("EmpresaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProyectoIntegrado.DAL.Entities.PosicionDeTrabajo", "Posicion")
+                        .WithMany()
+                        .HasForeignKey("PosicionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("alumno");
+
+                    b.Navigation("Empresa");
+
+                    b.Navigation("Posicion");
+                });
+
             modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.PosicionDeTrabajo", b =>
                 {
                     b.HasOne("ProyectoIntegrado.DAL.Entities.Empresa", "Empresa")
@@ -253,11 +330,6 @@ namespace ProyectoIntegrado.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("Empresa");
-                });
-
-            modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.PosicionDeTrabajo", b =>
-                {
-                    b.Navigation("Ciclos");
                 });
 #pragma warning restore 612, 618
         }

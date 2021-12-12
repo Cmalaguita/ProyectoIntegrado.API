@@ -1,4 +1,5 @@
-﻿using ProyectoIntegrado.DAL.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using ProyectoIntegrado.DAL.Contracts;
 using ProyectoIntegrado.DAL.Entities;
 
 using System;
@@ -34,7 +35,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public List<Alumno> ObtenerAlumnos()
         {
-            return _context.Alumnos.ToList();
+            return _context.Alumnos.Include("Provincia").ToList();
         }
 
         public bool BorrarAlumno(Alumno alumno)
@@ -50,7 +51,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public Alumno BuscarAlumno(int id)
         {
-            return _context.Alumnos.Where(a => a.Id == id).FirstOrDefault();
+            return _context.Alumnos.Where(a => a.Id == id).Include("Provincia").FirstOrDefault();
         }
 
         public Alumno ActualizarAlumno(Alumno alumno)

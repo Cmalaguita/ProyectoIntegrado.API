@@ -6,13 +6,8 @@ using System.Text;
 
 namespace ProyectoIntegrado.DAL.Entities
 {
-   public class PosicionDeTrabajoDTO
+   public class PosicionDeTrabajo
     {
-
-        public PosicionDeTrabajoDTO()
-        {
-            this.Ciclos = new HashSet<Ciclo>();
-        }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
         [Key]
@@ -20,10 +15,11 @@ namespace ProyectoIntegrado.DAL.Entities
         public int EmpresaId { get; set; }
         [ForeignKey("EmpresaId")]
         public Empresa Empresa { get; set; }
-        public ICollection<Ciclo> Ciclos { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public string Horario { get; set; }
         public double Remuneracion { get; set; }
+
+        public ICollection<Ciclo> Ciclos { get; set; }
     }
 }

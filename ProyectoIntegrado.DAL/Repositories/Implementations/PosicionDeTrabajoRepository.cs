@@ -14,51 +14,60 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         {
             this._context = context;
         }
-        public bool ActualizarPosicionDeTrabajo(PosicionDeTrabajoDTO posicionDeTrabajo)
+        public PosicionDeTrabajo ActualizarPosicionDeTrabajo(PosicionDeTrabajo posicionDeTrabajo)
         {
             if (Exists(posicionDeTrabajo))
             {
-                _context.Posiciones.Update(posicionDeTrabajo);
-                return true;
+                    var p=_context.Posiciones.Update(posicionDeTrabajo).Entity;
+                _context.SaveChanges();
+
+                return p;
+               
             }
-            return false;
+            return null;
         }
 
-        public bool BorrarPosicion(PosicionDeTrabajoDTO posicionDeTrabajo)
+        public bool BorrarPosicion(PosicionDeTrabajo posicionDeTrabajo)
         {
             if (Exists(posicionDeTrabajo))
             {
                 _context.Posiciones.Remove(posicionDeTrabajo);
+                _context.SaveChanges();
                 return true;
             }
             return false;
         }
 
-        public PosicionDeTrabajoDTO CreatePosicionDeTrabajo(PosicionDeTrabajoDTO posicionDeTrabajo)
+        public PosicionDeTrabajo CreatePosicionDeTrabajo(PosicionDeTrabajo posicionDeTrabajo)
         {
              var p = _context.Posiciones.Add(posicionDeTrabajo);
             _context.SaveChanges();
             return p.Entity;
         }
 
-        public bool Exists(PosicionDeTrabajoDTO posicionDeTrabajo)
+        public bool Exists(PosicionDeTrabajo posicionDeTrabajo)
         {
             return _context.Posiciones.Any(p=> p.EmpresaId == posicionDeTrabajo.EmpresaId && p.Nombre == posicionDeTrabajo.Nombre);
         }
 
-        public List<PosicionDeTrabajoDTO> ObtenerPosicionesDeTrabajo()
+        public List<PosicionDeTrabajo> ObtenerPosicionesDeTrabajo()
         {
             return _context.Posiciones.ToList();
         }
 
-        public List<PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoActivasHoy()
+        public List<PosicionDeTrabajo> BuscarPosicionesDeTrabajoActivasHoy()
         {
             return _context.Posiciones.Where(p => p.FechaFin > DateTime.Now && p.FechaInicio <= DateTime.Now).ToList();
         }
 
-        public List<PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoPorNombre(string nombre)
+        public List<PosicionDeTrabajo> BuscarPosicionesDeTrabajoPorNombre(string nombre)
         {
             return _context.Posiciones.Where(p => p.Nombre.Equals(nombre)).ToList();
+        }
+
+        public PosicionDeTrabajo BuscarPosicionDeTrabajoId(int id)
+        {
+            return _context.Posiciones.Where(p => p.Id == id).FirstOrDefault();
         }
     }
 }

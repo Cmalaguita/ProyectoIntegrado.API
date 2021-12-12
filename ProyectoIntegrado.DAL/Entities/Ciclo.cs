@@ -13,10 +13,11 @@ namespace ProyectoIntegrado.DAL.Entities
         public int IdTipo { get; set; }
         [ForeignKey("IdTipo")]
         public TipoDeCiclo TipoCiclo { get; set; }
-        public int MyProperty { get; set; }
         public int IdFamilia { get; set; }
         [ForeignKey("IdFamilia")]
         public FamiliaProfesional familia { get; set; }
         public string Nombre { get; set; }
+
+        public ICollection<PosicionDeTrabajo> Posiciones { get; set; }
     }
 }
