@@ -14,6 +14,8 @@ namespace ProyectoIntegrado.CORE.DTO
         public string Password { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
+        public int idCiclo { get; set; }
+        public Ciclo ciclo { get; set; }
         public DateTime FechaDeNacimiento { get; set; }
         public string Localidad { get; set; }
         public int IdProvincia { get; set; }

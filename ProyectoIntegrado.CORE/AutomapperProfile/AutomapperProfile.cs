@@ -16,6 +16,9 @@ namespace ProyectoIntegrado.CORE.AutomapperProfile
                 CreateMap<EmpresaDTO, Empresa>();
                 CreateMap<Empresa, EmpresaDTO>();
 
+                CreateMap<EmpresaLoginDTO, Empresa>();
+                CreateMap<Empresa, EmpresaLoginDTO>();
+
                 CreateMap<ProvinciaDTO, Provincia>();
                 CreateMap<Provincia, ProvinciaDTO>();
         

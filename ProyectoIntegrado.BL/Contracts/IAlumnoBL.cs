@@ -8,7 +8,7 @@ namespace ProyectoIntegrado.BL.Contracts
 {
    public interface IAlumnoBL
     {
-        public bool Login(AlumnoDTO alumnoDTO);
+        public bool Login(AlumnoLoginDTO alumnoDTO);
         public bool CreateAlumno(AlumnoDTO alumnoDTO);
         public bool Exists(AlumnoDTO alumno);
         List<AlumnoDTO> ObtenerAlumnos();

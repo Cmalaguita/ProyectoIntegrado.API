@@ -16,6 +16,9 @@ namespace ProyectoIntegrado.DAL.Entities
         public string Password { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
+        public int idCiclo { get; set; }
+        [ForeignKey("idCiclo")]
+        public Ciclo ciclo { get; set; }
 
         [Column(TypeName = "Date"),DisplayFormat(DataFormatString ="(a:yyyy-MM-dd)")]
         public DateTime FechaDeNacimiento { get; set; }

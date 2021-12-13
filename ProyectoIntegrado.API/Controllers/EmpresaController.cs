@@ -23,10 +23,10 @@ namespace ProyectoIntegrado.API.Controllers
         [EnableCors("CorsPolicy")]
         [HttpPost]
         [Route("Login_Empresa")]
-        public ActionResult Login(EmpresaDTO empresaDTO)
+        public ActionResult Login(EmpresaLoginDTO empresaLoginDTO)
         {
            
-            if (EmpresaBL.Login(empresaDTO))
+            if (EmpresaBL.Login(empresaLoginDTO))
             {
             return Ok();
 

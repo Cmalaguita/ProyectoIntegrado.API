@@ -35,7 +35,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public List<Alumno> ObtenerAlumnos()
         {
-            return _context.Alumnos.Include("Provincia").ToList();
+            return _context.Alumnos.Include(a=> a.Provincia).ToList();
         }
 
         public bool BorrarAlumno(Alumno alumno)

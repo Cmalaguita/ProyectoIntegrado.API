@@ -21,11 +21,11 @@ namespace ProyectoIntegrado.BL.Implementations
             this.passwordGenerator = passwordGenerator;
             this.mapper = mapper;
         }
-        public bool Login(AlumnoDTO alumnoDTO)
+        public bool Login(AlumnoLoginDTO alumnoLoginDTO)
         {
-            alumnoDTO.Password = passwordGenerator.Hash(alumnoDTO.Password);
+            alumnoLoginDTO.Password = passwordGenerator.Hash(alumnoLoginDTO.Password);
 
-            var alumno = mapper.Map<AlumnoDTO, Alumno>(alumnoDTO);
+            var alumno = mapper.Map<AlumnoLoginDTO, Alumno>(alumnoLoginDTO);
             return alumnoRepository.Login(alumno);
         }
 
