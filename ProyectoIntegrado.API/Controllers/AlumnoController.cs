@@ -36,9 +36,9 @@ namespace ProyectoIntegrado.API.Controllers
         }
         [HttpPost]
         [Route("Sign_up_Alumno")]
-        public ActionResult CreateAlumno(AlumnoDTO alumnoDTO)
+        public ActionResult CreateAlumno(AlumnoSignUpDTO alumnoSignUpDTO)
         {
-            var creado = AlumnoBL.CreateAlumno(alumnoDTO);
+            var creado = AlumnoBL.CreateAlumno(alumnoSignUpDTO);
             if (creado)
             {
                 return Ok();

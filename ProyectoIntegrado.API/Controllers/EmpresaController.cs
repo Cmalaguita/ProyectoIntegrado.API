@@ -38,9 +38,9 @@ namespace ProyectoIntegrado.API.Controllers
         }
         [HttpPost]
         [Route("Sign_up_Empresa")]
-        public ActionResult CreateEmpresa(EmpresaDTO empresaDTO)
+        public ActionResult CreateEmpresa(EmpresaSignUpDTO empresaSignUpDTO)
         {
-            var empresa = EmpresaBL.CreateEmpresa(empresaDTO);
+            var empresa = EmpresaBL.CreateEmpresa(empresaSignUpDTO);
             if (empresa)
             {
                 return Ok();

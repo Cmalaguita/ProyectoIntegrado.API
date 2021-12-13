@@ -29,10 +29,10 @@ namespace ProyectoIntegrado.BL.Implementations
             return alumnoRepository.Login(alumno);
         }
 
-        public bool CreateAlumno(AlumnoDTO alumnoDTO)
+        public bool CreateAlumno(AlumnoSignUpDTO alumnoSignUpDTO)
         {
-            alumnoDTO.Password = passwordGenerator.Hash(alumnoDTO.Password);
-            var alumno = mapper.Map<AlumnoDTO, Alumno>(alumnoDTO);
+            alumnoSignUpDTO.Password = passwordGenerator.Hash(alumnoSignUpDTO.Password);
+            var alumno = mapper.Map<AlumnoSignUpDTO, Alumno>(alumnoSignUpDTO);
            
             if (!alumnoRepository.Exists(alumno))
             {

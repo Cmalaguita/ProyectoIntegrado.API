@@ -9,11 +9,11 @@ namespace ProyectoIntegrado.BL.Contracts
    public interface IAlumnoBL
     {
         public bool Login(AlumnoLoginDTO alumnoDTO);
-        public bool CreateAlumno(AlumnoDTO alumnoDTO);
-        public bool Exists(AlumnoDTO alumno);
+        public bool CreateAlumno(AlumnoSignUpDTO alumnoDTO);
+        public bool Exists(AlumnoDTO alumnoDTO);
         List<AlumnoDTO> ObtenerAlumnos();
-        bool BorrarAlumno(AlumnoDTO alumno);
+        bool BorrarAlumno(AlumnoDTO alumnoDTO);
         AlumnoDTO BuscarAlumno(int id);
-        AlumnoDTO ActualizarAlumno(AlumnoDTO alumno);
+        AlumnoDTO ActualizarAlumno(AlumnoDTO alumnoDTO);
     }
 }

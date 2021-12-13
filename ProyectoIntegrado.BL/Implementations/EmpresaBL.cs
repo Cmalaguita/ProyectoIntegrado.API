@@ -29,10 +29,10 @@ namespace ProyectoIntegrado.BL.Implementations
             return empresaRepository.Login(empresa);
         }
 
-        public  bool CreateEmpresa(EmpresaDTO empresaCompletaDTO)
+        public  bool CreateEmpresa(EmpresaSignUpDTO empresaSignUpDTO)
         {
-            empresaCompletaDTO.Password = passwordGenerator.Hash(empresaCompletaDTO.Password);
-            var empresa = mapper.Map<EmpresaDTO, Empresa>(empresaCompletaDTO);
+            empresaSignUpDTO.Password = passwordGenerator.Hash(empresaSignUpDTO.Password);
+            var empresa = mapper.Map<EmpresaSignUpDTO, Empresa>(empresaSignUpDTO);
 
             if (!empresaRepository.Exists(empresa))
             {
