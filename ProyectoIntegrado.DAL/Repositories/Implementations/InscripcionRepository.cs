@@ -40,7 +40,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public List<Inscripcion> ObtenerInscripciones()
         {
-            return _context.Inscripciones.Include("alumno").Include("Empresa").Include("Posicion").ToList();
+            return _context.Inscripciones.Include(i=>i.alumno).Include(i=>i.Empresa).Include(i=>i.Posicion).ToList();
         }
     }
 }

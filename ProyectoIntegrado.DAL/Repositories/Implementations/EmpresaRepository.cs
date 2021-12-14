@@ -1,5 +1,7 @@
-﻿using ProyectoIntegrado.DAL.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using ProyectoIntegrado.DAL.Contracts;
 using ProyectoIntegrado.DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,7 +21,9 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public bool CreateEmpresa(Empresa empresa)
         {
+            Console.WriteLine("PROVINCIA ID: "+empresa.ProvinciaId);
             _context.Empresas.Add(empresa);
+            
             _context.SaveChanges();
             return true;
         }
@@ -31,7 +35,12 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public List<Empresa> ObtenerEmpresas()
         {
-            return _context.Empresas.ToList();
+                var e=_context.Empresas.Include(e=>e.Provincia).ToList();
+            foreach (var item in e)
+            {
+                item.Password = null;
+            }
+            return e;
         }
 
         public bool BorrarEmpresa(Empresa empresa)
@@ -46,9 +55,16 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public Empresa BuscarEmpresa(int id)
         {
-            return _context.Empresas.Where(e => e.Id == id).FirstOrDefault();
+                 var e=_context.Empresas.Where(e => e.Id == id).Include(e => e.Provincia).FirstOrDefault();
+            e.Password = null;
+            return e;
         }
-
+        public Empresa BuscarEmpresaTrasUpdate(int id)
+        {
+            var e = _context.Empresas.Where(e => e.Id == id).Include(e => e.Provincia).FirstOrDefault();
+          
+            return e;
+        }
         public Empresa ActualizarEmpresa(Empresa empresa)
         {
 
@@ -56,7 +72,8 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             {
                 var e =_context.Empresas.Update(empresa).Entity;
                 _context.SaveChanges();
-                return e;
+                var a = BuscarEmpresaTrasUpdate(e.Id);
+                return a;
             }
             return null;
         }

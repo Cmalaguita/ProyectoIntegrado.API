@@ -13,24 +13,34 @@ namespace ProyectoIntegrado.BL.Implementations
     {
         public IPosicionDeTrabajoRepository posicionDeTrabajoRepository { get; set; }
         public IMapper mapper { get; set; }
+        public ICicloRepository cicloRepository { get; set; }
 
-
-        public PosicionDeTrabajoBL(IPosicionDeTrabajoRepository posicionDeTrabajoRepository,IMapper mapper)
+        public PosicionDeTrabajoBL(IPosicionDeTrabajoRepository posicionDeTrabajoRepository,IMapper mapper, ICicloRepository cicloRepository)
         {
             this.posicionDeTrabajoRepository = posicionDeTrabajoRepository;
             this.mapper = mapper;
+            this.cicloRepository = cicloRepository;
         }
-        public PosicionDeTrabajoDTO ActualizarPosicionDeTrabajo(PosicionDeTrabajoDTO posicionDeTrabajoDTO)
+        public PosicionDeTrabajoCreateDTO ActualizarPosicionDeTrabajo(PosicionDeTrabajoCreateDTO posicionDeTrabajoCreateDTO)
         {
-            var p= mapper.Map<PosicionDeTrabajoDTO, PosicionDeTrabajo>(posicionDeTrabajoDTO);
+           List<Ciclo> ciclos = new List<Ciclo>();
 
-            PosicionDeTrabajoDTO actualizado = mapper.Map<PosicionDeTrabajo, PosicionDeTrabajoDTO>(posicionDeTrabajoRepository.ActualizarPosicionDeTrabajo(p));
+            foreach (var item in posicionDeTrabajoCreateDTO.Ciclos)
+            {
+                ciclos.Add(cicloRepository.BuscarCicloId(item.Id));
+            }
+         
+            var p = mapper.Map<PosicionDeTrabajoCreateDTO, PosicionDeTrabajo>(posicionDeTrabajoCreateDTO);
+
+            p.Ciclos = ciclos;
+
+            PosicionDeTrabajoCreateDTO actualizado = mapper.Map<PosicionDeTrabajo, PosicionDeTrabajoCreateDTO>(posicionDeTrabajoRepository.ActualizarPosicionDeTrabajo(p));
             return actualizado;
         }
 
-        public bool BorrarPosicion(PosicionDeTrabajoDTO posicionDeTrabajoDTO)
+        public bool BorrarPosicion(PosicionDeTrabajoDeleteDTO posicionDeTrabajoDeleteDTO)
         {
-            var p = mapper.Map<PosicionDeTrabajoDTO, PosicionDeTrabajo>(posicionDeTrabajoDTO);
+            var p = mapper.Map<PosicionDeTrabajoDeleteDTO, PosicionDeTrabajo>(posicionDeTrabajoDeleteDTO);
             return posicionDeTrabajoRepository.BorrarPosicion(p);
         }
 
@@ -52,13 +62,21 @@ namespace ProyectoIntegrado.BL.Implementations
             return list;
         }
 
-        public PosicionDeTrabajoDTO CreatePosicionDeTrabajo(PosicionDeTrabajoDTO posicionDeTrabajoDTO)
+        public PosicionDeTrabajoCreateDTO CreatePosicionDeTrabajo(PosicionDeTrabajoCreateDTO posicionDeTrabajoCreateDTO)
         {
-            var p = mapper.Map<PosicionDeTrabajoDTO, PosicionDeTrabajo>(posicionDeTrabajoDTO);
+            List<Ciclo> ciclos = new List<Ciclo>();
+            foreach (var item in posicionDeTrabajoCreateDTO.Ciclos)
+            {
+                ciclos.Add(cicloRepository.BuscarCicloId(item.Id));
+            }
+         
+            var p = mapper.Map<PosicionDeTrabajoCreateDTO, PosicionDeTrabajo>(posicionDeTrabajoCreateDTO);
+
+            p.Ciclos = ciclos;
             if (!posicionDeTrabajoRepository.Exists(p))
             {
 
-            return mapper.Map<PosicionDeTrabajo,PosicionDeTrabajoDTO>(posicionDeTrabajoRepository.CreatePosicionDeTrabajo(p));
+            return mapper.Map<PosicionDeTrabajo,PosicionDeTrabajoCreateDTO>(posicionDeTrabajoRepository.CreatePosicionDeTrabajo(p));
             }
             return null;
         }
@@ -66,6 +84,11 @@ namespace ProyectoIntegrado.BL.Implementations
         public bool Exists(PosicionDeTrabajoDTO posicionDeTrabajoDTO)
         {
             var p = mapper.Map<PosicionDeTrabajoDTO, PosicionDeTrabajo>(posicionDeTrabajoDTO);
+            return posicionDeTrabajoRepository.Exists(p);
+        }
+        public bool Exists(PosicionDeTrabajoCreateDTO posicionDeTrabajoCreateDTO)
+        {
+            var p = mapper.Map<PosicionDeTrabajoCreateDTO, PosicionDeTrabajo>(posicionDeTrabajoCreateDTO);
             return posicionDeTrabajoRepository.Exists(p);
         }
 

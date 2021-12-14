@@ -17,17 +17,17 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         }
         public Ciclo BuscarCicloId(int id)
         {
-            return _context.Ciclos.Where(c => c.Id == id).Include("familia").Include("TipoCiclo").FirstOrDefault();
+            return _context.Ciclos.Where(c => c.Id == id).Include(c => c.familia).Include(c => c.TipoCiclo).FirstOrDefault();
         }
 
         public Ciclo BuscarCicloNombre(string nombre)
         {
-            return _context.Ciclos.Where(c => c.Nombre == nombre).Include("familia").Include("TipoCiclo").FirstOrDefault();
+            return _context.Ciclos.Where(c => c.Nombre == nombre).Include(c=>c.familia).Include(c => c.TipoCiclo).FirstOrDefault();
         }
 
         public List<Ciclo> ObtenerCiclos()
         {
-            return _context.Ciclos.Include("familia").Include("TipoCiclo").ToList();
+            return _context.Ciclos.Include(c => c.familia).Include(c => c.TipoCiclo).ToList();
         }
     }
 }

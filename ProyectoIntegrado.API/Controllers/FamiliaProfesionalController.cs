@@ -19,7 +19,7 @@ namespace ProyectoIntegrado.API.Controllers
         {
              this.familiaProfesionalBL = familiaProfesionalBL;
         }
-        // Comienza el controlador de FamiliaProfesional
+      
         [HttpGet]
         [Route("Obtener_Todas_Las_Familias_Profesionales")]
         public  List<FamiliaProfesionalDTO> ObtenerFamiliasProfesionales()
@@ -32,7 +32,7 @@ namespace ProyectoIntegrado.API.Controllers
         {
             return familiaProfesionalBL.BuscarFamiliaProfesionalId(id);
         }
-        // Termina el controlador de FamiliaProfesional
+       
 
        
     }

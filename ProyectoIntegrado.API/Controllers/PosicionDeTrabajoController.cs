@@ -22,9 +22,9 @@ namespace ProyectoIntegrado.API.Controllers
 
         [HttpPost]
         [Route("Crear_Posicion_De_Trabajo")]
-        public ActionResult<PosicionDeTrabajoDTO> CrearPosicionDeTrabajo(PosicionDeTrabajoDTO posicionDeTrabajoDTO)
+        public ActionResult<PosicionDeTrabajoCreateDTO> CrearPosicionDeTrabajo(PosicionDeTrabajoCreateDTO posicionDeTrabajoCreateDTO)
         {
-            var create = posicionDeTrabajoBL.CreatePosicionDeTrabajo(posicionDeTrabajoDTO);
+            var create = posicionDeTrabajoBL.CreatePosicionDeTrabajo(posicionDeTrabajoCreateDTO);
             if (posicionDeTrabajoBL.Exists(create))
             {
                 return Ok();
@@ -60,13 +60,13 @@ namespace ProyectoIntegrado.API.Controllers
         }
         [HttpPost]
         [Route("Actualizar_Posicion_De_Trabajo")]
-       public PosicionDeTrabajoDTO ActualizarPosicionDeTrabajo(PosicionDeTrabajoDTO posicionDeTrabajo)
+       public PosicionDeTrabajoCreateDTO ActualizarPosicionDeTrabajo(PosicionDeTrabajoCreateDTO posicionDeTrabajo)
         {
             return posicionDeTrabajoBL.ActualizarPosicionDeTrabajo(posicionDeTrabajo);
         }
         [HttpDelete]
         [Route("Eliminar_Posicion_De_Trabajo")]
-       public bool BorrarPosicion(PosicionDeTrabajoDTO  posicionDeTrabajo)
+       public bool BorrarPosicion(PosicionDeTrabajoDeleteDTO  posicionDeTrabajo)
         {
             return posicionDeTrabajoBL.BorrarPosicion(posicionDeTrabajo);
         }

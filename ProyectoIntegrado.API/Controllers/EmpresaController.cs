@@ -40,6 +40,7 @@ namespace ProyectoIntegrado.API.Controllers
         [Route("Sign_up_Empresa")]
         public ActionResult CreateEmpresa(EmpresaSignUpDTO empresaSignUpDTO)
         {
+            
             var empresa = EmpresaBL.CreateEmpresa(empresaSignUpDTO);
             if (empresa)
             {

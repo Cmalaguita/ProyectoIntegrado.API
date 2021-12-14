@@ -8,13 +8,14 @@ namespace ProyectoIntegrado.BL.Contracts
 {
    public interface IPosicionDeTrabajoBL
     {
-        PosicionDeTrabajoDTO CreatePosicionDeTrabajo(PosicionDeTrabajoDTO posicionDeTrabajoDTO);
+        PosicionDeTrabajoCreateDTO CreatePosicionDeTrabajo(PosicionDeTrabajoCreateDTO posicionDeTrabajoDTO);
         bool Exists(PosicionDeTrabajoDTO posicionDeTrabajoDTO);
+        bool Exists(PosicionDeTrabajoCreateDTO posicionDeTrabajoCreateDTO);
         List<PosicionDeTrabajoDTO> ObtenerPosicionesDeTrabajo();
-        bool BorrarPosicion(PosicionDeTrabajoDTO posicionDeTrabajoDTO);
+        bool BorrarPosicion(PosicionDeTrabajoDeleteDTO posicionDeTrabajoDeleteDTO);
         List<PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoActivasHoy();
         List<PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoPorNombre(string nombre);
         PosicionDeTrabajoDTO BuscarPosicionDeTrabajoId(int id);
-        PosicionDeTrabajoDTO ActualizarPosicionDeTrabajo(PosicionDeTrabajoDTO posicionDeTrabajoDTO);
+        PosicionDeTrabajoCreateDTO ActualizarPosicionDeTrabajo(PosicionDeTrabajoCreateDTO posicionDeTrabajoCreateDTO);
     }
 }

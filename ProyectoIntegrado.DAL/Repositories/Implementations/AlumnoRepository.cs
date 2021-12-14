@@ -35,7 +35,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public List<Alumno> ObtenerAlumnos()
         {
-            return _context.Alumnos.Include(a=> a.Provincia).ToList();
+            return _context.Alumnos.Include(a=> a.Provincia).Include(a => a.ciclo).ToList();
         }
 
         public bool BorrarAlumno(Alumno alumno)
@@ -51,7 +51,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public Alumno BuscarAlumno(int id)
         {
-            return _context.Alumnos.Where(a => a.Id == id).Include("Provincia").FirstOrDefault();
+            return _context.Alumnos.Where(a => a.Id == id).Include(a=>a.Provincia).Include(a => a.ciclo).FirstOrDefault();
         }
 
         public Alumno ActualizarAlumno(Alumno alumno)

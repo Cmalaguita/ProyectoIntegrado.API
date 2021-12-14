@@ -1,4 +1,5 @@
-﻿using ProyectoIntegrado.DAL.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using ProyectoIntegrado.DAL.Entities;
 using ProyectoIntegrado.DAL.Repositories.Contracts;
 using System;
 using System.Collections.Generic;
@@ -10,18 +11,24 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
    public class PosicionDeTrabajoRepository : IPosicionDeTrabajoRepository
     {
         public proyectointegradodbContext _context { get; set; }
-        public PosicionDeTrabajoRepository(proyectointegradodbContext context)
+        public ICicloRepository cicloRepository { get; set; }
+        public PosicionDeTrabajoRepository(proyectointegradodbContext context, ICicloRepository cicloRepository)
         {
             this._context = context;
+            this.cicloRepository = cicloRepository;
         }
         public PosicionDeTrabajo ActualizarPosicionDeTrabajo(PosicionDeTrabajo posicionDeTrabajo)
         {
             if (Exists(posicionDeTrabajo))
             {
-                    var p=_context.Posiciones.Update(posicionDeTrabajo).Entity;
-                _context.SaveChanges();
+                BorrarPosicion(posicionDeTrabajo);
 
-                return p;
+                    var p=_context.Posiciones.Add(posicionDeTrabajo);
+
+                _context.SaveChanges();
+                
+
+                return p.Entity;
                
             }
             return null;
@@ -31,7 +38,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         {
             if (Exists(posicionDeTrabajo))
             {
-                _context.Posiciones.Remove(posicionDeTrabajo);
+                _context.Posiciones.Remove(BuscarPosicionDeTrabajoId(posicionDeTrabajo.Id));
                 _context.SaveChanges();
                 return true;
             }
@@ -47,27 +54,60 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public bool Exists(PosicionDeTrabajo posicionDeTrabajo)
         {
-            return _context.Posiciones.Any(p=> p.EmpresaId == posicionDeTrabajo.EmpresaId && p.Nombre == posicionDeTrabajo.Nombre);
+            return _context.Posiciones.Any(p=> p.Id==posicionDeTrabajo.Id);
         }
 
         public List<PosicionDeTrabajo> ObtenerPosicionesDeTrabajo()
         {
-            return _context.Posiciones.ToList();
+           
+            
+            return _context.Posiciones
+                .Include(c => c.Ciclos)
+                .ThenInclude(c=>c.TipoCiclo)
+                 .Include(c => c.Ciclos)
+                .ThenInclude(c => c.familia)
+                .Include(c => c.Empresa)
+                .ThenInclude(c => c.Provincia)
+                .ToList();
         }
 
         public List<PosicionDeTrabajo> BuscarPosicionesDeTrabajoActivasHoy()
         {
-            return _context.Posiciones.Where(p => p.FechaFin > DateTime.Now && p.FechaInicio <= DateTime.Now).ToList();
+            return _context.Posiciones.Where(p => p.FechaFin > DateTime.Now && p.FechaInicio <= DateTime.Now)
+                .Include(c => c.Ciclos)
+                .ThenInclude(c => c.TipoCiclo)
+                 .Include(c => c.Ciclos)
+                .ThenInclude(c => c.familia)
+                .Include(c => c.Empresa)
+                .ThenInclude(c => c.Provincia)
+                .ToList();
+            //return _context.Posiciones.Where(p => p.FechaFin > DateTime.Now && p.FechaInicio <= DateTime.Now).Include(c=>c.Ciclos).Include(c => c.Empresa).ToList();
         }
 
         public List<PosicionDeTrabajo> BuscarPosicionesDeTrabajoPorNombre(string nombre)
         {
-            return _context.Posiciones.Where(p => p.Nombre.Equals(nombre)).ToList();
+            return _context.Posiciones.Where(p => p.Nombre.Equals(nombre))
+               .Include(c => c.Ciclos)
+               .ThenInclude(c => c.TipoCiclo)
+                .Include(c => c.Ciclos)
+               .ThenInclude(c => c.familia)
+               .Include(c => c.Empresa)
+               .ThenInclude(c => c.Provincia)
+               .ToList();
+            //return _context.Posiciones.Where(p => p.Nombre.Equals(nombre)).Include(c => c.Ciclos).Include(c => c.Empresa).ToList();
         }
 
         public PosicionDeTrabajo BuscarPosicionDeTrabajoId(int id)
         {
-            return _context.Posiciones.Where(p => p.Id == id).FirstOrDefault();
+            return _context.Posiciones.Where(p => p.Id == id)
+                .Include(c => c.Ciclos)
+                .ThenInclude(c => c.TipoCiclo)
+                 .Include(c => c.Ciclos)
+                .ThenInclude(c => c.familia)
+                .Include(c => c.Empresa)
+                .ThenInclude(c => c.Provincia)
+                .FirstOrDefault();
+            //return _context.Posiciones.Where(p => p.Id == id).FirstOrDefault();
         }
     }
 }

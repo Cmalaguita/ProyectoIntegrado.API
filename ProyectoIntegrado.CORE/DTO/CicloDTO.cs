@@ -15,6 +15,6 @@ namespace ProyectoIntegrado.DAL.Entities
         public int IdFamilia { get; set; }
         public FamiliaProfesional familia { get; set; }
         public string Nombre { get; set; }
-        public ICollection<PosicionDeTrabajo> Posiciones { get; set; }
+      
     }
 }

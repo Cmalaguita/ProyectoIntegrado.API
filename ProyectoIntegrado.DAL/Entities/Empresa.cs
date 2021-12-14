@@ -10,11 +10,11 @@ namespace ProyectoIntegrado.DAL.Entities
     {
         [Key]
         public int Id { get; set; }
+        public string Nombre { get; set; }
         [Required]
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
-        public string Nombre { get; set; }
         public int ProvinciaId { get; set; }
         [ForeignKey("ProvinciaId")]
         public Provincia Provincia { get; set; }
