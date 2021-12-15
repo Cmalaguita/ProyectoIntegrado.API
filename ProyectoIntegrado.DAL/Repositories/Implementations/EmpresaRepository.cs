@@ -14,9 +14,19 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         {
             this._context = context;
         }
-        public bool Login(Empresa empresa)
+        public int Login(Empresa empresa)
         {
-            return _context.Empresas.Any(u => u.Email == empresa.Email && u.Password == empresa.Password);
+
+            if (ExistsEmail(empresa))
+            {
+                int id = _context.Empresas.Where(e => e.Email == empresa.Email).FirstOrDefault().Id;
+            return id;
+            }
+            else
+            {
+
+            return -1;
+            }
         }
 
         public bool CreateEmpresa(Empresa empresa)
@@ -31,6 +41,11 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         public bool Exists(Empresa empresa)
         {
             return _context.Empresas.Any(u => u.Id == empresa.Id);
+        }
+
+        public bool ExistsEmail(Empresa empresa)
+        {
+            return _context.Empresas.Any(u => u.Email == empresa.Email);
         }
 
         public List<Empresa> ObtenerEmpresas()

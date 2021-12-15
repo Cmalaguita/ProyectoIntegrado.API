@@ -23,17 +23,17 @@ namespace ProyectoIntegrado.API.Controllers
         [EnableCors("CorsPolicy")]
         [HttpPost]
         [Route("Login_Empresa")]
-        public ActionResult Login(EmpresaLoginDTO empresaLoginDTO)
+        public ActionResult<int> Login(EmpresaLoginDTO empresaLoginDTO)
         {
-           
-            if (EmpresaBL.Login(empresaLoginDTO))
+            int id;
+            if ((id=EmpresaBL.Login(empresaLoginDTO))!=-1)
             {
-            return Ok();
+            return Ok(id);
 
             }
             else
             {
-                return Unauthorized();
+                return Unauthorized(id);
             }
         }
         [HttpPost]

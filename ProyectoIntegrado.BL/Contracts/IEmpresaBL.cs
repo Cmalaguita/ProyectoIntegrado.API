@@ -8,7 +8,7 @@ namespace ProyectoIntegrado.BL.Contracts
 {
    public interface IEmpresaBL
     {
-        public bool Login(EmpresaLoginDTO empresaLoginDTO);
+        public int Login(EmpresaLoginDTO empresaLoginDTO);
         public bool CreateEmpresa(EmpresaSignUpDTO empresaSignUpDTO);
         public bool Exists(EmpresaDTO empresaDTO);
         List<EmpresaDTO> ObtenerEmpresas();
