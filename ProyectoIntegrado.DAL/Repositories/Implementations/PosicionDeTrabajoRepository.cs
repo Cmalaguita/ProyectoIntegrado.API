@@ -81,7 +81,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
                 .Include(c => c.Empresa)
                 .ThenInclude(c => c.Provincia)
                 .ToList();
-            //return _context.Posiciones.Where(p => p.FechaFin > DateTime.Now && p.FechaInicio <= DateTime.Now).Include(c=>c.Ciclos).Include(c => c.Empresa).ToList();
+            
         }
 
         public List<PosicionDeTrabajo> BuscarPosicionesDeTrabajoPorNombre(string nombre)
@@ -94,7 +94,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
                .Include(c => c.Empresa)
                .ThenInclude(c => c.Provincia)
                .ToList();
-            //return _context.Posiciones.Where(p => p.Nombre.Equals(nombre)).Include(c => c.Ciclos).Include(c => c.Empresa).ToList();
+            
         }
 
         public PosicionDeTrabajo BuscarPosicionDeTrabajoId(int id)
@@ -107,7 +107,20 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
                 .Include(c => c.Empresa)
                 .ThenInclude(c => c.Provincia)
                 .FirstOrDefault();
-            //return _context.Posiciones.Where(p => p.Id == id).FirstOrDefault();
+           
+        }
+
+        public List<PosicionDeTrabajo> BuscarPosicionesDeTrabajoPorEmpresa(int id)
+        {
+            return _context.Posiciones.Where(p => p.EmpresaId == id)
+                  .Include(c => c.Ciclos)
+                  .ThenInclude(c => c.TipoCiclo)
+                   .Include(c => c.Ciclos)
+                  .ThenInclude(c => c.familia)
+                  .Include(c => c.Empresa)
+                  .ThenInclude(c => c.Provincia)
+                  .ToList();
+
         }
     }
 }

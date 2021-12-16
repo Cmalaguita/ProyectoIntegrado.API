@@ -21,6 +21,7 @@ namespace ProyectoIntegrado.BL.Implementations
             this.mapper = mapper;
             this.cicloRepository = cicloRepository;
         }
+        
         public PosicionDeTrabajoCreateDTO ActualizarPosicionDeTrabajo(PosicionDeTrabajoCreateDTO posicionDeTrabajoCreateDTO)
         {
            List<Ciclo> ciclos = new List<Ciclo>();
@@ -68,8 +69,7 @@ namespace ProyectoIntegrado.BL.Implementations
             foreach (var item in posicionDeTrabajoCreateDTO.Ciclos)
             {
                 ciclos.Add(cicloRepository.BuscarCicloId(item.Id));
-            }
-         
+            }       
             var p = mapper.Map<PosicionDeTrabajoCreateDTO, PosicionDeTrabajo>(posicionDeTrabajoCreateDTO);
 
             p.Ciclos = ciclos;
@@ -95,6 +95,20 @@ namespace ProyectoIntegrado.BL.Implementations
         public List<PosicionDeTrabajoDTO> ObtenerPosicionesDeTrabajo()
         {
             List<PosicionDeTrabajoDTO> list = mapper.Map<List<PosicionDeTrabajo>, List<PosicionDeTrabajoDTO>>(posicionDeTrabajoRepository.ObtenerPosicionesDeTrabajo());
+            foreach (var item in list)
+            {
+                item.empresa.Password = null;
+            }
+            return list;
+        }
+
+       public List<PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoPorEmpresa(int id)
+        {
+            List<PosicionDeTrabajoDTO> list = mapper.Map<List<PosicionDeTrabajo>, List<PosicionDeTrabajoDTO>>(posicionDeTrabajoRepository.BuscarPosicionesDeTrabajoPorEmpresa(id));
+            foreach (var item in list)
+            {
+                item.empresa.Password = null;
+            }
             return list;
         }
     }

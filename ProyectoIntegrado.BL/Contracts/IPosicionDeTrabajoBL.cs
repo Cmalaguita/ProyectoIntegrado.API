@@ -16,6 +16,7 @@ namespace ProyectoIntegrado.BL.Contracts
         List<PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoActivasHoy();
         List<PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoPorNombre(string nombre);
         PosicionDeTrabajoDTO BuscarPosicionDeTrabajoId(int id);
+        List<PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoPorEmpresa(int id);
         PosicionDeTrabajoCreateDTO ActualizarPosicionDeTrabajo(PosicionDeTrabajoCreateDTO posicionDeTrabajoCreateDTO);
     }
 }

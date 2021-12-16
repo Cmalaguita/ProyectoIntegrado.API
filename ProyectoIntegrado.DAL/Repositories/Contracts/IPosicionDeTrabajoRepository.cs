@@ -13,6 +13,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Contracts
         bool BorrarPosicion(PosicionDeTrabajo posicionDeTrabajo);
         List <PosicionDeTrabajo> BuscarPosicionesDeTrabajoActivasHoy();
         List<PosicionDeTrabajo> BuscarPosicionesDeTrabajoPorNombre(string nombre);
+        List<PosicionDeTrabajo> BuscarPosicionesDeTrabajoPorEmpresa(int id);
         PosicionDeTrabajo ActualizarPosicionDeTrabajo(PosicionDeTrabajo posicionDeTrabajo);
         PosicionDeTrabajo BuscarPosicionDeTrabajoId(int id);
 

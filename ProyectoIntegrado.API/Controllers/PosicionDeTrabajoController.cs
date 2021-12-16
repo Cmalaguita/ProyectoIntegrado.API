@@ -38,7 +38,12 @@ namespace ProyectoIntegrado.API.Controllers
         {
             return posicionDeTrabajoBL.ObtenerPosicionesDeTrabajo();
         }
-        
+        [HttpGet]
+        [Route("Obtener_Posiciones_De_Trabajo_Por_Empresa")]
+        public List<PosicionDeTrabajoDTO> ObtenerPosicionesDeTrabajoPorEmpresa(int id)
+        {
+            return posicionDeTrabajoBL.BuscarPosicionesDeTrabajoPorEmpresa(id);
+        }
         [HttpGet]
         [Route("Obtener_Posicion_De_Trabajo_Por_Id")]
         public PosicionDeTrabajoDTO BuscarPosicionDeTrabajoId(int id)
