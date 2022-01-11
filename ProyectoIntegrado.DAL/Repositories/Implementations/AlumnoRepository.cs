@@ -16,9 +16,18 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             {
             this._context = context;
             }
-        public bool Login(Alumno alumno)
+        public int  Login(Alumno alumno)
         {
-           return _context.Alumnos.Any(u => u.Email == alumno.Email && u.Password ==alumno.Password);
+            if (ExistsEmail(alumno))
+            {
+                int id = _context.Alumnos.Where(a => a.Email == alumno.Email && a.Password== alumno.Password).FirstOrDefault().Id;
+                return id;
+            }
+            else
+            {
+
+                return -1;
+            }
         }
 
         public bool CreateAlumno(Alumno alumno)
@@ -27,7 +36,10 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             _context.SaveChanges();
             return true;
         }
-
+        public bool ExistsEmail(Alumno alumno)
+        {
+            return _context.Alumnos.Any(u => u.Email == alumno.Email);
+        }
         public bool Exists(Alumno alumno)
         {
             return _context.Alumnos.Any(a => a.Id == alumno.Id);
@@ -35,7 +47,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public List<Alumno> ObtenerAlumnos()
         {
-            return _context.Alumnos.Include(a=> a.Provincia).Include(a => a.ciclo).ToList();
+            return _context.Alumnos.Include(a=> a.Provincia).Include(a => a.ciclo).ThenInclude(a=>a.Tipociclo).Include(a => a.ciclo).ThenInclude(a=>a.familia).ToList();
         }
 
         public bool BorrarAlumno(Alumno alumno)
@@ -51,9 +63,10 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public Alumno BuscarAlumno(int id)
         {
-            return _context.Alumnos.Where(a => a.Id == id).Include(a=>a.Provincia).Include(a => a.ciclo).FirstOrDefault();
+            var a= _context.Alumnos.Where(a => a.Id == id).Include(a=>a.Provincia).Include(a => a.ciclo).ThenInclude(a => a.Tipociclo).Include(a => a.ciclo).ThenInclude(a => a.familia).FirstOrDefault();
+            a.Password = null;
+            return a;
         }
-
         public Alumno ActualizarAlumno(Alumno alumno)
         {
             if (Exists(alumno))
@@ -64,5 +77,6 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             }
             return null;
         }
+
     }
 }

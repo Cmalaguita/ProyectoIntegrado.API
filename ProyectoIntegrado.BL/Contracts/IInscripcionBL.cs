@@ -1,4 +1,5 @@
-﻿using ProyectoIntegrado.DAL.Entities;
+﻿using ProyectoIntegrado.CORE.DTO;
+using ProyectoIntegrado.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,9 +8,17 @@ namespace ProyectoIntegrado.BL.Contracts
 {
    public interface IInscripcionBL
     {
-        InscripcionDTO CreateInscripcion(InscripcionDTO inscripcion);
-        bool Exists(InscripcionDTO inscripcion);
+        InscripcionDTO CreateInscripcion(CrearInscripcionDTO inscripcion);
+        bool Exists(int id);
         List<InscripcionDTO> ObtenerInscripciones();
-        bool BorrarInscripcion(InscripcionDTO inscripcion);
+        List<InscripcionDTO> ObtenerInscripcionesPorFamilia(int id);
+        List<InscripcionDTO> ObtenerInscripcionesPorCiclo(int id);
+        List<InscripcionDTO> ObtenerInscripcionesPorEmpresa(int id);
+        List<InscripcionDTO> ObtenerInscripcionesPorAlumno(int id);
+        List<InscripcionDTO> ObtenerInscripcionesPorPosicion(int idPosicion);
+        List<AlumnoDTO> ObtenerAlumnosEnInscripcionPorPosicion(int idPosicion);
+        bool ExistsPorAlumnoYPosicion(int idP, int idA);
+        bool BorrarInscripcion(int id);
+        InscripcionDTO UpdateInscripcion(UpdateInscripcionDTO i);
     }
 }

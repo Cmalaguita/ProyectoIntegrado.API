@@ -10,5 +10,9 @@ namespace ProyectoIntegrado.DAL.Repositories.Contracts
         List<Ciclo> ObtenerCiclos();
         Ciclo BuscarCicloId(int id);
         Ciclo BuscarCicloNombre(string nombre);
+        List<Ciclo> ObtenerCiclosPorFamilia(int idFamilia);
+        List<Ciclo> ObtenerCiclosPorTipo(int idTipo);
+
+        List<Ciclo> ObtenerCiclosPorFamiliaYTipo(int idTipo,int idFamilia);
     }
 }

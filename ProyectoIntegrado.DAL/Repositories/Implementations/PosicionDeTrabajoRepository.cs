@@ -63,7 +63,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             
             return _context.Posiciones
                 .Include(c => c.Ciclos)
-                .ThenInclude(c=>c.TipoCiclo)
+                .ThenInclude(c=>c.Tipociclo)
                  .Include(c => c.Ciclos)
                 .ThenInclude(c => c.familia)
                 .Include(c => c.Empresa)
@@ -75,7 +75,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         {
             return _context.Posiciones.Where(p => p.FechaFin > DateTime.Now && p.FechaInicio <= DateTime.Now)
                 .Include(c => c.Ciclos)
-                .ThenInclude(c => c.TipoCiclo)
+                .ThenInclude(c => c.Tipociclo)
                  .Include(c => c.Ciclos)
                 .ThenInclude(c => c.familia)
                 .Include(c => c.Empresa)
@@ -88,7 +88,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         {
             return _context.Posiciones.Where(p => p.Nombre.Equals(nombre))
                .Include(c => c.Ciclos)
-               .ThenInclude(c => c.TipoCiclo)
+               .ThenInclude(c => c.Tipociclo)
                 .Include(c => c.Ciclos)
                .ThenInclude(c => c.familia)
                .Include(c => c.Empresa)
@@ -101,7 +101,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         {
             return _context.Posiciones.Where(p => p.Id == id)
                 .Include(c => c.Ciclos)
-                .ThenInclude(c => c.TipoCiclo)
+                .ThenInclude(c => c.Tipociclo)
                  .Include(c => c.Ciclos)
                 .ThenInclude(c => c.familia)
                 .Include(c => c.Empresa)
@@ -114,13 +114,26 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         {
             return _context.Posiciones.Where(p => p.EmpresaId == id)
                   .Include(c => c.Ciclos)
-                  .ThenInclude(c => c.TipoCiclo)
+                  .ThenInclude(c => c.Tipociclo)
                    .Include(c => c.Ciclos)
                   .ThenInclude(c => c.familia)
                   .Include(c => c.Empresa)
                   .ThenInclude(c => c.Provincia)
                   .ToList();
 
+        }
+
+        public List<PosicionDeTrabajo> BuscarPosicionesDeTrabajoPorCiclo(int id)
+        {
+            var ce = cicloRepository.BuscarCicloId(id);
+            return _context.Posiciones.Where(p => p.Ciclos.Contains(ce))
+                  .Include(c => c.Ciclos)
+                  .ThenInclude(c => c.Tipociclo)
+                   .Include(c => c.Ciclos)
+                  .ThenInclude(c => c.familia)
+                  .Include(c => c.Empresa)
+                  .ThenInclude(c => c.Provincia)
+                  .ToList();
         }
     }
 }

@@ -23,15 +23,17 @@ namespace ProyectoIntegrado.API.Controllers
         
         [HttpPost]
         [Route("Login_Alumno")]
-        public ActionResult Login(AlumnoLoginDTO alumnoLoginDTO)
+        public ActionResult<int> Login(AlumnoLoginDTO alumnoLoginDTO)
         {
-            if (AlumnoBL.Login(alumnoLoginDTO))
+            int id;
+            if ((id = AlumnoBL.Login(alumnoLoginDTO)) != -1)
             {
-            return Ok();
+                return Ok(id);
+
             }
             else
             {
-                return Unauthorized();
+                return Unauthorized(id);
             }
         }
         [HttpPost]

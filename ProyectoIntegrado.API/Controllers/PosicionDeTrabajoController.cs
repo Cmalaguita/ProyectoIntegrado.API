@@ -44,6 +44,14 @@ namespace ProyectoIntegrado.API.Controllers
         {
             return posicionDeTrabajoBL.BuscarPosicionesDeTrabajoPorEmpresa(id);
         }
+
+        [HttpGet]
+        [Route("Obtener_Posiciones_De_Trabajo_Por_Ciclo")]
+       public List<PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoPorCiclo(int id)
+        {
+            return posicionDeTrabajoBL.BuscarPosicionesDeTrabajoPorCiclo(id);
+        }
+
         [HttpGet]
         [Route("Obtener_Posicion_De_Trabajo_Por_Id")]
         public PosicionDeTrabajoDTO BuscarPosicionDeTrabajoId(int id)
@@ -75,5 +83,7 @@ namespace ProyectoIntegrado.API.Controllers
         {
             return posicionDeTrabajoBL.BorrarPosicion(posicionDeTrabajo);
         }
+
+       
     }
 }

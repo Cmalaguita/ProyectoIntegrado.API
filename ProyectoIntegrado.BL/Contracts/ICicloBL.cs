@@ -11,6 +11,9 @@ namespace ProyectoIntegrado.BL.Contracts
         List<CicloDTO> ObtenerCiclos();
         CicloDTO BuscarCicloId(int id);
         CicloDTO BuscarCicloNombre(string nombre);
+        List<CicloDTO> ObtenerCiclosPorFamilia(int idFamilia);
+        List<CicloDTO> ObtenerCiclosPorTipo(int idTipo);
 
+        List<CicloDTO> ObtenerCiclosPorFamiliaYTipo(int idTipo,int idFamilia);
     }
 }

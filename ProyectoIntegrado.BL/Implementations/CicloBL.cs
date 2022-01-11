@@ -35,5 +35,21 @@ namespace ProyectoIntegrado.BL.Implementations
             List<CicloDTO> list = mapper.Map<List<Ciclo>, List<CicloDTO>>(cicloRepository.ObtenerCiclos());
             return list;
         }
+
+       public List<CicloDTO> ObtenerCiclosPorFamilia(int idFamilia)
+        {
+          return mapper.Map<List<Ciclo>, List<CicloDTO>>(cicloRepository.ObtenerCiclosPorFamilia( idFamilia));
+
+        }
+
+       public List<CicloDTO> ObtenerCiclosPorTipo(int idTipo)
+        {
+           return mapper.Map<List<Ciclo>, List<CicloDTO>>(cicloRepository.ObtenerCiclosPorTipo(idTipo));
+        }
+
+        public List<CicloDTO> ObtenerCiclosPorFamiliaYTipo(int idTipo, int idFamilia)
+        {
+            return mapper.Map<List<Ciclo>, List<CicloDTO>>(cicloRepository.ObtenerCiclosPorFamiliaYTipo(idTipo, idFamilia));
+        }
     }
 }

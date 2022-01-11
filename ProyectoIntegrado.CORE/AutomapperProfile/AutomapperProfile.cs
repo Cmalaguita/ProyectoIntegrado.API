@@ -55,6 +55,11 @@ namespace ProyectoIntegrado.CORE.AutomapperProfile
                 CreateMap<InscripcionDTO, Inscripcion>();
                 CreateMap<Inscripcion, InscripcionDTO>();
 
+                CreateMap<CrearInscripcionDTO, Inscripcion>();
+                CreateMap<Inscripcion, CrearInscripcionDTO>();
+
+                CreateMap<UpdateInscripcionDTO, Inscripcion>();
+                CreateMap<Inscripcion, UpdateInscripcionDTO>();
             }
         }
     }

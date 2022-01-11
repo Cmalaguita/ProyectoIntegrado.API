@@ -21,8 +21,9 @@ namespace ProyectoIntegrado.BL.Implementations
             this.passwordGenerator = passwordGenerator;
             this.mapper = mapper;
         }
-        public bool Login(AlumnoLoginDTO alumnoLoginDTO)
+        public int Login(AlumnoLoginDTO alumnoLoginDTO)
         {
+
             alumnoLoginDTO.Password = passwordGenerator.Hash(alumnoLoginDTO.Password);
 
             var alumno = mapper.Map<AlumnoLoginDTO, Alumno>(alumnoLoginDTO);

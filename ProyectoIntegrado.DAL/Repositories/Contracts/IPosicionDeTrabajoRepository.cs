@@ -14,6 +14,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Contracts
         List <PosicionDeTrabajo> BuscarPosicionesDeTrabajoActivasHoy();
         List<PosicionDeTrabajo> BuscarPosicionesDeTrabajoPorNombre(string nombre);
         List<PosicionDeTrabajo> BuscarPosicionesDeTrabajoPorEmpresa(int id);
+        List<PosicionDeTrabajo> BuscarPosicionesDeTrabajoPorCiclo(int id);
         PosicionDeTrabajo ActualizarPosicionDeTrabajo(PosicionDeTrabajo posicionDeTrabajo);
         PosicionDeTrabajo BuscarPosicionDeTrabajoId(int id);
 

@@ -10,11 +10,11 @@ namespace ProyectoIntegrado.DAL.Entities
     {
     
         public int Id { get; set; }
+        public string Nombre { get; set; }
         public int IdTipo { get; set; }
         public TipoDeCiclo tipociclo { get; set; }
         public int IdFamilia { get; set; }
         public FamiliaProfesional familia { get; set; }
-        public string Nombre { get; set; }
       
     }
 }

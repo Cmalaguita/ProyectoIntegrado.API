@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ProyectoIntegrado.BL.Contracts;
+using ProyectoIntegrado.CORE.DTO;
 using ProyectoIntegrado.DAL.Entities;
 using ProyectoIntegrado.DAL.Repositories.Contracts;
 using System;
@@ -17,16 +18,16 @@ namespace ProyectoIntegrado.BL.Implementations
             this.inscripcionRepository = inscripcionRepository;
             this.mapper = mapper;
         }
-        public bool BorrarInscripcion(InscripcionDTO inscripcion)
+        public bool BorrarInscripcion(int id)
         {
-            var i = mapper.Map<InscripcionDTO, Inscripcion>(inscripcion);
-            return inscripcionRepository.BorrarInscripcion(i);
+           
+            return inscripcionRepository.BorrarInscripcion(id);
         }
 
-        public InscripcionDTO CreateInscripcion(InscripcionDTO inscripcion)
+        public InscripcionDTO CreateInscripcion(CrearInscripcionDTO inscripcion)
         {
-            var i = mapper.Map<InscripcionDTO, Inscripcion>(inscripcion);
-            if (!inscripcionRepository.Exists(i))
+            var i = mapper.Map<CrearInscripcionDTO, Inscripcion>(inscripcion);
+            if (!inscripcionRepository.Exists(i.Id))
             {
             return mapper.Map<Inscripcion,InscripcionDTO> (inscripcionRepository.CreateInscripcion(i));
 
@@ -34,11 +35,10 @@ namespace ProyectoIntegrado.BL.Implementations
             return null;
         }
 
-        public bool Exists(InscripcionDTO inscripcion)
+        public bool Exists(int id)
         {
-            var i = mapper.Map<InscripcionDTO, Inscripcion>(inscripcion);
-
-            return inscripcionRepository.Exists(i);
+           
+            return inscripcionRepository.Exists(id);
         }
 
         public List<InscripcionDTO> ObtenerInscripciones()
@@ -46,6 +46,56 @@ namespace ProyectoIntegrado.BL.Implementations
            List<InscripcionDTO> list = mapper.Map<List<Inscripcion>, List<InscripcionDTO>>(inscripcionRepository.ObtenerInscripciones());
             return list;
 
+        }
+
+        public List<InscripcionDTO> ObtenerInscripcionesPorFamilia(int id)
+        {
+            List<InscripcionDTO> list = mapper.Map<List<Inscripcion>, List<InscripcionDTO>>(inscripcionRepository.ObtenerInscripcionesPorFamilia(id));
+            return list;
+        }
+
+        public List<InscripcionDTO> ObtenerInscripcionesPorCiclo(int id)
+        {
+            List<InscripcionDTO> list = mapper.Map<List<Inscripcion>, List<InscripcionDTO>>(inscripcionRepository.ObtenerInscripcionesPorCiclo(id));
+            return list;
+        }
+
+       
+
+        public List<InscripcionDTO> ObtenerInscripcionesPorEmpresa(int id)
+        {
+            List<InscripcionDTO> list = mapper.Map<List<Inscripcion>, List<InscripcionDTO>>(inscripcionRepository.ObtenerInscripcionesPorEmpresa(id));
+            return list;
+        }
+
+        public List<InscripcionDTO> ObtenerInscripcionesPorAlumno(int id)
+        {
+            List<InscripcionDTO> list = mapper.Map<List<Inscripcion>, List<InscripcionDTO>>(inscripcionRepository.ObtenerInscripcionesPorAlumno(id));
+            return list;
+        }
+
+        public bool ExistsPorAlumnoYPosicion(int idP, int idA)
+        {
+            return inscripcionRepository.ExistsPorAlumnoYPosicion(idP, idA);
+        }
+
+        public List<InscripcionDTO> ObtenerInscripcionesPorPosicion(int idPosicion)
+        {
+            List<InscripcionDTO> list = mapper.Map<List<Inscripcion>, List<InscripcionDTO>>(inscripcionRepository.ObtenerInscripcionesPorPosicion(idPosicion));
+            return list;
+        }
+
+        public List<AlumnoDTO> ObtenerAlumnosEnInscripcionPorPosicion(int idPosicion)
+        {
+            List<AlumnoDTO> list = mapper.Map<List<Alumno>,List<AlumnoDTO>>(inscripcionRepository.ObtenerAlumnosEnInscripcionPorPosicion(idPosicion));
+            return list;
+        }
+
+        public InscripcionDTO UpdateInscripcion(UpdateInscripcionDTO i)
+        {
+               var e=mapper.Map<UpdateInscripcionDTO, Inscripcion>(i);
+
+            return mapper.Map< Inscripcion,InscripcionDTO >(inscripcionRepository.UpdateInscripcion(e));
         }
     }
 }

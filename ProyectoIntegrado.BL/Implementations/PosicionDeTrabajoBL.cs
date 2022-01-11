@@ -111,5 +111,16 @@ namespace ProyectoIntegrado.BL.Implementations
             }
             return list;
         }
+
+        public List<PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoPorCiclo(int id)
+        {
+
+            List<PosicionDeTrabajoDTO> list = mapper.Map<List<PosicionDeTrabajo>, List<PosicionDeTrabajoDTO>>(posicionDeTrabajoRepository.BuscarPosicionesDeTrabajoPorCiclo(id));
+            foreach (var item in list)
+            {
+                item.empresa.Password = null;
+            }
+            return list;
+        }
     }
 }

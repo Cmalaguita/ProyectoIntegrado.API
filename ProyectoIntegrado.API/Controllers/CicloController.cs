@@ -40,6 +40,25 @@ namespace ProyectoIntegrado.API.Controllers
         {
             return cicloBL.BuscarCicloNombre(nombre);
         }
-        
+        [HttpGet]
+        [Route("Obtener_Ciclos_Por_Familia")]
+
+        public List<CicloDTO> ObtenerCiclosPorFamilia(int idFamilia)
+        {
+            return cicloBL.ObtenerCiclosPorFamilia(idFamilia);
+        }
+
+        [HttpGet]
+        [Route("Obtener_Ciclos_Por_Tipo")]
+        public List<CicloDTO> ObtenerCiclosPorTipo(int idTipo)
+        {
+            return cicloBL.ObtenerCiclosPorTipo(idTipo);
+        }
+        [HttpGet]
+        [Route("Obtener_Ciclos_Por_Familia_Y_Tipo")]
+        public List<CicloDTO> ObtenerCiclosPorFamiliaYTipo(int idTipo,int idFamilia)
+        {
+            return cicloBL.ObtenerCiclosPorFamiliaYTipo(idTipo,idFamilia);
+        }
     }
 }

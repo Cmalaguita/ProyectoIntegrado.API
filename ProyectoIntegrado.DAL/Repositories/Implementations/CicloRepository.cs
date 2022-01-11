@@ -17,17 +17,32 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         }
         public Ciclo BuscarCicloId(int id)
         {
-            return _context.Ciclos.Where(c => c.Id == id).Include(c => c.familia).Include(c => c.TipoCiclo).FirstOrDefault();
+            return _context.Ciclos.Where(c => c.Id == id).Include(c => c.familia).Include(c => c.Tipociclo).FirstOrDefault();
         }
 
         public Ciclo BuscarCicloNombre(string nombre)
         {
-            return _context.Ciclos.Where(c => c.Nombre == nombre).Include(c=>c.familia).Include(c => c.TipoCiclo).FirstOrDefault();
+            return _context.Ciclos.Where(c => c.Nombre == nombre).Include(c=>c.familia).Include(c => c.Tipociclo).FirstOrDefault();
         }
 
         public List<Ciclo> ObtenerCiclos()
         {
-            return _context.Ciclos.Include(c => c.familia).Include(c => c.TipoCiclo).ToList();
+            return _context.Ciclos.Include(c => c.familia).Include(c => c.Tipociclo).ToList();
+        }
+
+        public List<Ciclo> ObtenerCiclosPorFamilia(int idFamilia)
+        {
+            return _context.Ciclos.Where(c => c.IdFamilia == idFamilia).Include(c => c.familia).Include(c => c.Tipociclo).ToList();
+        }
+
+        public List<Ciclo> ObtenerCiclosPorTipo(int idTipo)
+        {
+          return  _context.Ciclos.Where(c => c.IdTipo == idTipo).Include(c => c.familia).Include(c => c.Tipociclo).ToList();
+        }
+
+        public List<Ciclo> ObtenerCiclosPorFamiliaYTipo(int idTipo, int idFamilia)
+        {
+           return _context.Ciclos.Where(c=>c.IdTipo==idTipo && c.IdFamilia== idFamilia).Include(c => c.familia).Include(c => c.Tipociclo).ToList();
         }
     }
 }

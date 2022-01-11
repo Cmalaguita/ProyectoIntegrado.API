@@ -16,10 +16,9 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         }
         public int Login(Empresa empresa)
         {
-
             if (ExistsEmail(empresa))
             {
-                int id = _context.Empresas.Where(e => e.Email == empresa.Email).FirstOrDefault().Id;
+                int id = _context.Empresas.Where(e => e.Email == empresa.Email && e.Password == e.Password).FirstOrDefault().Id;
             return id;
             }
             else
@@ -31,7 +30,6 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public bool CreateEmpresa(Empresa empresa)
         {
-            Console.WriteLine("PROVINCIA ID: "+empresa.ProvinciaId);
             _context.Empresas.Add(empresa);
             
             _context.SaveChanges();
