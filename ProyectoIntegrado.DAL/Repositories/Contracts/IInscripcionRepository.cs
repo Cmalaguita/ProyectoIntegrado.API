@@ -11,7 +11,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Contracts
         bool Exists(int id);
         List<Inscripcion> ObtenerInscripciones();
         List<Inscripcion> ObtenerInscripcionesPorFamilia(int id);
-        bool ExistsPorAlumnoYPosicion(int idP, int idA);
+        Inscripcion ExistsPorAlumnoYPosicion(int idP, int idA);
         List<Inscripcion> ObtenerInscripcionesPorCiclo(int id);
         List<Inscripcion> ObtenerInscripcionesPorAlumno(int id);
         List<Inscripcion> ObtenerInscripcionesPorPosicion(int idPosicion);

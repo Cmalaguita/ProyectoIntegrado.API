@@ -40,9 +40,17 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             return _context.Inscripciones.Any(i => i.Id == id);
         }
 
-        public bool ExistsPorAlumnoYPosicion(int idP, int idA)
+        public Inscripcion ExistsPorAlumnoYPosicion(int idP, int idA)
         {
-            return _context.Inscripciones.Any(i => i.AlumnoId == idA && i.PosicionId==idP);
+            if (_context.Inscripciones.Any(i => i.AlumnoId == idA && i.PosicionId == idP))
+            {
+
+            return _context.Inscripciones.Where(i => i.AlumnoId == idA && i.PosicionId==idP).Include(i=>i.alumno).ThenInclude(a=>a.Provincia).Include(i=>i.Empresa).ThenInclude(e=>e.Provincia).Include(i=>i.Posicion).FirstOrDefault();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public List<Inscripcion> ObtenerInscripciones()

@@ -74,9 +74,9 @@ namespace ProyectoIntegrado.BL.Implementations
             return list;
         }
 
-        public bool ExistsPorAlumnoYPosicion(int idP, int idA)
+        public InscripcionDTO ExistsPorAlumnoYPosicion(int idP, int idA)
         {
-            return inscripcionRepository.ExistsPorAlumnoYPosicion(idP, idA);
+            return mapper.Map<Inscripcion,InscripcionDTO>(inscripcionRepository.ExistsPorAlumnoYPosicion(idP, idA));
         }
 
         public List<InscripcionDTO> ObtenerInscripcionesPorPosicion(int idPosicion)

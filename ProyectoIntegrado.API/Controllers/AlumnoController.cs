@@ -76,7 +76,7 @@ namespace ProyectoIntegrado.API.Controllers
             }
             return NotFound();
         }
-        [HttpPost]
+        [HttpPut]
         [Route("Actualizar_Alumno")]
         public ActionResult<AlumnoDTO> ActualizarAlumno(AlumnoDTO alumno)
         {

@@ -52,7 +52,7 @@ namespace ProyectoIntegrado.API.Controllers
         {
             return inscripcionBL.CreateInscripcion(inscripcion);
         }
-        [HttpPost]
+        [HttpPut]
         [Route("Actualizar_Inscripcion")]
         public InscripcionDTO UpdateInscripcion(UpdateInscripcionDTO i)
         {
@@ -66,15 +66,31 @@ namespace ProyectoIntegrado.API.Controllers
         }
         [HttpDelete]
         [Route("Borrar_Inscripcion")]
-        public bool BorrarInscripcion(int id)
+        public ActionResult BorrarInscripcion(int id)
         {
-            return inscripcionBL.BorrarInscripcion(id);
+            if (inscripcionBL.Exists(id))
+            {
+                inscripcionBL.BorrarInscripcion(id);
+
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
         [HttpGet]
         [Route("Comprobar_Existencia_Por_Alumno_Y_Posicion")]
-        public bool ExistsPorAlumnoYPosicion(int idP, int idA)
+        public ActionResult<int> ExistsPorAlumnoYPosicion(int idP, int idA)
         {
-            return inscripcionBL.ExistsPorAlumnoYPosicion(idP, idA);
+            InscripcionDTO i;
+
+            if ((i=inscripcionBL.ExistsPorAlumnoYPosicion(idP,idA))!=null)
+            {
+
+                return Ok(i.Id);
+            }
+            return BadRequest(-1);
         }
 
         [HttpGet]

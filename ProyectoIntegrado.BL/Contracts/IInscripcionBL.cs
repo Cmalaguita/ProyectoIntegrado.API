@@ -17,7 +17,7 @@ namespace ProyectoIntegrado.BL.Contracts
         List<InscripcionDTO> ObtenerInscripcionesPorAlumno(int id);
         List<InscripcionDTO> ObtenerInscripcionesPorPosicion(int idPosicion);
         List<AlumnoDTO> ObtenerAlumnosEnInscripcionPorPosicion(int idPosicion);
-        bool ExistsPorAlumnoYPosicion(int idP, int idA);
+        InscripcionDTO ExistsPorAlumnoYPosicion(int idP, int idA);
         bool BorrarInscripcion(int id);
         InscripcionDTO UpdateInscripcion(UpdateInscripcionDTO i);
     }
