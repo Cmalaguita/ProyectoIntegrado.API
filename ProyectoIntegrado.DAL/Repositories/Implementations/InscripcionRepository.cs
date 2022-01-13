@@ -45,7 +45,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             if (_context.Inscripciones.Any(i => i.AlumnoId == idA && i.PosicionId == idP))
             {
 
-            return _context.Inscripciones.Where(i => i.AlumnoId == idA && i.PosicionId==idP).Include(i=>i.alumno).ThenInclude(a=>a.Provincia).Include(i=>i.Empresa).ThenInclude(e=>e.Provincia).Include(i=>i.Posicion).FirstOrDefault();
+            return _context.Inscripciones.Where(i => i.AlumnoId == idA && i.PosicionId==idP).Include(i=>i.alumno).ThenInclude(a=>a.Provincia).Include(i=>i.Empresa).ThenInclude(e=>e.Provincia).Include(i=>i.Posicion).Include(i=>i.alumno.ciclo).ThenInclude(c=>c.familia).Include(i => i.alumno.ciclo).ThenInclude(c => c.Tipociclo).FirstOrDefault();
             }
             else
             {

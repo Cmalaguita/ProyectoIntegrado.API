@@ -81,16 +81,16 @@ namespace ProyectoIntegrado.API.Controllers
         }
         [HttpGet]
         [Route("Comprobar_Existencia_Por_Alumno_Y_Posicion")]
-        public ActionResult<int> ExistsPorAlumnoYPosicion(int idP, int idA)
+        public ActionResult<InscripcionDTO> ExistsPorAlumnoYPosicion(int idP, int idA)
         {
             InscripcionDTO i;
 
             if ((i=inscripcionBL.ExistsPorAlumnoYPosicion(idP,idA))!=null)
             {
 
-                return Ok(i.Id);
+                return Ok(i);
             }
-            return BadRequest(-1);
+            return BadRequest();
         }
 
         [HttpGet]
