@@ -127,7 +127,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         {
             var ce = cicloRepository.BuscarCicloId(id);
 
-            return _context.Posiciones.Where(p => p.FechaFin > DateTime.Now && p.FechaInicio <= DateTime.Now && p.Ciclos.Contains(ce))
+            return _context.Posiciones.Where(p => p.FechaFin >= DateTime.Now && p.FechaInicio <= DateTime.Now && p.Ciclos.Contains(ce))
                   .Include(c => c.Ciclos)
                   .ThenInclude(c => c.Tipociclo)
                    .Include(c => c.Ciclos)
