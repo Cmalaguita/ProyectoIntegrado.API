@@ -38,7 +38,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         }
         public bool ExistsEmail(Alumno alumno)
         {
-            return _context.Alumnos.Any(u => u.Email == alumno.Email);
+            return _context.Alumnos.Any(u => u.Email == alumno.Email && u.Password==alumno.Password);
         }
         public bool Exists(Alumno alumno)
         {

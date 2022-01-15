@@ -18,7 +18,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         {
             if (ExistsEmail(empresa))
             {
-                int id = _context.Empresas.Where(e => e.Email == empresa.Email && e.Password == e.Password).FirstOrDefault().Id;
+                int id = _context.Empresas.Where(e => e.Email == empresa.Email && e.Password == empresa.Password).FirstOrDefault().Id;
             return id;
             }
             else
@@ -43,7 +43,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public bool ExistsEmail(Empresa empresa)
         {
-            return _context.Empresas.Any(u => u.Email == empresa.Email);
+            return _context.Empresas.Any(u => u.Email == empresa.Email && u.Password==empresa.Password);
         }
 
         public List<Empresa> ObtenerEmpresas()

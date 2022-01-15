@@ -77,7 +77,7 @@ namespace ProyectoIntegrado.API.Controllers
             }
             return NotFound();
         }
-        [HttpPost]
+        [HttpPut]
         [Route("Actualizar_Empresa")]
         public ActionResult<EmpresaDTO> ActualizarEmpresa(EmpresaDTO empresa)
         {
