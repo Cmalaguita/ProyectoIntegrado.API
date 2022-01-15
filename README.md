@@ -10,8 +10,10 @@
 No necesita
 
 ## Uso
-* Actualmente contiene el registro y el login tanto para alumnos, como para empresas. Además, funciona con Entity Framework para trabajar directamente desde el código con la base de datos.
-
+* Servicios para el acceso y registro a alumnos y empresas en sus respectivas aplicaciones.
+* CRUD de Alumnos, Empresas, Posiciones, Inscripciones.
+* Añadidos todos los tipos de ciclo, familias profesionales y ciclos.
+* Multiples filtros para obtener una o una lista en todas las entidades.
 ## Requerido
 * Visual Studio
 * MySQL
