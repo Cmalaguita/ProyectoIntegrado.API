@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.CORE.DTO;
+using ProyectoIntegrado.CORE.Email;
 using ProyectoIntegrado.CORE.Security;
 using ProyectoIntegrado.DAL.Contracts;
 using ProyectoIntegrado.DAL.Entities;
@@ -15,8 +16,10 @@ namespace ProyectoIntegrado.BL.Implementations
         public IAlumnoRepository alumnoRepository { get; set; }
         public IPasswordGenerator passwordGenerator { get; set; }
         public IMapper mapper { get; set; }
-        public AlumnoBL(IAlumnoRepository alumnoRepository, IPasswordGenerator passwordGenerator,IMapper mapper)
+        public IEmailSender emailSender { get; set; }
+        public AlumnoBL(IAlumnoRepository alumnoRepository, IPasswordGenerator passwordGenerator,IMapper mapper,IEmailSender emailSender)
         {
+            this.emailSender = emailSender;
             this.alumnoRepository = alumnoRepository;
             this.passwordGenerator = passwordGenerator;
             this.mapper = mapper;
@@ -37,9 +40,9 @@ namespace ProyectoIntegrado.BL.Implementations
            
             if (!alumnoRepository.Exists(alumno))
             {
-
-                return alumnoRepository.CreateAlumno(alumno);
-
+                    var a= alumnoRepository.CreateAlumno(alumno);
+                emailSender.Send(alumno.Email);
+                return a;
             }
             return false;
         }

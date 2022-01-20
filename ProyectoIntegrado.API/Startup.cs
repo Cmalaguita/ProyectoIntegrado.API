@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.BL.Implementations;
+using ProyectoIntegrado.CORE.Email;
 using ProyectoIntegrado.CORE.Security;
 using ProyectoIntegrado.DAL.Contracts;
 using ProyectoIntegrado.DAL.Entities;
@@ -76,6 +77,8 @@ namespace ProyectoIntegrado.API
 
             services.AddScoped<IInscripcionBL, InscripcionBL>();
             services.AddScoped<IInscripcionRepository, InscripcionRepository>();
+
+            services.AddScoped<IEmailSender, EmailSender>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

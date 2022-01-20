@@ -1,13 +1,8 @@
-﻿using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using ProyectoIntegrado.BL.Contracts;
-using ProyectoIntegrado.BL.Implementations;
 using ProyectoIntegrado.CORE.DTO;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ProyectoIntegrado.API.Controllers
 {
@@ -47,7 +42,6 @@ namespace ProyectoIntegrado.API.Controllers
             }
             else
             {
-
                 return BadRequest();
             }
         }
