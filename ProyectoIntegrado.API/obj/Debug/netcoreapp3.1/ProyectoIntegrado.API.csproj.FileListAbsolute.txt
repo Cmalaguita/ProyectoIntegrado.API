@@ -109,3 +109,11 @@ C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\obj\Deb
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\obj\Debug\netcoreapp3.1\ProyectoIntegrado.API.dll
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\obj\Debug\netcoreapp3.1\ProyectoIntegrado.API.pdb
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\obj\Debug\netcoreapp3.1\ProyectoIntegrado.API.genruntimeconfig.cache
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll

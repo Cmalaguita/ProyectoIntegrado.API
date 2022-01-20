@@ -22,3 +22,4 @@ C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Deb
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.dll
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.pdb
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.genruntimeconfig.cache
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.csprojAssemblyReference.cache

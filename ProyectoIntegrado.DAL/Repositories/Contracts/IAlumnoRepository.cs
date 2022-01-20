@@ -6,7 +6,7 @@ namespace ProyectoIntegrado.DAL.Contracts
 {
    public interface IAlumnoRepository
     {
-        int Login(Alumno a);
+        Alumno Login(Alumno a);
         bool CreateAlumno(Alumno alumno);
         bool Exists(Alumno usuario);
         List<Alumno> ObtenerAlumnos();

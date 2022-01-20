@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.CORE.DTO;
+using ProyectoIntegrado.CORE.Security;
 using System.Collections.Generic;
 
 namespace ProyectoIntegrado.API.Controllers
@@ -10,6 +11,7 @@ namespace ProyectoIntegrado.API.Controllers
     [ApiController]
     public class AlumnoController : ControllerBase
     {
+        public IJwtBearer MyProperty { get; set; }
         public IAlumnoBL AlumnoBL { get; set; }
         public AlumnoController(IAlumnoBL alumnoBL)
         {
@@ -20,15 +22,15 @@ namespace ProyectoIntegrado.API.Controllers
         [Route("Login_Alumno")]
         public ActionResult<int> Login(AlumnoLoginDTO alumnoLoginDTO)
         {
-            int id;
-            if ((id = AlumnoBL.Login(alumnoLoginDTO)) != -1)
+            var a = AlumnoBL.Login(alumnoLoginDTO);
+            if (a!=null)
             {
-                return Ok(id);
+                return Ok(a.Token);
 
             }
             else
             {
-                return Unauthorized(id);
+                return Unauthorized();
             }
         }
         [HttpPost]

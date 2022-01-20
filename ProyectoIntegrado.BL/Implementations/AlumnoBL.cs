@@ -17,20 +17,35 @@ namespace ProyectoIntegrado.BL.Implementations
         public IPasswordGenerator passwordGenerator { get; set; }
         public IMapper mapper { get; set; }
         public IEmailSender emailSender { get; set; }
-        public AlumnoBL(IAlumnoRepository alumnoRepository, IPasswordGenerator passwordGenerator,IMapper mapper,IEmailSender emailSender)
+        public IJwtBearer jwtBearer { get; set; }
+        public AlumnoBL(IAlumnoRepository alumnoRepository, IPasswordGenerator passwordGenerator,IMapper mapper,IEmailSender emailSender, IJwtBearer jwtBearer)
         {
+            this.jwtBearer = jwtBearer;
             this.emailSender = emailSender;
             this.alumnoRepository = alumnoRepository;
             this.passwordGenerator = passwordGenerator;
             this.mapper = mapper;
         }
-        public int Login(AlumnoLoginDTO alumnoLoginDTO)
+        public AlumnoDTO Login(AlumnoLoginDTO alumnoLoginDTO)
         {
 
             alumnoLoginDTO.Password = passwordGenerator.Hash(alumnoLoginDTO.Password);
+            if (alumnoLoginDTO!=null)
+            {
+            var a = alumnoRepository.Login(mapper.Map<AlumnoLoginDTO, Alumno>(alumnoLoginDTO));
 
-            var alumno = mapper.Map<AlumnoLoginDTO, Alumno>(alumnoLoginDTO);
-            return alumnoRepository.Login(alumno);
+                var aDTO = mapper.Map<Alumno, AlumnoDTO>(a);
+
+            if (aDTO!=null)
+            {
+                    aDTO.Token = jwtBearer.GenerateJWTToken(a);
+            }
+            return aDTO;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public bool CreateAlumno(AlumnoSignUpDTO alumnoSignUpDTO)

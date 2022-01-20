@@ -21,5 +21,6 @@ namespace ProyectoIntegrado.CORE.DTO
         public int IdProvincia { get; set; }
         public Provincia provincia { get; set; }
         public double NotaMedia { get; set; }
+        public string Token { get; set; }
     }
 }

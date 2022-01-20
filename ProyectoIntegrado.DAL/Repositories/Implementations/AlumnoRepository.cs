@@ -16,17 +16,17 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             {
             this._context = context;
             }
-        public int  Login(Alumno alumno)
+        public Alumno  Login(Alumno alumno)
         {
             if (ExistsEmail(alumno))
             {
-                int id = _context.Alumnos.Where(a => a.Email == alumno.Email && a.Password== alumno.Password).FirstOrDefault().Id;
-                return id;
+                var a = _context.Alumnos.Where(a => a.Email == alumno.Email && a.Password== alumno.Password).FirstOrDefault();
+                return a;
             }
             else
             {
 
-                return -1;
+                return null;
             }
         }
 
