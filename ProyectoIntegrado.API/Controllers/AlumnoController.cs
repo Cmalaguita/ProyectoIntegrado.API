@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.CORE.DTO;
@@ -9,24 +10,27 @@ namespace ProyectoIntegrado.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AlumnoController : ControllerBase
     {
-        public IJwtBearer MyProperty { get; set; }
+        public IJwtBearer jwtBearer { get; set; }
         public IAlumnoBL AlumnoBL { get; set; }
-        public AlumnoController(IAlumnoBL alumnoBL)
+        public AlumnoController(IAlumnoBL alumnoBL, IJwtBearer jwtBearer)
         {
+            this.jwtBearer = jwtBearer;
             this.AlumnoBL = alumnoBL;
         }
         
         [HttpPost]
         [Route("Login_Alumno")]
+        [AllowAnonymous]
         public ActionResult<int> Login(AlumnoLoginDTO alumnoLoginDTO)
         {
-            var a = AlumnoBL.Login(alumnoLoginDTO);
+            AlumnoDTO a = AlumnoBL.Login(alumnoLoginDTO);
             if (a!=null)
             {
-                return Ok(a.Token);
-
+                Response.Headers.Add("Authorization", jwtBearer.GenerateJWTTokenAlumno(a));
+                return Ok();
             }
             else
             {
@@ -35,6 +39,7 @@ namespace ProyectoIntegrado.API.Controllers
         }
         [HttpPost]
         [Route("Sign_up_Alumno")]
+        [AllowAnonymous]
         public ActionResult CreateAlumno(AlumnoSignUpDTO alumnoSignUpDTO)
         {
             var creado = AlumnoBL.CreateAlumno(alumnoSignUpDTO);

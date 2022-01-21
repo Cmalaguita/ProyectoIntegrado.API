@@ -117,3 +117,11 @@ C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Deb
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll

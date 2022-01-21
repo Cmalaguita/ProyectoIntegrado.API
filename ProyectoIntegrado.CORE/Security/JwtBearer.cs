@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using ProyectoIntegrado.CORE.DTO;
 using ProyectoIntegrado.DAL.Entities;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace ProyectoIntegrado.CORE.Security
         {
             this.configuration = configuration;
         }
-        public string GenerateJWTToken(Empresa empresa)
+        public string GenerateJWTTokenEmpresa(EmpresaDTO empresa)
         {
             
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:SecretKey"]));
@@ -40,7 +41,7 @@ namespace ProyectoIntegrado.CORE.Security
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public string GenerateJWTToken(Alumno alumno)
+        public string GenerateJWTTokenAlumno(AlumnoDTO alumno)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:SecretKey"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);

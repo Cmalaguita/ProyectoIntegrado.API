@@ -35,11 +35,6 @@ namespace ProyectoIntegrado.BL.Implementations
             var a = alumnoRepository.Login(mapper.Map<AlumnoLoginDTO, Alumno>(alumnoLoginDTO));
 
                 var aDTO = mapper.Map<Alumno, AlumnoDTO>(a);
-
-            if (aDTO!=null)
-            {
-                    aDTO.Token = jwtBearer.GenerateJWTToken(a);
-            }
             return aDTO;
             }
             else
