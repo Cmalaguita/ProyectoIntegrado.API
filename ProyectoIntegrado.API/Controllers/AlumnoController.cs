@@ -30,11 +30,11 @@ namespace ProyectoIntegrado.API.Controllers
             if (a!=null)
             {
                 Response.Headers.Add("Authorization", jwtBearer.GenerateJWTTokenAlumno(a));
-                return Ok();
+                return Ok(a.Id);
             }
             else
             {
-                return Unauthorized();
+                return Unauthorized(-1);
             }
         }
         [HttpPost]

@@ -14,17 +14,17 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         {
             this._context = context;
         }
-        public int Login(Empresa empresa)
+        public Empresa Login(Empresa empresa)
         {
             if (ExistsEmail(empresa))
             {
-                int id = _context.Empresas.Where(e => e.Email == empresa.Email && e.Password == empresa.Password).FirstOrDefault().Id;
-            return id;
+                var e = _context.Empresas.Where(e => e.Email == empresa.Email && e.Password == empresa.Password).FirstOrDefault();
+            return e;
             }
             else
             {
 
-            return -1;
+            return null;
             }
         }
 

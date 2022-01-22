@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.CORE.DTO;
 using System;
@@ -12,6 +13,7 @@ namespace ProyectoIntegrado.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PosicionDeTrabajoController : ControllerBase
     {
         public IPosicionDeTrabajoBL posicionDeTrabajoBL { get; set; }

@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.BL.Implementations;
 using ProyectoIntegrado.CORE.DTO;
+using ProyectoIntegrado.CORE.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,31 +15,37 @@ namespace ProyectoIntegrado.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class EmpresaController : ControllerBase
     {
         public IEmpresaBL EmpresaBL { get; set; }
-        public EmpresaController(IEmpresaBL empresaBL)
+        public IJwtBearer  jwtBearer { get; set; }
+        public EmpresaController(IEmpresaBL empresaBL, IJwtBearer jwtBearer)
         {
+            this.jwtBearer = jwtBearer;
             this.EmpresaBL = empresaBL;
         }
         [EnableCors("CorsPolicy")]
         [HttpPost]
         [Route("Login_Empresa")]
+        [AllowAnonymous]
         public ActionResult<int> Login(EmpresaLoginDTO empresaLoginDTO)
         {
-            int id;
-            if ((id=EmpresaBL.Login(empresaLoginDTO))!=-1)
+            EmpresaDTO e = EmpresaBL.Login(empresaLoginDTO);
+            if (e!=null)
             {
-            return Ok(id);
+                Response.Headers.Add("Authorization", jwtBearer.GenerateJWTTokenEmpresa(e));
+                return Ok(e.Id);
 
             }
             else
             {
-                return Unauthorized(id);
+                return Unauthorized(-1);
             }
         }
         [HttpPost]
         [Route("Sign_up_Empresa")]
+        [AllowAnonymous]
         public ActionResult CreateEmpresa(EmpresaSignUpDTO empresaSignUpDTO)
         {
             

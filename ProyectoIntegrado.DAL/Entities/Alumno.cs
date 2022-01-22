@@ -29,7 +29,8 @@ namespace ProyectoIntegrado.DAL.Entities
         [ForeignKey("IdProvincia")]
         public Provincia Provincia { get; set; }
         public double NotaMedia { get; set; }
-
+        //public string CodigoVerificacion{ get; set; }
+        //public bool EmailVerificado { get; set; }
 
     }
 }

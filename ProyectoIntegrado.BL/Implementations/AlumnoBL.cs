@@ -17,10 +17,8 @@ namespace ProyectoIntegrado.BL.Implementations
         public IPasswordGenerator passwordGenerator { get; set; }
         public IMapper mapper { get; set; }
         public IEmailSender emailSender { get; set; }
-        public IJwtBearer jwtBearer { get; set; }
-        public AlumnoBL(IAlumnoRepository alumnoRepository, IPasswordGenerator passwordGenerator,IMapper mapper,IEmailSender emailSender, IJwtBearer jwtBearer)
+        public AlumnoBL(IAlumnoRepository alumnoRepository, IPasswordGenerator passwordGenerator,IMapper mapper,IEmailSender emailSender)
         {
-            this.jwtBearer = jwtBearer;
             this.emailSender = emailSender;
             this.alumnoRepository = alumnoRepository;
             this.passwordGenerator = passwordGenerator;

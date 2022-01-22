@@ -30,7 +30,6 @@ namespace ProyectoIntegrado.CORE.Security
                     new Claim("Email", empresa.Email),
                     new Claim("Random", Guid.NewGuid().ToString())
                 };
-
             var token = new JwtSecurityToken(
                 issuer: configuration["Jwt:Issuer"],
                 audience: configuration["Jwt:Audience"],
@@ -51,7 +50,6 @@ namespace ProyectoIntegrado.CORE.Security
                     new Claim("Email", alumno.Email),
                     new Claim("Random", Guid.NewGuid().ToString())
                 };
-
             var token = new JwtSecurityToken(
                 issuer: configuration["Jwt:Issuer"],
                 audience: configuration["Jwt:Audience"],

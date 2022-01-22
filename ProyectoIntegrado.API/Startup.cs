@@ -42,12 +42,14 @@ namespace ProyectoIntegrado.API
         {
             services.AddControllers();
             //Habilitar cors en la API
+            string[] exposedHeaders = { "Authorization" };
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
                     builder => builder.AllowAnyOrigin()
                     .AllowAnyMethod()
-                    .AllowAnyHeader());
+                    .AllowAnyHeader()
+                    .WithExposedHeaders(exposedHeaders));
             });
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>

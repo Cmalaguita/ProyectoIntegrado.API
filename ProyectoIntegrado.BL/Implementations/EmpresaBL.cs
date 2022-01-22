@@ -21,21 +21,25 @@ namespace ProyectoIntegrado.BL.Implementations
             this.passwordGenerator = passwordGenerator;
             this.mapper = mapper;
         }
-        public int Login(EmpresaLoginDTO empresaLoginDTO)
+        public EmpresaDTO Login(EmpresaLoginDTO empresaLoginDTO)
         {
             empresaLoginDTO.Password = passwordGenerator.Hash(empresaLoginDTO.Password);
-
-            var empresa = mapper.Map<EmpresaLoginDTO, Empresa>(empresaLoginDTO);
-
-            return empresaRepository.Login(empresa);
+            if (empresaLoginDTO!=null)
+            {
+            var empresa = empresaRepository.Login(mapper.Map<EmpresaLoginDTO, Empresa>(empresaLoginDTO));
+                var eDTO = mapper.Map<Empresa, EmpresaDTO>(empresa);
+            return eDTO;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public  bool CreateEmpresa(EmpresaSignUpDTO empresaSignUpDTO)
-        {
-           Console.WriteLine("ANTES DEL MAPPER"+ empresaSignUpDTO.ProvinciaId);
+        {         
             empresaSignUpDTO.Password = passwordGenerator.Hash(empresaSignUpDTO.Password);
             var empresa = mapper.Map<EmpresaSignUpDTO, Empresa>(empresaSignUpDTO);
-            Console.WriteLine("DESPUES DEL MAPPER: "+ empresa.ProvinciaId);
             if (!empresaRepository.Exists(empresa))
             {
              var e= empresaRepository.CreateEmpresa(empresa);
