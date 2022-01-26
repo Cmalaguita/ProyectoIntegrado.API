@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.CORE.DTO;
+using ProyectoIntegrado.CORE.Email;
 using ProyectoIntegrado.CORE.Security;
 using ProyectoIntegrado.DAL.Contracts;
 using ProyectoIntegrado.DAL.Entities;
@@ -15,11 +16,13 @@ namespace ProyectoIntegrado.BL.Implementations
         public IEmpresaRepository empresaRepository { get; set; }
         public IPasswordGenerator passwordGenerator  { get; set; }
         public IMapper mapper { get; set; }
-        public EmpresaBL(IEmpresaRepository empresaRepository, IPasswordGenerator passwordGenerator, IMapper mapper)
+        public IEmailSender emailSender { get; set; }
+        public EmpresaBL(IEmpresaRepository empresaRepository, IPasswordGenerator passwordGenerator, IMapper mapper, IEmailSender emailSender)
         {
             this.empresaRepository = empresaRepository;
             this.passwordGenerator = passwordGenerator;
             this.mapper = mapper;
+            this.emailSender = emailSender;
         }
         public EmpresaDTO Login(EmpresaLoginDTO empresaLoginDTO)
         {
@@ -95,6 +98,7 @@ namespace ProyectoIntegrado.BL.Implementations
                     e.CodigoVerificacion += r.Next(10).ToString();
                 }
                 empresaRepository.ActualizarEmpresa(e);
+                emailSender.SendCodePass(e.Email, "Su codigo de verificacion es el siguiente: " + e.CodigoVerificacion);
             }
         }
 

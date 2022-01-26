@@ -94,7 +94,7 @@ namespace ProyectoIntegrado.API.Controllers
             }
             return NotFound();
         }
-        [HttpPut]
+        [HttpPost]
         [Route("Generar_Codigo_Verificacion")]
         [AllowAnonymous]
         public void GenerarCodigo(string email)
