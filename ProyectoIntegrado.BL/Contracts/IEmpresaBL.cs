@@ -15,5 +15,9 @@ namespace ProyectoIntegrado.BL.Contracts
         bool BorrarEmpresa(EmpresaDTO empresaDTO);
         EmpresaDTO BuscarEmpresa(int id);
         EmpresaDTO ActualizarEmpresa(EmpresaDTO empresaDTO);
+        void GenerarCodigo(string email);
+        bool CompararCodigo(string email, string codigo);
+        bool CompararCodigoParaEmail(string codigo, string email);
+        bool CambiarPassEmpresa(string pass, string email);
     }
 }

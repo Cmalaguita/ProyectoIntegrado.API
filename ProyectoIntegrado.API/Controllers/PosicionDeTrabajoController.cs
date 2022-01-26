@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.CORE.DTO;
+using ProyectoIntegrado.CORE.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ProyectoIntegrado.API.Controllers
 {
@@ -17,9 +17,11 @@ namespace ProyectoIntegrado.API.Controllers
     public class PosicionDeTrabajoController : ControllerBase
     {
         public IPosicionDeTrabajoBL posicionDeTrabajoBL { get; set; }
-        public PosicionDeTrabajoController(IPosicionDeTrabajoBL posicionDeTrabajoBL)
+        public IJwtBearer jwtBearer { get; set; }
+        public PosicionDeTrabajoController(IPosicionDeTrabajoBL posicionDeTrabajoBL, IJwtBearer jwtBearer)
         {
             this.posicionDeTrabajoBL = posicionDeTrabajoBL;
+            this.jwtBearer = jwtBearer;
         }
 
         [HttpPost]
@@ -31,7 +33,7 @@ namespace ProyectoIntegrado.API.Controllers
             {
                 return Ok();
             }
-            return Unauthorized();
+            return BadRequest();
         }
         
         [HttpGet]
@@ -42,11 +44,11 @@ namespace ProyectoIntegrado.API.Controllers
         }
         [HttpGet]
         [Route("Obtener_Posiciones_De_Trabajo_Por_Empresa")]
-        public List<PosicionDeTrabajoDTO> ObtenerPosicionesDeTrabajoPorEmpresa(int id)
+        public List<PosicionDeTrabajoDTO> ObtenerPosicionesDeTrabajoPorEmpresa()
         {
+            int id = jwtBearer.GetUserIdFromToken(Request.Headers["Authorization"].ToString());
             return posicionDeTrabajoBL.BuscarPosicionesDeTrabajoPorEmpresa(id);
         }
-
         [HttpGet]
         [Route("Obtener_Posiciones_De_Trabajo_Por_Ciclo")]
        public List<PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoPorCiclo(int id)
@@ -66,7 +68,6 @@ namespace ProyectoIntegrado.API.Controllers
         {
             return posicionDeTrabajoBL.BuscarPosicionesDeTrabajoActivasHoy();
         }
-
         [HttpGet]
         [Route("Obtener_Posiciones_De_Trabajo_Por_Nombre")]
        public List<PosicionDeTrabajoDTO> BuscarPosicionesDeTrabajoPorNombre(string nombre)

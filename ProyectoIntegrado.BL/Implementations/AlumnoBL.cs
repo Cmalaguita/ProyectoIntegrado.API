@@ -89,5 +89,40 @@ namespace ProyectoIntegrado.BL.Implementations
                AlumnoDTO actualizado=mapper.Map<Alumno,AlumnoDTO>(alumnoRepository.ActualizarAlumno(a));
             return actualizado;
         }
+
+        public void GenerarCodigo(string email)
+        {
+
+            Random r = new Random();
+            var a =alumnoRepository.ExistsUnicamenteEmail(email);
+
+            if (a != null)
+            {
+                a.CodigoVerificacion = null;
+                for (int i = 0; i < 6; i++)
+                {
+
+                    a.CodigoVerificacion += r.Next(10).ToString();
+                }
+                alumnoRepository.ActualizarAlumno(a);
+                emailSender.SendCodePass(a.Email, "Su codigo de verificacion es el siguiente: " + a.CodigoVerificacion);
+            }
+        }
+
+        public bool CompararCodigo(string email, string codigo)
+        {
+            return alumnoRepository.CompararCodigo(email,codigo);
+        }
+
+        public bool CompararCodigoParaEmail(string codigo, string email)
+        {
+            return alumnoRepository.CompararCodigoParaEmail(codigo, email);
+        }
+
+        public bool CambiarPassAlumno(string pass, string email)
+        {
+            pass = passwordGenerator.Hash(pass);
+            return alumnoRepository.CambiarPassAlumno(pass,email);
+        }
     }
 }

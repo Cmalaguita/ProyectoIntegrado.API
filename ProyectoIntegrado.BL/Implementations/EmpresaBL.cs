@@ -71,7 +71,6 @@ namespace ProyectoIntegrado.BL.Implementations
         {
             var a = mapper.Map<Empresa, EmpresaDTO>(empresaRepository.BuscarEmpresa(id));
             return a;
-
         }
 
         public EmpresaDTO ActualizarEmpresa(EmpresaDTO empresa)
@@ -80,6 +79,39 @@ namespace ProyectoIntegrado.BL.Implementations
             var e = mapper.Map<EmpresaDTO, Empresa>(empresa);
             EmpresaDTO actualizado = mapper.Map<Empresa, EmpresaDTO>(empresaRepository.ActualizarEmpresa(e));
             return actualizado;
+        }
+
+        public void GenerarCodigo(string email)
+        {
+            Random r = new Random();
+            var e = empresaRepository.ExistsUnicamenteEmail(email);
+
+            if (e != null)
+            {
+                e.CodigoVerificacion = null;
+                for (int i = 0; i < 6; i++)
+                {
+
+                    e.CodigoVerificacion += r.Next(10).ToString();
+                }
+                empresaRepository.ActualizarEmpresa(e);
+            }
+        }
+
+        public bool CompararCodigo(string email, string codigo)
+        {
+           return empresaRepository.CompararCodigo(email,codigo);
+        }
+
+        public bool CompararCodigoParaEmail(string codigo, string email)
+        {
+            return empresaRepository.CompararCodigoParaEmail(codigo,email);
+        }
+
+        public bool CambiarPassEmpresa(string pass, string email)
+        {
+            pass = passwordGenerator.Hash(pass);
+            return empresaRepository.CambiarPassEmpresa(pass,email);
         }
     }
 }

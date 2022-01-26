@@ -11,7 +11,11 @@ namespace ProyectoIntegrado.DAL.Contracts
         bool Exists(Empresa empresa);
         List<Empresa> ObtenerEmpresas();
         bool BorrarEmpresa(Empresa empresa);
+        Empresa ExistsUnicamenteEmail(string email);
         Empresa BuscarEmpresa(int id);
         Empresa ActualizarEmpresa(Empresa empresa);
+        bool CompararCodigo(string email, string codigo);
+        bool CompararCodigoParaEmail(string codigo,string email);
+        bool CambiarPassEmpresa(string pass, string email);
     }
 }

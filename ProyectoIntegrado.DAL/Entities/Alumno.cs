@@ -19,18 +19,15 @@ namespace ProyectoIntegrado.DAL.Entities
         public int idCiclo { get; set; }
         [ForeignKey("idCiclo")]
         public Ciclo ciclo { get; set; }
-
         [Column(TypeName = "Date"),DisplayFormat(DataFormatString ="(a:yyyy-MM-dd)")]
         public DateTime FechaDeNacimiento { get; set; }
-
-        //public byte[] Foto { get; set; }
         public string Localidad { get; set; }
         public int IdProvincia { get; set; }
         [ForeignKey("IdProvincia")]
         public Provincia Provincia { get; set; }
         public double NotaMedia { get; set; }
-        //public string CodigoVerificacion{ get; set; }
-        //public bool EmailVerificado { get; set; }
+        public string CodigoVerificacion{ get; set; }
+        public bool EmailVerificado { get; set; }
 
     }
 }

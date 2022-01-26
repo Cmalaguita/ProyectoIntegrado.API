@@ -45,7 +45,10 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         {
             return _context.Empresas.Any(u => u.Email == empresa.Email && u.Password==empresa.Password);
         }
-
+        public Empresa ExistsUnicamenteEmail(string email)
+        {
+            return _context.Empresas.Where(u => u.Email == email).FirstOrDefault();
+        }
         public List<Empresa> ObtenerEmpresas()
         {
                 var e=_context.Empresas.Include(e=>e.Provincia).ToList();
@@ -69,7 +72,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         public Empresa BuscarEmpresa(int id)
         {
                  var e=_context.Empresas.Where(e => e.Id == id).Include(e => e.Provincia).FirstOrDefault();
-            e.Password = null;
+            
             return e;
         }
         public Empresa BuscarEmpresaTrasUpdate(int id)
@@ -89,6 +92,55 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
                 return a;
             }
             return null;
+        }
+
+        public bool CompararCodigo(string email, string codigo)
+        {
+            var a = ExistsUnicamenteEmail(email);
+            if (a != null)
+            {
+                return _context.Empresas.Any(a => a.CodigoVerificacion == codigo);
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool CompararCodigoParaEmail(string codigo, string email)
+        {
+            var a = ExistsUnicamenteEmail(email);
+            if (a != null)
+            {
+                if (_context.Empresas.Any(a => a.CodigoVerificacion == codigo))
+                {
+                    a.EmailVerificado = true;
+                    _context.Empresas.Update(a);
+                    _context.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool CambiarPassEmpresa(string pass, string email)
+        {
+            var a = ExistsUnicamenteEmail(email);
+            if (a != null)
+            {
+                a.Password = pass;
+                _context.Empresas.Update(a);
+                _context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

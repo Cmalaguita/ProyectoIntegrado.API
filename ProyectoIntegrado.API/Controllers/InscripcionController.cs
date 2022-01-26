@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.CORE.DTO;
+using ProyectoIntegrado.CORE.Security;
 using ProyectoIntegrado.DAL.Entities;
 using System;
 using System.Collections.Generic;
@@ -18,8 +19,10 @@ namespace ProyectoIntegrado.API.Controllers
     {
 
         public IInscripcionBL inscripcionBL { get; set; }
-        public InscripcionController(IInscripcionBL inscripcionBL)
+        public IJwtBearer jwtBearer { get; set; }
+        public InscripcionController(IInscripcionBL inscripcionBL, IJwtBearer jwtBearer)
         {
+            this.jwtBearer = jwtBearer;
             this.inscripcionBL = inscripcionBL;
         }
 
@@ -38,14 +41,16 @@ namespace ProyectoIntegrado.API.Controllers
 
         [HttpGet]
         [Route("Obtener_Inscripciones_Por_Empresa")]
-        public List<InscripcionDTO> ObtenerInscripcionesPorEmpresa(int id)
+        public List<InscripcionDTO> ObtenerInscripcionesPorEmpresa()
         {
+            int id = jwtBearer.GetUserIdFromToken(Request.Headers["Authorization"].ToString());
             return inscripcionBL.ObtenerInscripcionesPorEmpresa(id);
         }
         [HttpGet]
         [Route("Obtener_Inscripciones_Por_Alumno")]
-        public List<InscripcionDTO> ObtenerInscripcionesPorAlumno(int id)
+        public List<InscripcionDTO> ObtenerInscripcionesPorAlumno()
         {
+            int id = jwtBearer.GetUserIdFromToken(Request.Headers["Authorization"].ToString());
             return inscripcionBL.ObtenerInscripcionesPorAlumno(id);
         }
         [HttpPost]

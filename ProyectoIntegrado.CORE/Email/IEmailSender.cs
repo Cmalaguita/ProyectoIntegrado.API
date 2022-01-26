@@ -7,5 +7,6 @@ namespace ProyectoIntegrado.CORE.Email
    public interface IEmailSender
     {
        public void Send(string emailDestino);
+        public void SendCodePass(string emailDestino, string mensaje);
     }
 }

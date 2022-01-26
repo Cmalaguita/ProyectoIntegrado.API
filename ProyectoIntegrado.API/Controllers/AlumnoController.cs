@@ -61,14 +61,16 @@ namespace ProyectoIntegrado.API.Controllers
         }
         [HttpGet]
         [Route("Buscar_Alumno_Id")]
-        public AlumnoDTO BuscarAlumno(int id)
+        public AlumnoDTO BuscarAlumno()
         {
+            int id = jwtBearer.GetUserIdFromToken(Request.Headers["Authorization"].ToString());
             return AlumnoBL.BuscarAlumno(id);
         }
         [HttpDelete]
         [Route("Eliminar_Alumno")]
-        public ActionResult EliminarAlumno(int id)
+        public ActionResult EliminarAlumno()
         {
+            int id = jwtBearer.GetUserIdFromToken(Request.Headers["Authorization"].ToString());
             var a = AlumnoBL.BuscarAlumno(id);
             if (AlumnoBL.Exists(a))
             {
@@ -87,6 +89,40 @@ namespace ProyectoIntegrado.API.Controllers
             }
             return NotFound();
         }
-
+        [HttpPut]
+        [Route("Generar_Codigo_Verificacion")]
+        [AllowAnonymous]
+        public void GenerarCodigo(string email)
+        {
+            AlumnoBL.GenerarCodigo(email);
+        }
+        [HttpGet]
+        [Route("Comprobar_Codigo_Verificacion")]
+        [AllowAnonymous]
+        public ActionResult CompararCodigo(string email, string codigo)
+        {
+            if (AlumnoBL.CompararCodigo(email, codigo))
+            {
+                return Ok();
+            }
+            else
+            {
+                return Unauthorized();
+            }
+        }
+        [HttpPut]
+        [Route("Comprobar_Codigo_Verificacion_Email")]
+        [AllowAnonymous]
+        public bool CompararCodigoParaEmail(string codigo, string email)
+        {
+            return AlumnoBL.CompararCodigoParaEmail(codigo, email);
+        }
+        [HttpPut]
+        [Route("Cambiar_Password_Alumno")]
+        [AllowAnonymous]
+        public bool CambiarPassAlumno(string pass, string email)
+        {
+            return AlumnoBL.CambiarPassAlumno(pass, email);
+        }
     }
 }

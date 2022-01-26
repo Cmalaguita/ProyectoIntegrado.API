@@ -20,8 +20,8 @@ namespace ProyectoIntegrado.DAL.Entities
         public Provincia Provincia { get; set; }
         public string Localidad { get; set; }
         public string Direccion { get; set; }
-        //public string CodigoVerificacion { get; set; }
-        //public bool EmailVerificado { get; set; }
+        public string CodigoVerificacion { get; set; }
+        public bool EmailVerificado { get; set; }
 
     }
 }

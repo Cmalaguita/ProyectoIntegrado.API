@@ -40,15 +40,14 @@ namespace ProyectoIntegrado.API.Controllers
             }
             else
             {
-                return Unauthorized(-1);
+                return BadRequest(-1);
             }
         }
         [HttpPost]
         [Route("Sign_up_Empresa")]
         [AllowAnonymous]
         public ActionResult CreateEmpresa(EmpresaSignUpDTO empresaSignUpDTO)
-        {
-            
+        {          
             var empresa = EmpresaBL.CreateEmpresa(empresaSignUpDTO);
             if (empresa)
             {
@@ -56,7 +55,6 @@ namespace ProyectoIntegrado.API.Controllers
             }
             else
             {
-
                 return BadRequest();
             }
         }
@@ -64,19 +62,20 @@ namespace ProyectoIntegrado.API.Controllers
         [Route("Obtener_Todas_Las_Empresas")]
         public List<EmpresaDTO> ObtenerEmpresas()
         {
-
             return EmpresaBL.ObtenerEmpresas();
         }
         [HttpGet]
         [Route("Buscar_Empresa_Id")]
-        public EmpresaDTO BuscarEmpresa(int id)
+        public EmpresaDTO BuscarEmpresa()
         {
+            int id = jwtBearer.GetUserIdFromToken(Request.Headers["Authorization"].ToString());
             return EmpresaBL.BuscarEmpresa(id);
         }
         [HttpDelete]
         [Route("Eliminar_Empresa")]
-        public ActionResult EliminarAlumno(int id)
+        public ActionResult EliminarEmpresa()
         {
+            int id = jwtBearer.GetUserIdFromToken(Request.Headers["Authorization"].ToString());
             var a = EmpresaBL.BuscarEmpresa(id);
             if (EmpresaBL.Exists(a))
             {
@@ -94,6 +93,41 @@ namespace ProyectoIntegrado.API.Controllers
                 return EmpresaBL.ActualizarEmpresa(empresa);
             }
             return NotFound();
+        }
+        [HttpPut]
+        [Route("Generar_Codigo_Verificacion")]
+        [AllowAnonymous]
+        public void GenerarCodigo(string email)
+        {
+            EmpresaBL.GenerarCodigo(email);
+        }
+        [HttpGet]
+        [Route("Comprobar_Codigo_Verificacion")]
+        [AllowAnonymous]
+        public ActionResult CompararCodigo(string email ,string codigo)
+        {
+            if (EmpresaBL.CompararCodigo(email, codigo))
+            {
+                return Ok();
+            }
+            else
+            {
+                return Unauthorized();
+            }
+        }
+        [HttpGet]
+        [Route("Comprobar_Codigo_Verificacion_Email")]
+        [AllowAnonymous]
+        public bool CompararCodigoParaEmail(string codigo, string email)
+        {
+            return EmpresaBL.CompararCodigoParaEmail(codigo,email);
+        }
+        [HttpGet]
+        [Route("Cambiar_Password_Empresa")]
+        [AllowAnonymous]
+        public bool CambiarPassEmpresa(string pass, string email)
+        {
+            return EmpresaBL.CambiarPassEmpresa(pass,email);
         }
     }
 }

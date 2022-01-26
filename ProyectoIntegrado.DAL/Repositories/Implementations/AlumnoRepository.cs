@@ -40,6 +40,10 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         {
             return _context.Alumnos.Any(u => u.Email == alumno.Email && u.Password==alumno.Password);
         }
+        public Alumno ExistsUnicamenteEmail(string email)
+        {
+            return _context.Alumnos.Where(u => u.Email == email).FirstOrDefault();
+        }
         public bool Exists(Alumno alumno)
         {
             return _context.Alumnos.Any(a => a.Id == alumno.Id);
@@ -64,7 +68,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         public Alumno BuscarAlumno(int id)
         {
             var a= _context.Alumnos.Where(a => a.Id == id).Include(a=>a.Provincia).Include(a => a.ciclo).ThenInclude(a => a.Tipociclo).Include(a => a.ciclo).ThenInclude(a => a.familia).FirstOrDefault();
-            a.Password = null;
+          
             return a;
         }
         public Alumno ActualizarAlumno(Alumno alumno)
@@ -78,5 +82,53 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             return null;
         }
 
+        public bool CompararCodigo(string email,string codigo)
+        {
+            var a = ExistsUnicamenteEmail(email);
+            if (a!=null)
+            {
+            return _context.Alumnos.Any(a => a.CodigoVerificacion == codigo);
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool CompararCodigoParaEmail(string codigo, string email)
+        {
+            var a = ExistsUnicamenteEmail(email);
+            if (a!=null)
+            {
+                if (_context.Alumnos.Any(a => a.CodigoVerificacion == codigo && a.Email==email))
+                {
+                    a.EmailVerificado = true;
+                    _context.Alumnos.Update(a);
+                    _context.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+
+        public bool CambiarPassAlumno(string pass, string email)
+        {
+            var a = ExistsUnicamenteEmail(email);
+            if (a!=null)
+            {
+                a.Password = pass;
+                _context.Alumnos.Update(a);
+                _context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

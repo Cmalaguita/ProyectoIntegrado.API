@@ -17,5 +17,6 @@ namespace ProyectoIntegrado.CORE.DTO
         public Provincia provincia { get; set; }
         public string Localidad { get; set; }
         public string Direccion { get; set; }
+        public bool EmailVerificado { get; set; }
     }
 }
