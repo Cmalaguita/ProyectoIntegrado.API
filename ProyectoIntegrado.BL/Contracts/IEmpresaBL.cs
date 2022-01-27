@@ -19,5 +19,7 @@ namespace ProyectoIntegrado.BL.Contracts
         bool CompararCodigo(string email, string codigo);
         bool CompararCodigoParaEmail(string codigo, string email);
         bool CambiarPassEmpresa(string pass, string email);
+        bool SendContact(string emailDestino, string mensaje, string nombrePosicion, string nombreEmpresa, string emailEmpresa);
+
     }
 }

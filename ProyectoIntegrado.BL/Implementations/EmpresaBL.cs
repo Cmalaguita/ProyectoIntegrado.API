@@ -17,12 +17,14 @@ namespace ProyectoIntegrado.BL.Implementations
         public IPasswordGenerator passwordGenerator  { get; set; }
         public IMapper mapper { get; set; }
         public IEmailSender emailSender { get; set; }
+        public IAlumnoRepository alumnoRepository { get; set; }
         public EmpresaBL(IEmpresaRepository empresaRepository, IPasswordGenerator passwordGenerator, IMapper mapper, IEmailSender emailSender)
         {
             this.empresaRepository = empresaRepository;
             this.passwordGenerator = passwordGenerator;
             this.mapper = mapper;
             this.emailSender = emailSender;
+            this.alumnoRepository = alumnoRepository;
         }
         public EmpresaDTO Login(EmpresaLoginDTO empresaLoginDTO)
         {
@@ -116,6 +118,19 @@ namespace ProyectoIntegrado.BL.Implementations
         {
             pass = passwordGenerator.Hash(pass);
             return empresaRepository.CambiarPassEmpresa(pass,email);
+        }
+
+        public bool SendContact(string emailDestino, string mensaje, string nombrePosicion, string nombreEmpresa, string emailEmpresa)
+        {
+            if (alumnoRepository.ExistsUnicamenteEmail(emailDestino)!=null)
+            {
+                emailSender.SendContact(emailDestino, mensaje, nombrePosicion, nombreEmpresa, emailEmpresa);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

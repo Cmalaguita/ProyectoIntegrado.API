@@ -112,7 +112,7 @@ namespace ProyectoIntegrado.API.Controllers
             }
             else
             {
-                return Unauthorized();
+                return BadRequest();
             }
         }
         [HttpGet]
@@ -128,6 +128,13 @@ namespace ProyectoIntegrado.API.Controllers
         public bool CambiarPassEmpresa(string pass, string email)
         {
             return EmpresaBL.CambiarPassEmpresa(pass,email);
+        }
+        [HttpPost]
+        [Route("Contactar_Con_Candidato")]
+        [AllowAnonymous]
+        public ActionResult<bool> ContactoConCandidato(string emailDestino, string mensaje, string nombrePosicion, string nombreEmpresa, string emailEmpresa)
+        {
+           return EmpresaBL.SendContact(emailDestino, mensaje, nombrePosicion, nombreEmpresa, emailEmpresa);
         }
     }
 }
