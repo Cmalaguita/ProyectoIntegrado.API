@@ -81,9 +81,9 @@ namespace ProyectoIntegrado.API.Controllers
         }
         [HttpPut]
         [Route("Actualizar_Alumno")]
-        public ActionResult<AlumnoDTO> ActualizarAlumno(AlumnoDTO alumno)
+        public ActionResult<AlumnoDTO> ActualizarAlumno(AlumnoUpdateDTO alumno)
         {
-            if (AlumnoBL.Exists(alumno))
+            if (AlumnoBL.ExistsUnicamenteEmail(alumno.Email)!=null)
             {
             return AlumnoBL.ActualizarAlumno(alumno);
             }

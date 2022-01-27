@@ -86,9 +86,9 @@ namespace ProyectoIntegrado.API.Controllers
         }
         [HttpPut]
         [Route("Actualizar_Empresa")]
-        public ActionResult<EmpresaDTO> ActualizarEmpresa(EmpresaDTO empresa)
+        public ActionResult<EmpresaDTO> ActualizarEmpresa(EmpresaUpdateDTO empresa)
         {
-            if (EmpresaBL.Exists(empresa))
+            if (EmpresaBL.ExistsUnicamenteEmail(empresa.Email)!=null)
             {
                 return EmpresaBL.ActualizarEmpresa(empresa);
             }

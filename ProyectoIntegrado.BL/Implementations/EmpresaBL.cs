@@ -18,7 +18,7 @@ namespace ProyectoIntegrado.BL.Implementations
         public IMapper mapper { get; set; }
         public IEmailSender emailSender { get; set; }
         public IAlumnoRepository alumnoRepository { get; set; }
-        public EmpresaBL(IEmpresaRepository empresaRepository, IPasswordGenerator passwordGenerator, IMapper mapper, IEmailSender emailSender)
+        public EmpresaBL(IEmpresaRepository empresaRepository, IPasswordGenerator passwordGenerator, IMapper mapper, IEmailSender emailSender, IAlumnoRepository alumnoRepository)
         {
             this.empresaRepository = empresaRepository;
             this.passwordGenerator = passwordGenerator;
@@ -60,6 +60,8 @@ namespace ProyectoIntegrado.BL.Implementations
             return empresaRepository.Exists(a);
         }
 
+
+
         public List<EmpresaDTO> ObtenerEmpresas()
         {
             List<EmpresaDTO> list = mapper.Map<List<Empresa>, List<EmpresaDTO>>(empresaRepository.ObtenerEmpresas());
@@ -78,12 +80,20 @@ namespace ProyectoIntegrado.BL.Implementations
             return a;
         }
 
-        public EmpresaDTO ActualizarEmpresa(EmpresaDTO empresa)
+        public EmpresaDTO ActualizarEmpresa(EmpresaUpdateDTO empresa)
         {
-            empresa.Password = passwordGenerator.Hash(empresa.Password);
-            var e = mapper.Map<EmpresaDTO, Empresa>(empresa);
+            if (empresaRepository.ExistsUnicamenteEmail(empresa.Email)!=null)
+            {
+
+            var e = mapper.Map<EmpresaUpdateDTO, Empresa>(empresa);
             EmpresaDTO actualizado = mapper.Map<Empresa, EmpresaDTO>(empresaRepository.ActualizarEmpresa(e));
             return actualizado;
+            }
+            else
+            {
+                return null;
+            }
+         
         }
 
         public void GenerarCodigo(string email)
@@ -122,7 +132,8 @@ namespace ProyectoIntegrado.BL.Implementations
 
         public bool SendContact(string emailDestino, string mensaje, string nombrePosicion, string nombreEmpresa, string emailEmpresa)
         {
-            if (alumnoRepository.ExistsUnicamenteEmail(emailDestino)!=null)
+            var a = alumnoRepository.ExistsUnicamenteEmail(emailDestino);
+            if (a!=null)
             {
                 emailSender.SendContact(emailDestino, mensaje, nombrePosicion, nombreEmpresa, emailEmpresa);
                 return true;
@@ -131,6 +142,11 @@ namespace ProyectoIntegrado.BL.Implementations
             {
                 return false;
             }
+        }
+
+        public EmpresaDTO ExistsUnicamenteEmail(string email)
+        {
+          return  mapper.Map<Empresa,EmpresaDTO>( empresaRepository.ExistsUnicamenteEmail(email));
         }
     }
 }

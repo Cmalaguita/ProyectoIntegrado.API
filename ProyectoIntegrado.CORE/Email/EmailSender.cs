@@ -65,7 +65,7 @@ namespace ProyectoIntegrado.CORE.Email
             var fromAddress = new MailAddress("2damproyectocutre@gmail.com", "Equipo de desarrollo de ratatata");
             var toAddress = new MailAddress(emailDestino, emailDestino.ToString());
             const string fromPassword = "RatitaInsensill@";
-            string subject = nombreEmpresa + "Quiere contactar con usted en relacion a una oferta de trabajo";
+            string subject = nombreEmpresa + " Quiere contactar con usted en relacion a una oferta de trabajo";
             string body = "En relacion a la oferta: " + nombrePosicion + ". La compañía envía el siguiente mensaje: \n" + mensaje + "\n puede contactar con la empresa a traves del siguiente correo: " + emailEmpresa;
             var smtp = new SmtpClient
             {

@@ -83,11 +83,16 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         }
         public Empresa ActualizarEmpresa(Empresa empresa)
         {
-
-            if (Exists(empresa))
+            var eu = ExistsUnicamenteEmail(empresa.Email);
+            if (eu!=null)
             {
-                var e =_context.Empresas.Update(empresa).Entity;
+                empresa.Id = eu.Id;
+                empresa.Password = eu.Password;
+                empresa.EmailVerificado = eu.EmailVerificado;
+                empresa.CodigoVerificacion = eu.CodigoVerificacion;
+                    _context.Entry(eu).CurrentValues.SetValues(empresa);
                 _context.SaveChanges();
+                var e = ExistsUnicamenteEmail(eu.Email);
                 var a = BuscarEmpresaTrasUpdate(e.Id);
                 return a;
             }

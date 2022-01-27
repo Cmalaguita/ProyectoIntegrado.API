@@ -11,10 +11,11 @@ namespace ProyectoIntegrado.BL.Contracts
         public EmpresaDTO Login(EmpresaLoginDTO empresaLoginDTO);
         public bool CreateEmpresa(EmpresaSignUpDTO empresaSignUpDTO);
         public bool Exists(EmpresaDTO empresaDTO);
+        EmpresaDTO ExistsUnicamenteEmail(string email);
         List<EmpresaDTO> ObtenerEmpresas();
         bool BorrarEmpresa(EmpresaDTO empresaDTO);
         EmpresaDTO BuscarEmpresa(int id);
-        EmpresaDTO ActualizarEmpresa(EmpresaDTO empresaDTO);
+        EmpresaDTO ActualizarEmpresa(EmpresaUpdateDTO empresaDTO);
         void GenerarCodigo(string email);
         bool CompararCodigo(string email, string codigo);
         bool CompararCodigoParaEmail(string codigo, string email);

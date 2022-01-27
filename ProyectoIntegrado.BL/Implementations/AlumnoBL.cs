@@ -80,11 +80,11 @@ namespace ProyectoIntegrado.BL.Implementations
             return a;
         }
 
-        public AlumnoDTO ActualizarAlumno(AlumnoDTO alumno)
+        public AlumnoDTO ActualizarAlumno(AlumnoUpdateDTO alumno)
         {
-            alumno.Password = passwordGenerator.Hash(alumno.Password);
             
-            var a = mapper.Map<AlumnoDTO, Alumno>(alumno);
+            
+            var a = mapper.Map<AlumnoUpdateDTO, Alumno>(alumno);
 
                AlumnoDTO actualizado=mapper.Map<Alumno,AlumnoDTO>(alumnoRepository.ActualizarAlumno(a));
             return actualizado;
@@ -123,6 +123,11 @@ namespace ProyectoIntegrado.BL.Implementations
         {
             pass = passwordGenerator.Hash(pass);
             return alumnoRepository.CambiarPassAlumno(pass,email);
+        }
+
+        public AlumnoDTO ExistsUnicamenteEmail(string email)
+        {
+            return mapper.Map<Alumno, AlumnoDTO>(alumnoRepository.ExistsUnicamenteEmail(email));
         }
     }
 }

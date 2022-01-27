@@ -42,7 +42,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         }
         public Alumno ExistsUnicamenteEmail(string email)
         {
-            return _context.Alumnos.Where(u => u.Email == email).FirstOrDefault();
+            return _context.Alumnos.Where(u => u.Email == email).Include(a => a.Provincia).Include(a => a.ciclo).ThenInclude(a => a.Tipociclo).Include(a => a.ciclo).ThenInclude(a => a.familia).FirstOrDefault();
         }
         public bool Exists(Alumno alumno)
         {
@@ -73,11 +73,17 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         }
         public Alumno ActualizarAlumno(Alumno alumno)
         {
-            if (Exists(alumno))
+            var eu = ExistsUnicamenteEmail(alumno.Email);
+            if (eu != null)
             {
-                var a = _context.Alumnos.Update(alumno).Entity;
+                alumno.Id = eu.Id;
+                alumno.Password = eu.Password;
+                alumno.EmailVerificado = eu.EmailVerificado;
+                alumno.CodigoVerificacion = eu.CodigoVerificacion;
+                _context.Entry(eu).CurrentValues.SetValues(alumno);
                 _context.SaveChanges();
-                return a;          
+                var e = ExistsUnicamenteEmail(eu.Email);
+                return e;
             }
             return null;
         }

@@ -15,12 +15,10 @@ namespace ProyectoIntegrado.DAL.Entities
      
         public AlumnoDTO alumno { get; set; }
         public int EmpresaId { get; set; }
-      
         public EmpresaDTO Empresa { get; set; }
         public int PosicionId { get; set; }
         public PosicionDeTrabajoDTO Posicion { get; set; }
         public string EstadoInscripcion { get; set; }
         public DateTime FechaInscripcion { get; set; }
-
     }
 }

@@ -19,11 +19,16 @@ namespace ProyectoIntegrado.CORE.AutomapperProfile
                 CreateMap<AlumnoSignUpDTO, Alumno>();
                 CreateMap<Alumno, AlumnoSignUpDTO>();
 
+                CreateMap<AlumnoUpdateDTO, Alumno>();
+                CreateMap<Alumno, AlumnoUpdateDTO>();
                 CreateMap<EmpresaDTO, Empresa>();
                 CreateMap<Empresa, EmpresaDTO>();
 
                 CreateMap<EmpresaLoginDTO, Empresa>();
                 CreateMap<Empresa, EmpresaLoginDTO>();
+
+                CreateMap<EmpresaUpdateDTO, Empresa>();
+                CreateMap<Empresa, EmpresaUpdateDTO>();
 
                 CreateMap<EmpresaSignUpDTO, Empresa>();
                 CreateMap<Empresa, EmpresaSignUpDTO>();

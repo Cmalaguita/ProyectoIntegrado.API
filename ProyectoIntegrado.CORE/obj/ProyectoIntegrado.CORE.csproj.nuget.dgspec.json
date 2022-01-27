@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CarlosFernandez\\Documents\\GitHub\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj": {}
+    "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CarlosFernandez\\Documents\\GitHub\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj": {
+    "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CarlosFernandez\\Documents\\GitHub\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj",
+        "projectUniqueName": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj",
         "projectName": "ProyectoIntegrado.CORE",
-        "projectPath": "C:\\Users\\CarlosFernandez\\Documents\\GitHub\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj",
-        "packagesPath": "C:\\Users\\CarlosFernandez\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CarlosFernandez\\Documents\\GitHub\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\obj\\",
+        "projectPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj",
+        "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\CarlosFernandez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\CarlosFernandez\\Documents\\GitHub\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj": {
-                "projectPath": "C:\\Users\\CarlosFernandez\\Documents\\GitHub\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj"
+              "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj": {
+                "projectPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj"
               }
             }
           }
@@ -76,21 +76,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\CarlosFernandez\\Documents\\GitHub\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj": {
+    "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CarlosFernandez\\Documents\\GitHub\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj",
         "projectName": "ProyectoIntegrado.DAL",
-        "projectPath": "C:\\Users\\CarlosFernandez\\Documents\\GitHub\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj",
-        "packagesPath": "C:\\Users\\CarlosFernandez\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CarlosFernandez\\Documents\\GitHub\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\obj\\",
+        "projectPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj",
+        "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\CarlosFernandez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -152,7 +152,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
