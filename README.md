@@ -14,6 +14,7 @@ No necesita
 * CRUD de Alumnos, Empresas, Posiciones, Inscripciones.
 * Añadidos todos los tipos de ciclo, familias profesionales y ciclos.
 * Multiples filtros para obtener una o una lista en todas las entidades.
+* Servicios de envío de email para recuperación de contraseña,verificación de email y contacto a los candidatos de las posiciones de trabajo de la parte web.
 ## Requerido
 * Visual Studio
 * MySQL
