@@ -1,0 +1,14 @@
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/bin/Release/netcoreapp3.1/ProyectoIntegrado.BL.deps.json
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/bin/Release/netcoreapp3.1/ProyectoIntegrado.BL.dll
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/bin/Release/netcoreapp3.1/ProyectoIntegrado.BL.pdb
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/bin/Release/netcoreapp3.1/ProyectoIntegrado.CORE.dll
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/bin/Release/netcoreapp3.1/ProyectoIntegrado.DAL.dll
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/bin/Release/netcoreapp3.1/ProyectoIntegrado.CORE.pdb
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/bin/Release/netcoreapp3.1/ProyectoIntegrado.DAL.pdb
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/obj/Release/netcoreapp3.1/ProyectoIntegrado.BL.csprojAssemblyReference.cache
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/obj/Release/netcoreapp3.1/ProyectoIntegrado.BL.AssemblyInfoInputs.cache
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/obj/Release/netcoreapp3.1/ProyectoIntegrado.BL.AssemblyInfo.cs
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/obj/Release/netcoreapp3.1/ProyectoIntegrado.BL.csproj.CoreCompileInputs.cache
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/obj/Release/netcoreapp3.1/ProyectoIntegrado.BL.csproj.CopyComplete
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/obj/Release/netcoreapp3.1/ProyectoIntegrado.BL.dll
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/obj/Release/netcoreapp3.1/ProyectoIntegrado.BL.pdb

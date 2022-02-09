@@ -1,0 +1,12 @@
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/bin/Release/netcoreapp3.1/ProyectoIntegrado.DAL.deps.json
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/bin/Release/netcoreapp3.1/ProyectoIntegrado.DAL.runtimeconfig.json
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/bin/Release/netcoreapp3.1/ProyectoIntegrado.DAL.runtimeconfig.dev.json
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/bin/Release/netcoreapp3.1/ProyectoIntegrado.DAL.dll
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/bin/Release/netcoreapp3.1/ProyectoIntegrado.DAL.pdb
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/obj/Release/netcoreapp3.1/ProyectoIntegrado.DAL.csprojAssemblyReference.cache
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/obj/Release/netcoreapp3.1/ProyectoIntegrado.DAL.AssemblyInfoInputs.cache
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/obj/Release/netcoreapp3.1/ProyectoIntegrado.DAL.AssemblyInfo.cs
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/obj/Release/netcoreapp3.1/ProyectoIntegrado.DAL.csproj.CoreCompileInputs.cache
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/obj/Release/netcoreapp3.1/ProyectoIntegrado.DAL.dll
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/obj/Release/netcoreapp3.1/ProyectoIntegrado.DAL.pdb
+/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/obj/Release/netcoreapp3.1/ProyectoIntegrado.DAL.genruntimeconfig.cache
