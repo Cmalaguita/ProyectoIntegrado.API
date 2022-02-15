@@ -1,35 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/ProyectoIntegrado.BL.csproj": {}
+    "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.BL\\ProyectoIntegrado.BL.csproj": {}
   },
   "projects": {
-    "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/ProyectoIntegrado.BL.csproj": {
+    "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.BL\\ProyectoIntegrado.BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/ProyectoIntegrado.BL.csproj",
+        "projectUniqueName": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.BL\\ProyectoIntegrado.BL.csproj",
         "projectName": "ProyectoIntegrado.BL",
-        "projectPath": "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/ProyectoIntegrado.BL.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.BL/obj/",
+        "projectPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.BL\\ProyectoIntegrado.BL.csproj",
+        "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.BL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.CORE/ProyectoIntegrado.CORE.csproj": {
-                "projectPath": "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.CORE/ProyectoIntegrado.CORE.csproj"
+              "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj": {
+                "projectPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj"
               },
-              "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/ProyectoIntegrado.DAL.csproj": {
-                "projectPath": "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/ProyectoIntegrado.DAL.csproj"
+              "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj": {
+                "projectPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj"
               }
             }
           }
@@ -42,6 +45,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -57,33 +61,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.CORE/ProyectoIntegrado.CORE.csproj": {
+    "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.CORE/ProyectoIntegrado.CORE.csproj",
+        "projectUniqueName": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj",
         "projectName": "ProyectoIntegrado.CORE",
-        "projectPath": "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.CORE/ProyectoIntegrado.CORE.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.CORE/obj/",
+        "projectPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\ProyectoIntegrado.CORE.csproj",
+        "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.CORE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/ProyectoIntegrado.DAL.csproj": {
-                "projectPath": "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/ProyectoIntegrado.DAL.csproj"
+              "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj": {
+                "projectPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj"
               }
             }
           }
@@ -96,6 +103,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -129,30 +137,33 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/ProyectoIntegrado.DAL.csproj": {
+    "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/ProyectoIntegrado.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj",
         "projectName": "ProyectoIntegrado.DAL",
-        "projectPath": "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/ProyectoIntegrado.DAL.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/obj/",
+        "projectPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj",
+        "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -164,6 +175,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -201,7 +213,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

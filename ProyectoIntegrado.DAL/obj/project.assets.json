@@ -829,28 +829,31 @@
     ]
   },
   "packageFolders": {
-    "/root/.nuget/packages/": {}
+    "C:\\Users\\Carlos\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/ProyectoIntegrado.DAL.csproj",
+      "projectUniqueName": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj",
       "projectName": "ProyectoIntegrado.DAL",
-      "projectPath": "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/ProyectoIntegrado.DAL.csproj",
-      "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/etc/apps/ProyectoIntegrado.API/ProyectoIntegrado.DAL/obj/",
+      "projectPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\ProyectoIntegrado.DAL.csproj",
+      "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Carlos\\source\\repos\\ProyectoIntegrado.API\\ProyectoIntegrado.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/root/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -862,6 +865,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -899,7 +903,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
