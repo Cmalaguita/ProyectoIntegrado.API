@@ -27,8 +27,6 @@ namespace ProyectoIntegrado.DAL.Entities
             : base(options)
         {
         }
-    
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
