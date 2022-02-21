@@ -31,7 +31,7 @@ namespace ProyectoIntegrado.DAL.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("server=localhost;port=3306;user=root;password=123456;database=proyectointegradodb", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.22-mysql"));
+                optionsBuilder.UseMySql("server=localhost;port=7045;user=root;password=123456;database=proyectointegradodb", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.22-mysql"));
             }
         }
 
