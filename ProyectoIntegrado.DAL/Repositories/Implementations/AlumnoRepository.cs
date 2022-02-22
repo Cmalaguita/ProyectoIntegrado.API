@@ -51,7 +51,12 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public List<Alumno> ObtenerAlumnos()
         {
-            return _context.Alumnos.Include(a=> a.Provincia).Include(a => a.ciclo).ThenInclude(a=>a.Tipociclo).Include(a => a.ciclo).ThenInclude(a=>a.familia).ToList();
+            var a=_context.Alumnos.Include(a=> a.Provincia).Include(a => a.ciclo).ThenInclude(a=>a.Tipociclo).Include(a => a.ciclo).ThenInclude(a=>a.familia).ToList();
+            foreach (var alumno in a)
+            {
+                alumno.Password = null;
+            }
+            return a;
         }
 
         public bool BorrarAlumno(Alumno alumno)
