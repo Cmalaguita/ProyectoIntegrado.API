@@ -15,6 +15,7 @@ namespace ProyectoIntegrado.DAL.Entities
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
+        public string empresaStripeID { get; set; }
         public int ProvinciaId { get; set; }
         [ForeignKey("ProvinciaId")]
         public Provincia Provincia { get; set; }

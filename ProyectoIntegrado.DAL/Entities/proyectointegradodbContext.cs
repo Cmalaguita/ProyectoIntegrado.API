@@ -17,6 +17,9 @@ namespace ProyectoIntegrado.DAL.Entities
         public DbSet<TipoDeCiclo> TipoCiclos { get; set; }
         public DbSet<Ciclo> Ciclos { get; set; }
         public DbSet<Inscripcion> Inscripciones { get; set; }
+        public DbSet<Contrato> Contratos { get; set; }
+        public DbSet<Factura> Facturas { get; set; }
+        public DbSet<FacturasContratos> FacturasContratos { get; set; }
 
 
         public proyectointegradodbContext()
@@ -31,7 +34,7 @@ namespace ProyectoIntegrado.DAL.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("server=localhost;port=7045;user=root;password=123456;database=proyectointegradodb", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.22-mysql"));
+                optionsBuilder.UseMySql("server=51.254.98.185;port=7045;user=carlos;password=sargentomillo;database=proyectointegradodb", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.22-mysql"));
             }
         }
 

@@ -22,5 +22,7 @@
     <ProjectReference Include="..\ProyectoIntegrado.CORE\ProyectoIntegrado.CORE.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
 
 </Project>

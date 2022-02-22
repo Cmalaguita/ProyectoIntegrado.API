@@ -108,6 +108,37 @@ namespace ProyectoIntegrado.DAL.Migrations
                     b.ToTable("Ciclos");
                 });
 
+            modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.Contrato", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("empresaStripeId")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("fechaAltaSuscripcion")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("fechaCancelacion")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("fechaExpiraSuscripcion")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("idEmpresa")
+                        .HasColumnType("int");
+
+                    b.Property<string>("suscripcionId")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("idEmpresa");
+
+                    b.ToTable("Contratos");
+                });
+
             modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.Empresa", b =>
                 {
                     b.Property<int>("Id")
@@ -140,11 +171,52 @@ namespace ProyectoIntegrado.DAL.Migrations
                     b.Property<int>("ProvinciaId")
                         .HasColumnType("int");
 
+                    b.Property<string>("empresaStripeID")
+                        .HasColumnType("longtext");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ProvinciaId");
 
                     b.ToTable("Empresas");
+                });
+
+            modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.Factura", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("fechaCreacion")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("url")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Facturas");
+                });
+
+            modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.FacturasContratos", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("idContrato")
+                        .HasColumnType("int");
+
+                    b.Property<int>("idFactura")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("idContrato");
+
+                    b.HasIndex("idFactura");
+
+                    b.ToTable("FacturasContratos");
                 });
 
             modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.FamiliaProfesional", b =>
@@ -308,6 +380,17 @@ namespace ProyectoIntegrado.DAL.Migrations
                     b.Navigation("Tipociclo");
                 });
 
+            modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.Contrato", b =>
+                {
+                    b.HasOne("ProyectoIntegrado.DAL.Entities.Empresa", "empresa")
+                        .WithMany()
+                        .HasForeignKey("idEmpresa")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("empresa");
+                });
+
             modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.Empresa", b =>
                 {
                     b.HasOne("ProyectoIntegrado.DAL.Entities.Provincia", "Provincia")
@@ -317,6 +400,25 @@ namespace ProyectoIntegrado.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("Provincia");
+                });
+
+            modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.FacturasContratos", b =>
+                {
+                    b.HasOne("ProyectoIntegrado.DAL.Entities.Contrato", "contrato")
+                        .WithMany()
+                        .HasForeignKey("idContrato")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProyectoIntegrado.DAL.Entities.Factura", "factura")
+                        .WithMany()
+                        .HasForeignKey("idFactura")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("contrato");
+
+                    b.Navigation("factura");
                 });
 
             modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.Inscripcion", b =>
