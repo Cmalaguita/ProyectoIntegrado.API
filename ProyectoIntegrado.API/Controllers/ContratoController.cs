@@ -59,28 +59,28 @@ namespace ProyectoIntegrado.API.Controllers
 
             try
             {
-                //var stripeEvent = EventUtility.ParseEvent(json);
+                var stripeEvent = EventUtility.ParseEvent(json);
 
-                //if (stripeEvent.Type == Events.InvoicePaid)
-                //{
-                //    var invoice = stripeEvent.Data.Object as Invoice;
-                //    paymentBL.PagoSuccess(invoice);
-                //}
-                //else if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
-                //{
-                //    var subscription = stripeEvent.Data.Object as Subscription;
-                //    paymentBL.SubscriptionCreated(subscription);
-                //}
-                //else if (stripeEvent.Type == Events.PaymentIntentSucceeded)
-                //{
-                //    var paymentIntent = stripeEvent.Data.Object as PaymentIntent;
-                //    paymentBL.PosiblePagoCancelacion(paymentIntent);
-                //}
-                //else
-                //{
-                //    // Unexpected event type
-                //    Console.WriteLine("Unhandled event type: {0}", stripeEvent.Type);
-                //}
+                if (stripeEvent.Type == Events.InvoicePaid)
+                {
+                    var invoice = stripeEvent.Data.Object as Invoice;
+                    paymentBL.PagoSuccess(invoice);
+                }
+                else if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
+                {
+                    var subscription = stripeEvent.Data.Object as Subscription;
+                    paymentBL.SubscriptionCreated(subscription);
+                }
+                else if (stripeEvent.Type == Events.PaymentIntentSucceeded)
+                {
+                    var paymentIntent = stripeEvent.Data.Object as PaymentIntent;
+                    paymentBL.PosiblePagoCancelacion(paymentIntent);
+                }
+                else
+                {
+                    // Unexpected event type
+                    Console.WriteLine("Unhandled event type: {0}", stripeEvent.Type);
+                }
                 return Ok();
             }
             catch (StripeException e)
