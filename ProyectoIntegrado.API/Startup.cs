@@ -110,6 +110,9 @@ namespace ProyectoIntegrado.API
 
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddScoped<IJwtBearer, JwtBearer>();
+            services.AddScoped<IContratoBL, ContratoBL>();
+
+            //services.AddScoped<IContratoRepository, ContratoRepository>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
