@@ -56,25 +56,30 @@ namespace ProyectoIntegrado.API.Controllers
         public async Task<IActionResult> Index()
         {
             var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
+            var endpointSecret = "whsec_690baeddd90f67c3a61e88edc94aed113de45d5ddf1bd4e0bdbea039b602a02d";
 
             try
             {
+               
                 var stripeEvent = EventUtility.ParseEvent(json);
+
+                stripeEvent = EventUtility.ConstructEvent(json,
+    Request.Headers["Stripe-Signature"], endpointSecret);
 
                 if (stripeEvent.Type == Events.InvoicePaid)
                 {
                     var invoice = stripeEvent.Data.Object as Invoice;
-                    paymentBL.PagoSuccess(invoice);
+                   
                 }
                 else if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
                 {
                     var subscription = stripeEvent.Data.Object as Subscription;
-                    paymentBL.SubscriptionCreated(subscription);
+                    
                 }
                 else if (stripeEvent.Type == Events.PaymentIntentSucceeded)
                 {
                     var paymentIntent = stripeEvent.Data.Object as PaymentIntent;
-                    paymentBL.PosiblePagoCancelacion(paymentIntent);
+                    
                 }
                 else
                 {
