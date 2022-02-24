@@ -15,6 +15,7 @@ using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.BL.Implementations;
 using ProyectoIntegrado.CORE.Email;
 using ProyectoIntegrado.CORE.Security;
+using ProyectoIntegrado.CORE.Stripe;
 using ProyectoIntegrado.DAL.Contracts;
 using ProyectoIntegrado.DAL.Entities;
 using ProyectoIntegrado.DAL.Repositories.Contracts;
@@ -110,8 +111,10 @@ namespace ProyectoIntegrado.API
 
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddScoped<IJwtBearer, JwtBearer>();
+
             services.AddScoped<IContratoBL, ContratoBL>();
 
+            services.AddScoped<IStripe, StripeImpl>();
             //services.AddScoped<IContratoRepository, ContratoRepository>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

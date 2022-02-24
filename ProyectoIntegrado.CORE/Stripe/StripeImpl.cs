@@ -54,6 +54,7 @@ namespace ProyectoIntegrado.CORE.Stripe
 
         public Customer CrearEmpresEnStripe(Empresa empresa)
         {
+            StripeConfiguration.ApiKey = configuration["Pago:Stripe:secretApiKey"];
             var options = new CustomerCreateOptions
             {
                 Email = empresa.Email,
@@ -77,6 +78,7 @@ namespace ProyectoIntegrado.CORE.Stripe
 
         public Task<Session> ComprarSuscripcionPremium(string stripeEmpresaId)
         {
+            StripeConfiguration.ApiKey = configuration["Pago:Stripe:secretApiKey"];
             return ComprarSuscripcion(stripeEmpresaId, "price_1KUv1RLurAtlZyUsd1ZDVmEt");
         }
 
@@ -98,6 +100,7 @@ namespace ProyectoIntegrado.CORE.Stripe
 
         public async Task<Session> ComprarSuscripcion(string stripeEmpresaId , string suscripcionId)
         {
+            StripeConfiguration.ApiKey = configuration["Pago:Stripe:secretApiKey"];
             var options = new SessionCreateOptions
             {
 
