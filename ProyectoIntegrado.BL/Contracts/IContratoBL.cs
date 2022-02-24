@@ -7,7 +7,7 @@ namespace ProyectoIntegrado.BL.Contracts
 {
    public interface IContratoBL
     {
-         ContratoDTO Stripe(ContratoDTO contratoDTO);
+        string CrearSuscripcionPremium(EmpresaDTO empresa);
         DateTime FromUnixTimestampToDateTime(long unixTimeStamp);
     }
 }

@@ -21,19 +21,19 @@ namespace ProyectoIntegrado.BL.Implementations
             this.empresaRepository = empresaRepository;
             
         }
-        public ContratoDTO Stripe(ContratoDTO contratoDTO)
+        public string CrearSuscripcionPremium(EmpresaDTO empresa)
         {
-            #region Crear customer si no existe
-            var e = empresaRepository.BuscarEmpresa(contratoDTO.idEmpresa);
+           
+            var e = empresaRepository.BuscarEmpresa(empresa.Id);
             if (e.empresaStripeID == null)
             {
                 var customer = stripe.CrearEmpresEnStripe(e);
                 e.empresaStripeID = customer.Id;
                 empresaRepository.ActualizarEmpresa(e);
             }
-            stripe.ComprarSuscripcionPremium(e.empresaStripeID);
-            #endregion
-            return contratoDTO;
+          return  stripe.ComprarSuscripcionPremium(e.empresaStripeID).Result.Url;
+           
+           
         }
         public DateTime FromUnixTimestampToDateTime(long unixTimeStamp)
         {

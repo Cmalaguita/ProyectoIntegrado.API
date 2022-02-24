@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.CORE.DTO;
 using Stripe;
 using Stripe.Checkout;
@@ -16,6 +17,11 @@ namespace ProyectoIntegrado.API.Controllers
     [ApiController]
     public class ContratoController : ControllerBase
     {
+        public IContratoBL contratoBL { get; set; }
+        public ContratoController(IContratoBL contratoBL)
+        {
+            this.contratoBL = contratoBL;
+        }
         [HttpPost]
         [AllowAnonymous]
         public ActionResult<string> CrearPago(ContratoDTO contratoDTO)
@@ -65,7 +71,7 @@ namespace ProyectoIntegrado.API.Controllers
 
                 stripeEvent = EventUtility.ConstructEvent(json,
     Request.Headers["Stripe-Signature"], endpointSecret);
-
+                Console.WriteLine("EVENTO RECIBIDO " + stripeEvent.Type);
                 if (stripeEvent.Type == Events.InvoicePaid)
                 {
                     var invoice = stripeEvent.Data.Object as Invoice;
@@ -74,7 +80,11 @@ namespace ProyectoIntegrado.API.Controllers
                 else if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
                 {
                     var subscription = stripeEvent.Data.Object as Subscription;
-                    
+                }
+                else if (stripeEvent.Type == Events.CustomerCreated)
+                {
+                    var customer = stripeEvent.Data.Object as Customer;
+
                 }
                 else if (stripeEvent.Type == Events.PaymentIntentSucceeded)
                 {
@@ -94,5 +104,15 @@ namespace ProyectoIntegrado.API.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("Crear_Sus_Premium")]
+
+        public string crearSuscripcionPremium(EmpresaDTO empresaDTO)
+        {
+            return contratoBL.CrearSuscripcionPremium(empresaDTO);
+        }
+
     }
 }

@@ -6,7 +6,6 @@ C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrad
 C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\obj\Debug\netcoreapp3.1\ProyectoIntegrado.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\obj\Debug\netcoreapp3.1\ProyectoIntegrado.API.dll
 C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\obj\Debug\netcoreapp3.1\ProyectoIntegrado.API.pdb
-C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\ProyectoIntegrado.API.exe
 C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\ProyectoIntegrado.API.deps.json
@@ -129,3 +128,8 @@ C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Deb
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\appsettingsUNVALIDATED.Development.json
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\Stripe.net.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\CarlosFernandez\Documents\GitHub\ProyectoIntegrado.API\ProyectoIntegrado.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
