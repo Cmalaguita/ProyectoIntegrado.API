@@ -62,7 +62,8 @@ namespace ProyectoIntegrado.API.Controllers
         public async Task<IActionResult> Index()
         {
             var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
-            var endpointSecret = "whsec_690baeddd90f67c3a61e88edc94aed113de45d5ddf1bd4e0bdbea039b602a02d";
+
+            var endpointSecret = "whsec_cTZF2X4JnfGPAY9qADdNcKwiLxRUNG21";
 
             try
             {
