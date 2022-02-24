@@ -108,7 +108,6 @@ namespace ProyectoIntegrado.API.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("Crear_Sus_Premium")]
-
         public string crearSuscripcionPremium(EmpresaDTO empresaDTO)
         {
             return contratoBL.CrearSuscripcionPremium(empresaDTO);

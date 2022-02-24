@@ -11,7 +11,7 @@ using System.Text;
 
 namespace ProyectoIntegrado.BL.Implementations
 {
-    class ContratoBL : IContratoBL
+   public class ContratoBL : IContratoBL
     {
         public IEmpresaRepository empresaRepository { get; set; }
         public IStripe stripe { get; set; }
@@ -41,6 +41,5 @@ namespace ProyectoIntegrado.BL.Implementations
             dateTime = dateTime.AddSeconds(unixTimeStamp).ToLocalTime();
             return dateTime;
         }
-
     }
 }
