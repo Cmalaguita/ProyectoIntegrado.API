@@ -31,10 +31,9 @@ namespace ProyectoIntegrado.BL.Implementations
                 e.empresaStripeID = customer.Id;
                 empresaRepository.ActualizarEmpresa(e);
             }
-          return  stripe.ComprarSuscripcionPremium(e.empresaStripeID).Result.Url;
-           
-           
+          return  stripe.ComprarSuscripcionPremium(e.empresaStripeID).Result.Url;   
         }
+
         public DateTime FromUnixTimestampToDateTime(long unixTimeStamp)
         {
             DateTime dateTime = new DateTime(1970, 1, 1);

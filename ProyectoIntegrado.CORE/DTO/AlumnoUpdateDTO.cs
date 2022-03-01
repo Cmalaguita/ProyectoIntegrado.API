@@ -7,8 +7,7 @@ using System.Text;
 namespace ProyectoIntegrado.CORE.DTO
 {
    public class AlumnoUpdateDTO
-    {
-       
+    {     
         public string Email { get; set; }   
         public string Nombre { get; set; }
         public string Apellidos { get; set; }

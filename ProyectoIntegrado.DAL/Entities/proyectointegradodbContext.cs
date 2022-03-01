@@ -20,6 +20,7 @@ namespace ProyectoIntegrado.DAL.Entities
         public DbSet<Contrato> Contratos { get; set; }
         public DbSet<Factura> Facturas { get; set; }
         public DbSet<FacturasContratos> FacturasContratos { get; set; }
+        public DbSet<Mensaje> Mensajes { get; set; }
 
 
         public proyectointegradodbContext()

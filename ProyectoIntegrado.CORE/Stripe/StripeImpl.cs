@@ -71,9 +71,9 @@ namespace ProyectoIntegrado.CORE.Stripe
             return new CustomerService().Create(options);
         }
 
-        public bool ComprobarSuscripcionPremium(string email)
+        public bool ComprobarSuscripcionPremium(string empresaStripeId)
         {
-            throw new NotImplementedException();
+            return ComprobarSiExisteSuscripcion(empresaStripeId, "price_1KUv1RLurAtlZyUsd1ZDVmEt");
         }
 
         public Task<Session> ComprarSuscripcionPremium(string stripeEmpresaId)
@@ -104,7 +104,7 @@ namespace ProyectoIntegrado.CORE.Stripe
             var options = new SessionCreateOptions
             {
 
-                SuccessUrl = "https://example.com/success.html?session_id={CHECKOUT_SESSION_ID}",
+                SuccessUrl = "https://www.infocarlos.me/login",
                 CancelUrl = "https://example.com/canceled.html",
                 Mode = "subscription",
                 Customer = stripeEmpresaId,

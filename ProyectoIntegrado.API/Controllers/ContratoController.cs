@@ -76,7 +76,6 @@ namespace ProyectoIntegrado.API.Controllers
                 if (stripeEvent.Type == Events.InvoicePaid)
                 {
                     var invoice = stripeEvent.Data.Object as Invoice;
-                   
                 }
                 else if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
                 {

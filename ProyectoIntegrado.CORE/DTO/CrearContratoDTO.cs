@@ -5,14 +5,11 @@ using System.Text;
 
 namespace ProyectoIntegrado.CORE.DTO
 {
-    public class ContratoDTO
+    public class CrearContratoDTO
     {
-        public int id { get; set; }
         public string empresaStripeId { get; set; }
         public string suscripcionId { get; set; }
         public int idEmpresa { get; set; }
-        public EmpresaDTO empresa { get; set; }
-        public List<FacturaDTO> facturas { get; set; }
         public DateTime fechaAltaSuscripcion { get; set; }
         public DateTime fechaExpiraSuscripcion { get; set; }
         public DateTime? fechaCancelacion { get; set; }

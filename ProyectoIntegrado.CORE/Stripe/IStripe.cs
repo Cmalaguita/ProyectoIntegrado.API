@@ -16,7 +16,7 @@ namespace ProyectoIntegrado.CORE.Stripe
         public StripeList<Subscription> ObtenerSuscripciones(string suscripcionId);
         public StripeList<Subscription> ObtenerSuscripcionPremium();
         public Customer CrearEmpresEnStripe(Empresa empresa);
-        public bool ComprobarSuscripcionPremium(string email);     
+        public bool ComprobarSuscripcionPremium(string empresaStripeId);     
         public Task<Session> ComprarSuscripcionPremium(string stripeEmpresaId);
         public bool ComprobarSiExisteSuscripcion(string empresaStripeId, string suscripcionId);
         public Task<Session> ComprarSuscripcion(string empresaStripeId, string suscripcionId);
