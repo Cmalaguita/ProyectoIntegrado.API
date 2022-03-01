@@ -112,8 +112,11 @@ namespace ProyectoIntegrado.API
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddScoped<IJwtBearer, JwtBearer>();
 
+            services.AddScoped<IContratoRepository, ContratoRepository>();
             services.AddScoped<IContratoBL, ContratoBL>();
 
+            services.AddScoped<IFacturaRepository, FacturaRepository>();
+            services.AddScoped<IFacturaBL, FacturaBL>();
             services.AddScoped<IStripe, StripeImpl>();
             //services.AddScoped<IContratoRepository, ContratoRepository>();
         }

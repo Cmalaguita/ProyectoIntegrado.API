@@ -18,5 +18,6 @@ namespace ProyectoIntegrado.CORE.DTO
         public string Localidad { get; set; }
         public string Direccion { get; set; }
         public bool EmailVerificado { get; set; }
+        public string empresaStripeID { get; set; }
     }
 }

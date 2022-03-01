@@ -48,8 +48,6 @@ namespace ProyectoIntegrado.API.Controllers
                
             };
 
-            //Días sin poder registrar el TRIAL, le restamos 120 segundos para que no coincida con justo el límite
-
             var service = new SessionService();
             var session = service.Create(options);
             return Ok(session.Url);
@@ -85,11 +83,6 @@ namespace ProyectoIntegrado.API.Controllers
                 {
                     var customer = stripeEvent.Data.Object as Customer;
 
-                }
-                else if (stripeEvent.Type == Events.PaymentIntentSucceeded)
-                {
-                    var paymentIntent = stripeEvent.Data.Object as PaymentIntent;
-                    
                 }
                 else
                 {

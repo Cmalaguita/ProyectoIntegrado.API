@@ -65,6 +65,18 @@ namespace ProyectoIntegrado.CORE.AutomapperProfile
 
                 CreateMap<UpdateInscripcionDTO, Inscripcion>();
                 CreateMap<Inscripcion, UpdateInscripcionDTO>();
+
+                CreateMap<ContratoDTO, Contrato>();
+                CreateMap<Contrato,ContratoDTO>();
+
+                CreateMap<CrearContratoDTO, Contrato>();
+                CreateMap<Contrato, CrearContratoDTO>();
+
+                CreateMap<FacturaDTO, Factura>();
+                CreateMap<Factura, FacturaDTO>();
+
+                CreateMap<CrearFacturaDTO, Factura>();
+                CreateMap<Factura, CrearFacturaDTO>();
             }
         }
     }

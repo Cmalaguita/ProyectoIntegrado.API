@@ -9,7 +9,7 @@ namespace ProyectoIntegrado.BL.Contracts
    public interface IEmpresaBL
     {
         public EmpresaDTO Login(EmpresaLoginDTO empresaLoginDTO);
-        public bool CreateEmpresa(EmpresaSignUpDTO empresaSignUpDTO);
+        public EmpresaDTO CreateEmpresa(EmpresaSignUpDTO empresaSignUpDTO);
         public bool Exists(EmpresaDTO empresaDTO);
         EmpresaDTO ExistsUnicamenteEmail(string email);
         List<EmpresaDTO> ObtenerEmpresas();

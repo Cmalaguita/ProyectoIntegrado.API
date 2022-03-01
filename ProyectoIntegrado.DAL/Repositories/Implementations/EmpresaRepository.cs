@@ -28,12 +28,12 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             }
         }
 
-        public bool CreateEmpresa(Empresa empresa)
+        public Empresa CreateEmpresa(Empresa empresa)
         {
-            _context.Empresas.Add(empresa);
-            
+            _context.Empresas.Add(empresa);   
             _context.SaveChanges();
-            return true;
+           var e= ExistsUnicamenteEmail(empresa.Email);
+            return e;
         }
 
         public bool Exists(Empresa empresa)
@@ -47,7 +47,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
         }
         public Empresa ExistsUnicamenteEmail(string email)
         {
-            return _context.Empresas.Where(u => u.Email == email).FirstOrDefault();
+            return _context.Empresas.Where(u => u.Email == email).Include(e=>e.Provincia).FirstOrDefault();
         }
         public List<Empresa> ObtenerEmpresas()
         {

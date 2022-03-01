@@ -41,17 +41,17 @@ namespace ProyectoIntegrado.BL.Implementations
             }
         }
 
-        public  bool CreateEmpresa(EmpresaSignUpDTO empresaSignUpDTO)
+        public  EmpresaDTO CreateEmpresa(EmpresaSignUpDTO empresaSignUpDTO)
         {         
             empresaSignUpDTO.Password = passwordGenerator.Hash(empresaSignUpDTO.Password);
             var empresa = mapper.Map<EmpresaSignUpDTO, Empresa>(empresaSignUpDTO);
             if (!empresaRepository.Exists(empresa))
             {
-             var e= empresaRepository.CreateEmpresa(empresa);
+             var e= mapper.Map<Empresa,EmpresaDTO>(empresaRepository.CreateEmpresa(empresa));
                 
                 return e;
             }
-            return false;
+            return null;
         }
 
         public bool Exists(EmpresaDTO empresa)

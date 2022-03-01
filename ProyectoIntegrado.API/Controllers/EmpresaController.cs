@@ -46,12 +46,12 @@ namespace ProyectoIntegrado.API.Controllers
         [HttpPost]
         [Route("Sign_up_Empresa")]
         [AllowAnonymous]
-        public ActionResult CreateEmpresa(EmpresaSignUpDTO empresaSignUpDTO)
+        public ActionResult<EmpresaDTO> CreateEmpresa(EmpresaSignUpDTO empresaSignUpDTO)
         {          
             var empresa = EmpresaBL.CreateEmpresa(empresaSignUpDTO);
-            if (empresa)
+            if (empresa!=null)
             {
-                return Ok();
+                return Ok(empresa);
             }
             else
             {
