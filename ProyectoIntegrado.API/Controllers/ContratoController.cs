@@ -82,14 +82,14 @@ namespace ProyectoIntegrado.API.Controllers
                 {
                     var invoice = stripeEvent.Data.Object as Invoice;
                     Console.WriteLine("invoice dentro del evento" + invoice);
-                    Console.WriteLine("ID EMPRESA: "+ empresaBL.ExistsUnicamenteEmail(invoice.CustomerEmail).Id);
+                    Console.WriteLine("ID EMPRESA: "+ empresaBL.ExistsUnicamenteEmail(invoice.Customer.Email).Id);
                     Console.WriteLine("SUSCRIPCIONID: " + invoice.SubscriptionId);
                     Console.WriteLine("INICIO DEL PERIODO: " + invoice.PeriodStart);
                     Console.WriteLine("FECHA DE PAGO: " + invoice.PeriodEnd);
                     Console.WriteLine("ID CONTRATO: " + contratoBL.ObtenerContratoPorEmpresaYSuscripcionId(empresaBL.ExistsUnicamenteEmail(invoice.Customer.Email).Id, invoice.SubscriptionId).id);
                     CrearFacturaDTO nf = new CrearFacturaDTO
                     {                       
-                        idEmpresa = empresaBL.ExistsUnicamenteEmail(invoice.CustomerEmail).Id,
+                        idEmpresa = empresaBL.ExistsUnicamenteEmail(invoice.Customer.Email).Id,
                         suscripcionId = invoice.SubscriptionId,
                         fechaCreacion = invoice.PeriodStart,
                         fechaPago = invoice.PeriodEnd,
