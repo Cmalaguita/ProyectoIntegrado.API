@@ -101,7 +101,7 @@ namespace ProyectoIntegrado.API.Controllers
                 {
                     var subscription = stripeEvent.Data.Object as Subscription;
                     Console.WriteLine("Suscripcion dentro del evento"+subscription);
-                    Console.WriteLine("CONTRATO EMAIL CLIENTE: " + subscription.Customer.Email);
+                    Console.WriteLine("CONTRATO EMAIL CLIENTE: " + stripe.ObtenerEmailEmpresaPorStripeId(subscription.CustomerId));
                     Console.WriteLine("CONTRATO SUSCRIPCION ID: "+subscription.Id);
                     Console.WriteLine("CONTRATO EMPRESASTRIPEID" + subscription.CustomerId);
                     Console.WriteLine("CONTRATO EMPRESAID: " + empresaBL.ExistsUnicamenteEmail(subscription.Customer.Email).Id);
