@@ -82,8 +82,13 @@ namespace ProyectoIntegrado.API.Controllers
                 {
                     var invoice = stripeEvent.Data.Object as Invoice;
                     Console.WriteLine("invoice dentro del evento" + invoice);
+                    Console.WriteLine("ID EMPRESA: "+ empresaBL.ExistsUnicamenteEmail(invoice.CustomerEmail).Id);
+                    Console.WriteLine("SUSCRIPCIONID: " + invoice.SubscriptionId);
+                    Console.WriteLine("INICIO DEL PERIODO: " + invoice.PeriodStart);
+                    Console.WriteLine("FECHA DE PAGO: " + invoice.PeriodEnd);
+                    Console.WriteLine("ID CONTRATO: " + contratoBL.ObtenerContratoPorEmpresaYSuscripcionId(empresaBL.ExistsUnicamenteEmail(invoice.Customer.Email).Id, invoice.SubscriptionId).id);
                     CrearFacturaDTO nf = new CrearFacturaDTO
-                    {
+                    {                       
                         idEmpresa = empresaBL.ExistsUnicamenteEmail(invoice.CustomerEmail).Id,
                         suscripcionId = invoice.SubscriptionId,
                         fechaCreacion = invoice.PeriodStart,
@@ -96,6 +101,11 @@ namespace ProyectoIntegrado.API.Controllers
                 {
                     var subscription = stripeEvent.Data.Object as Subscription;
                     Console.WriteLine("Suscripcion dentro del evento"+subscription);
+                    Console.WriteLine("CONTRATO SUSCRIPCION ID: "+subscription.Id);
+                    Console.WriteLine("CONTRATO EMPRESASTRIPEID" + subscription.CustomerId);
+                    Console.WriteLine("CONTRATO EMPRESAID: " + empresaBL.ExistsUnicamenteEmail(subscription.Customer.Email).Id);
+                    Console.WriteLine("CONTRATO FECHAALTASUSCRIPCION: " + subscription.Created);
+                    Console.WriteLine("CONTRATO FECHAEXPIRASUSCRIPCION: " + subscription.CurrentPeriodEnd);
                     CrearContratoDTO nc = new CrearContratoDTO
                     {
                         suscripcionId = subscription.Id,
