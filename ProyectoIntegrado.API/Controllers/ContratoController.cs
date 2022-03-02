@@ -81,6 +81,7 @@ namespace ProyectoIntegrado.API.Controllers
                 if (stripeEvent.Type == Events.InvoicePaid)
                 {
                     var invoice = stripeEvent.Data.Object as Invoice;
+                    //debug para la consola del servidor
                     Console.WriteLine("invoice dentro del evento" + invoice);
                     Console.WriteLine("ID EMPRESA: "+ empresaBL.ExistsUnicamenteEmail(stripe.ObtenerEmailEmpresaPorStripeId(invoice.CustomerId)).Id);
                     Console.WriteLine("SUSCRIPCIONID: " + invoice.SubscriptionId);
@@ -100,6 +101,7 @@ namespace ProyectoIntegrado.API.Controllers
                 else if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
                 {
                     var subscription = stripeEvent.Data.Object as Subscription;
+                    //debug para la consola del servidor
                     Console.WriteLine("Suscripcion dentro del evento"+subscription);
                     Console.WriteLine("CONTRATO EMAIL CLIENTE: " + stripe.ObtenerEmailEmpresaPorStripeId(subscription.CustomerId));
                     Console.WriteLine("CONTRATO SUSCRIPCION ID: "+subscription.Id);
