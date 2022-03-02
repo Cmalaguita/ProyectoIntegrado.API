@@ -82,18 +82,18 @@ namespace ProyectoIntegrado.API.Controllers
                 {
                     var invoice = stripeEvent.Data.Object as Invoice;
                     Console.WriteLine("invoice dentro del evento" + invoice);
-                    Console.WriteLine("ID EMPRESA: "+ empresaBL.ExistsUnicamenteEmail(stripe.ObtenerEmailEmpresaPorStripeId(invoice.CustomerId)).Id);
+                    Console.WriteLine("ID EMPRESA: "+ empresaBL.ExistsUnicamenteEmail(invoice.Customer.Email).Id);
                     Console.WriteLine("SUSCRIPCIONID: " + invoice.SubscriptionId);
                     Console.WriteLine("INICIO DEL PERIODO: " + invoice.PeriodStart);
                     Console.WriteLine("FECHA DE PAGO: " + invoice.PeriodEnd);
                     Console.WriteLine("ID CONTRATO: " + contratoBL.ObtenerContratoPorEmpresaYSuscripcionId(empresaBL.ExistsUnicamenteEmail(invoice.Customer.Email).Id, invoice.SubscriptionId).id);
                     CrearFacturaDTO nf = new CrearFacturaDTO
                     {                       
-                        idEmpresa = empresaBL.ExistsUnicamenteEmail(stripe.ObtenerEmailEmpresaPorStripeId(invoice.CustomerId)).Id,
+                        idEmpresa = empresaBL.ExistsUnicamenteEmail(invoice.Customer.Email).Id,
                         suscripcionId = invoice.SubscriptionId,
                         fechaCreacion = invoice.PeriodStart,
                         fechaPago = invoice.PeriodEnd,
-                        idContrato = contratoBL.ObtenerContratoPorEmpresaYSuscripcionId(empresaBL.ExistsUnicamenteEmail(stripe.ObtenerEmailEmpresaPorStripeId(invoice.CustomerId)).Id,invoice.SubscriptionId).id
+                        idContrato = contratoBL.ObtenerContratoPorEmpresaYSuscripcionId(empresaBL.ExistsUnicamenteEmail(invoice.Customer.Email).Id,invoice.SubscriptionId).id
                     };
                     facturaBL.InsertarFactura(nf);
                 }
@@ -104,14 +104,14 @@ namespace ProyectoIntegrado.API.Controllers
                     Console.WriteLine("CONTRATO EMAIL CLIENTE: " + stripe.ObtenerEmailEmpresaPorStripeId(subscription.CustomerId));
                     Console.WriteLine("CONTRATO SUSCRIPCION ID: "+subscription.Id);
                     Console.WriteLine("CONTRATO EMPRESASTRIPEID" + subscription.CustomerId);
-                    Console.WriteLine("CONTRATO EMPRESAID: " + empresaBL.ExistsUnicamenteEmail(stripe.ObtenerEmailEmpresaPorStripeId(subscription.CustomerId)).Id);
+                    Console.WriteLine("CONTRATO EMPRESAID: " + empresaBL.ExistsUnicamenteEmail(subscription.Customer.Email).Id);
                     Console.WriteLine("CONTRATO FECHAALTASUSCRIPCION: " + subscription.Created);
                     Console.WriteLine("CONTRATO FECHAEXPIRASUSCRIPCION: " + subscription.CurrentPeriodEnd);
                     CrearContratoDTO nc = new CrearContratoDTO
                     {
                         suscripcionId = subscription.Id,
                         empresaStripeId = subscription.CustomerId,
-                        idEmpresa = empresaBL.ExistsUnicamenteEmail(stripe.ObtenerEmailEmpresaPorStripeId(subscription.CustomerId)).Id,
+                        idEmpresa = empresaBL.ExistsUnicamenteEmail(subscription.Customer.Email).Id,
                         fechaAltaSuscripcion = subscription.Created,
                         fechaExpiraSuscripcion = subscription.CurrentPeriodEnd
                     };
