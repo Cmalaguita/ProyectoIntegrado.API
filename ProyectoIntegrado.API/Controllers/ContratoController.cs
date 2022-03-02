@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoIntegrado.BL.Contracts;
 using ProyectoIntegrado.CORE.DTO;
+using ProyectoIntegrado.CORE.Stripe;
 using Stripe;
 using Stripe.Checkout;
 using System;
@@ -17,9 +18,15 @@ namespace ProyectoIntegrado.API.Controllers
     [ApiController]
     public class ContratoController : ControllerBase
     {
+        public IStripe stripe { get; set; }
         public IContratoBL contratoBL { get; set; }
-        public ContratoController(IContratoBL contratoBL)
+        public IFacturaBL facturaBL { get; set; }
+        public IEmpresaBL empresaBL { get; set; }
+        public ContratoController(IContratoBL contratoBL, IFacturaBL facturaBL, IStripe stripe, IEmpresaBL empresaBL)
         {
+            this.empresaBL = empresaBL;
+            this.stripe = stripe;
+            this.facturaBL = facturaBL;
             this.contratoBL = contratoBL;
         }
         [HttpPost]
@@ -74,10 +81,28 @@ namespace ProyectoIntegrado.API.Controllers
                 if (stripeEvent.Type == Events.InvoicePaid)
                 {
                     var invoice = stripeEvent.Data.Object as Invoice;
+                    CrearFacturaDTO nf = new CrearFacturaDTO
+                    {
+                        idEmpresa = empresaBL.ExistsUnicamenteEmail(invoice.CustomerEmail).Id,
+                        suscripcionId = invoice.SubscriptionId,
+                        fechaCreacion = invoice.PeriodStart,
+                        fechaPago = invoice.PeriodEnd,
+                        idContrato = contratoBL.ObtenerContratoPorEmpresaYSuscripcionId(empresaBL.ExistsUnicamenteEmail(invoice.Customer.Email).Id,invoice.SubscriptionId).id
+                    };
+                    facturaBL.InsertarFactura(nf);
                 }
                 else if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
                 {
                     var subscription = stripeEvent.Data.Object as Subscription;
+                    CrearContratoDTO nc = new CrearContratoDTO
+                    {
+                        suscripcionId = subscription.Id,
+                        empresaStripeId = subscription.CustomerId,
+                        idEmpresa = empresaBL.ExistsUnicamenteEmail(subscription.Customer.Email).Id,
+                        fechaAltaSuscripcion = subscription.Created,
+                        fechaExpiraSuscripcion = subscription.CurrentPeriodEnd
+                    };
+                    contratoBL.InsertarContrato(nc);
                 }
                 else if (stripeEvent.Type == Events.CustomerCreated)
                 {
@@ -103,8 +128,17 @@ namespace ProyectoIntegrado.API.Controllers
         [Route("Crear_Sus_Premium")]
         public string crearSuscripcionPremium(EmpresaDTO empresaDTO)
         {
+            
             return contratoBL.CrearSuscripcionPremium(empresaDTO);
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("Comprobar_Sus_Premium")]
+        public string ComprobarSuscripcionPremium(EmpresaDTO empresaDTO)
+        {
+
+            return contratoBL.CrearSuscripcionPremium(empresaDTO);
+        }
     }
 }

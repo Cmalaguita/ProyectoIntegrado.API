@@ -10,7 +10,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Contracts
         List<Contrato> ObtenerContratosPorEmpresaStripeId(string empresaStripeId);
         List<Contrato> ObtenerContratosPorSuscripcionId(string suscripcionId);
         List<Contrato> ObtenerContratosPorEmpresaId(int empresaId);
-        List<Contrato> ObtenerContratosPorEmpresaYSuscripcionId(int empresaId,string suscripcionId);
+        Contrato ObtenerContratoPorEmpresaYSuscripcionId(int empresaId,string suscripcionId);
         Contrato InsertarContrato(Contrato contrato);
         bool BorrarContrato(int idContrato);
         Contrato ExistContrato(int idContrato);

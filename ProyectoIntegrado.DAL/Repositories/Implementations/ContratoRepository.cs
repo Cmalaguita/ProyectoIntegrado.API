@@ -54,9 +54,9 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             return _context.Contratos.Where(c => c.empresaStripeId == empresaStripeId).Include(c => c.empresa).ThenInclude(e => e.Provincia).ToList();
         }
 
-        public List<Contrato> ObtenerContratosPorEmpresaYSuscripcionId(int empresaId, string suscripcionId)
+        public Contrato ObtenerContratoPorEmpresaYSuscripcionId(int empresaId, string suscripcionId)
         {
-            return _context.Contratos.Where(c => c.idEmpresa == empresaId && c.suscripcionId==suscripcionId).Include(c => c.empresa).ThenInclude(e => e.Provincia).ToList();
+            return _context.Contratos.Where(c => c.idEmpresa == empresaId && c.suscripcionId==suscripcionId).Include(c => c.empresa).ThenInclude(e => e.Provincia).FirstOrDefault();
         }
 
         public List<Contrato> ObtenerContratosPorSuscripcionId(string suscripcionId)
