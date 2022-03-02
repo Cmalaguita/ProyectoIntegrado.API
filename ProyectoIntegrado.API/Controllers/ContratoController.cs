@@ -81,6 +81,7 @@ namespace ProyectoIntegrado.API.Controllers
                 if (stripeEvent.Type == Events.InvoicePaid)
                 {
                     var invoice = stripeEvent.Data.Object as Invoice;
+                    Console.WriteLine("invoice dentro del evento" + invoice);
                     CrearFacturaDTO nf = new CrearFacturaDTO
                     {
                         idEmpresa = empresaBL.ExistsUnicamenteEmail(invoice.CustomerEmail).Id,
@@ -94,6 +95,7 @@ namespace ProyectoIntegrado.API.Controllers
                 else if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
                 {
                     var subscription = stripeEvent.Data.Object as Subscription;
+                    Console.WriteLine("Suscripcion dentro del evento"+subscription);
                     CrearContratoDTO nc = new CrearContratoDTO
                     {
                         suscripcionId = subscription.Id,
