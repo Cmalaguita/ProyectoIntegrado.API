@@ -16,6 +16,7 @@ C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\bin\Deb
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.runtimeconfig.dev.json
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.dll
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\bin\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.pdb
+C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.csprojAssemblyReference.cache
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.AssemblyInfoInputs.cache
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.AssemblyInfo.cs
 C:\Users\Carlos\source\repos\ProyectoIntegrado.API\ProyectoIntegrado.DAL\obj\Debug\netcoreapp3.1\ProyectoIntegrado.DAL.csproj.CoreCompileInputs.cache
