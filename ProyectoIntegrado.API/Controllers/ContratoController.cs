@@ -89,7 +89,7 @@ namespace ProyectoIntegrado.API.Controllers
                     Console.WriteLine("ID CONTRATO: " + contratoBL.ObtenerContratoPorEmpresaYSuscripcionId(empresaBL.ExistsUnicamenteEmail(stripe.ObtenerEmailEmpresaPorStripeId(invoice.CustomerId)).Id, invoice.SubscriptionId).id);
                     CrearFacturaDTO nf = new CrearFacturaDTO
                     {                       
-                        idEmpresa = empresaBL.ExistsUnicamenteEmail(invoice.Customer.Email).Id,
+                        idEmpresa = empresaBL.ExistsUnicamenteEmail(stripe.ObtenerEmailEmpresaPorStripeId(invoice.CustomerId)).Id,
                         suscripcionId = invoice.SubscriptionId,
                         fechaCreacion = invoice.PeriodStart,
                         fechaPago = invoice.PeriodEnd,
