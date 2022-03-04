@@ -77,5 +77,16 @@ namespace ProyectoIntegrado.BL.Implementations
             var fincoming= mapper.Map<FacturaDTO, Factura>(factura);
            return mapper.Map<Factura, FacturaDTO>(facturaRepository.ActualizarFactura(fincoming));
         }
+        public DateTime FromUnixTimestampToDateTime(long unixTimeStamp)
+        {
+            DateTime dateTime = new DateTime(1970, 1, 1);
+            dateTime = dateTime.AddSeconds(unixTimeStamp).ToLocalTime();
+            return dateTime;
+        }
+
+        public FacturaDTO ObtenerFacturaPagadaMasReciente(int empresaId)
+        {
+            return mapper.Map<Factura,FacturaDTO>(facturaRepository.ObtenerFacturaPagadaMasReciente(empresaId));
+        }
     }
 }

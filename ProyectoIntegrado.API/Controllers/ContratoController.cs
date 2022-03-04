@@ -79,20 +79,22 @@ namespace ProyectoIntegrado.API.Controllers
     Request.Headers["Stripe-Signature"], endpointSecret);
                 Console.WriteLine("EVENTO RECIBIDO " + stripeEvent.Type);
                 if (stripeEvent.Type == Events.InvoicePaid)
-                {
+                {// quitar la tabla de contrato
                     var invoice = stripeEvent.Data.Object as Invoice;
                     Console.WriteLine("invoice dentro del evento" + invoice);
                     Console.WriteLine("ID EMPRESA: "+ empresaBL.ExistsUnicamenteEmail(stripe.ObtenerEmailEmpresaPorStripeId(invoice.CustomerId)).Id);
                     Console.WriteLine("SUSCRIPCIONID: " + invoice.SubscriptionId);
                     Console.WriteLine("INICIO DEL PERIODO: " + invoice.PeriodStart);
-                    Console.WriteLine("FECHA DE PAGO: " + invoice.PeriodEnd);
+                    Console.WriteLine("FECHA DE PAGO: " + (DateTime)invoice.StatusTransitions.PaidAt);
+                    Console.WriteLine("FECHA DE FIN: " + invoice.Lines.Data[0].Period.End);
                     Console.WriteLine("ID CONTRATO: " + contratoBL.ObtenerContratoPorEmpresaYSuscripcionId(empresaBL.ExistsUnicamenteEmail(stripe.ObtenerEmailEmpresaPorStripeId(invoice.CustomerId)).Id, invoice.SubscriptionId).id);
                     CrearFacturaDTO nf = new CrearFacturaDTO
-                    {                       
+                    {
                         idEmpresa = empresaBL.ExistsUnicamenteEmail(stripe.ObtenerEmailEmpresaPorStripeId(invoice.CustomerId)).Id,
                         suscripcionId = invoice.SubscriptionId,
-                        fechaCreacion = invoice.PeriodStart,
-                        fechaPago = invoice.PeriodEnd,
+                        fechaCreacion = invoice.Created,
+                        fechaPago = (DateTime)invoice.StatusTransitions.PaidAt,
+                        fechaFin = facturaBL.FromUnixTimestampToDateTime(invoice.Lines.Data[0].Period.End),
                         idContrato = contratoBL.ObtenerContratoPorEmpresaYSuscripcionId(empresaBL.ExistsUnicamenteEmail(stripe.ObtenerEmailEmpresaPorStripeId(invoice.CustomerId)).Id,invoice.SubscriptionId).id
                     };
                     facturaBL.InsertarFactura(nf);

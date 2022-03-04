@@ -39,10 +39,6 @@ namespace ProyectoIntegrado.BL.Implementations
             }
           return  stripe.ComprarSuscripcionPremium(e.empresaStripeID).Result.Url;   
         }
-
-
-
-
         public DateTime FromUnixTimestampToDateTime(long unixTimeStamp)
         {
             DateTime dateTime = new DateTime(1970, 1, 1);

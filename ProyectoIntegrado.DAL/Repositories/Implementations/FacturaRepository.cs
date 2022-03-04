@@ -99,5 +99,10 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             }
             return null;
         }
+
+        public Factura ObtenerFacturaPagadaMasReciente(int empresaId)
+        {
+            return _context.Facturas.Where(f => f.fechaCreacion < DateTime.Now && f.fechaFin > DateTime.Now && f.fechaPago != null).Include(f=>f.empresa).Include(f=>f.contrato).FirstOrDefault();
+        }
     }
 }

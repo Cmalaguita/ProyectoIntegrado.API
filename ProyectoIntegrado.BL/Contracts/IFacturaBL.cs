@@ -14,7 +14,8 @@ namespace ProyectoIntegrado.BL.Contracts
         List<FacturaDTO> ObtenerFacturasPorSuscripcionYContratoId(string suscripcionId, int contratoId);
         FacturaDTO InsertarFactura(CrearFacturaDTO factura);
         bool BorrarFactura(int idFactura);
-        bool ComprobarFacturaPagada(int idFactura);
+        DateTime FromUnixTimestampToDateTime(long unixTimeStamp);
+        FacturaDTO ObtenerFacturaPagadaMasReciente(int empresaId);
         FacturaDTO ExistFactura(int idFactura);
         FacturaDTO ActualizarFactura(FacturaDTO factura);
     }

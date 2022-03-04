@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProyectoIntegrado.DAL.Entities;
 
 namespace ProyectoIntegrado.DAL.Migrations
 {
     [DbContext(typeof(proyectointegradodbContext))]
-    partial class proyectointegradodbContextModelSnapshot : ModelSnapshot
+    [Migration("20220304201237_fechaFinEnFactura")]
+    partial class fechaFinEnFactura
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,10 +120,10 @@ namespace ProyectoIntegrado.DAL.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("fechaAltaSuscripcion")
-                        .HasColumnType("Date");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("fechaCancelacion")
-                        .HasColumnType("Date");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("idEmpresa")
                         .HasColumnType("int");
@@ -185,13 +187,13 @@ namespace ProyectoIntegrado.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("fechaCreacion")
-                        .HasColumnType("Date");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("fechaFin")
-                        .HasColumnType("Date");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("fechaPago")
-                        .HasColumnType("Date");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("idContrato")
                         .HasColumnType("int");
@@ -209,6 +211,27 @@ namespace ProyectoIntegrado.DAL.Migrations
                     b.HasIndex("idEmpresa");
 
                     b.ToTable("Facturas");
+                });
+
+            modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.FacturasContratos", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("idContrato")
+                        .HasColumnType("int");
+
+                    b.Property<int>("idFactura")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("idContrato");
+
+                    b.HasIndex("idFactura");
+
+                    b.ToTable("FacturasContratos");
                 });
 
             modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.FamiliaProfesional", b =>
@@ -438,6 +461,25 @@ namespace ProyectoIntegrado.DAL.Migrations
                     b.Navigation("contrato");
 
                     b.Navigation("empresa");
+                });
+
+            modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.FacturasContratos", b =>
+                {
+                    b.HasOne("ProyectoIntegrado.DAL.Entities.Contrato", "contrato")
+                        .WithMany()
+                        .HasForeignKey("idContrato")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProyectoIntegrado.DAL.Entities.Factura", "factura")
+                        .WithMany()
+                        .HasForeignKey("idFactura")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("contrato");
+
+                    b.Navigation("factura");
                 });
 
             modelBuilder.Entity("ProyectoIntegrado.DAL.Entities.Inscripcion", b =>
