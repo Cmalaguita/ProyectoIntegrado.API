@@ -5,14 +5,10 @@ using System.Text;
 
 namespace ProyectoIntegrado.CORE.DTO
 {
-   public class MensajeDTO
-    {
-       
-        public int id { get; set; }
+   public class CrearMensajeDTO
+    {   
         public int alumnoId { get; set; }
-        public Alumno alumno { get; set; }
-        public int empresaId { get; set; }
-        public Empresa empresa { get; set; }
+        public int empresaId { get; set; }   
         public string contenido { get; set; }
         public bool leido { get; set; }
     }

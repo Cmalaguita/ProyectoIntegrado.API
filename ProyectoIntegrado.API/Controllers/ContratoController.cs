@@ -78,7 +78,7 @@ namespace ProyectoIntegrado.API.Controllers
     Request.Headers["Stripe-Signature"], endpointSecret);
                 Console.WriteLine("EVENTO RECIBIDO " + stripeEvent.Type);
                 if (stripeEvent.Type == Events.InvoicePaid)
-                {// quitar la tabla de contrato
+                {
                     var invoice = stripeEvent.Data.Object as Invoice;
                     Console.WriteLine("invoice dentro del evento" + invoice);
                     Console.WriteLine("ID EMPRESA: "+ empresaBL.ExistsUnicamenteEmail(stripe.ObtenerEmailEmpresaPorStripeId(invoice.CustomerId)).Id);
