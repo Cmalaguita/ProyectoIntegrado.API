@@ -74,7 +74,6 @@ namespace ProyectoIntegrado.API.Controllers
             {
                
                 var stripeEvent = EventUtility.ParseEvent(json);
-
                 stripeEvent = EventUtility.ConstructEvent(json,
     Request.Headers["Stripe-Signature"], endpointSecret);
                 Console.WriteLine("EVENTO RECIBIDO " + stripeEvent.Type);
@@ -105,7 +104,7 @@ namespace ProyectoIntegrado.API.Controllers
                     Console.WriteLine("Suscripcion dentro del evento"+subscription);
                     Console.WriteLine("CONTRATO EMAIL CLIENTE: " + stripe.ObtenerEmailEmpresaPorStripeId(subscription.CustomerId));
                     Console.WriteLine("CONTRATO SUSCRIPCION ID: "+subscription.Id);
-                    Console.WriteLine("CONTRATO EMPRESASTRIPEID" + subscription.CustomerId);
+                    Console.WriteLine("CONTRATO EMPRESASTRIPEID: " + subscription.CustomerId);
                     Console.WriteLine("CONTRATO EMPRESAID: " + empresaBL.ExistsUnicamenteEmail(stripe.ObtenerEmailEmpresaPorStripeId(subscription.CustomerId)).Id);
                     Console.WriteLine("CONTRATO FECHAALTASUSCRIPCION: " + subscription.Created);
                     Console.WriteLine("CONTRATO FECHAEXPIRASUSCRIPCION: " + subscription.CurrentPeriodEnd);
@@ -122,6 +121,11 @@ namespace ProyectoIntegrado.API.Controllers
                 else if (stripeEvent.Type == Events.CustomerCreated)
                 {
                     var customer = stripeEvent.Data.Object as Customer;
+
+                }
+                else if (stripeEvent.Type == Events.PaymentIntentCanceled)
+                {
+                    var customer = stripeEvent.Data.Object as PaymentIntent;
 
                 }
                 else
@@ -143,17 +147,33 @@ namespace ProyectoIntegrado.API.Controllers
         [Route("Crear_Sus_Premium")]
         public string crearSuscripcionPremium(EmpresaDTO empresaDTO)
         {
+              string s =contratoBL.CrearSuscripcionPremium(empresaDTO);
+            if (s!=null)
+            {
+                return s;
+            }
+            else
+            {
+                return null;
+            }
             
-            return contratoBL.CrearSuscripcionPremium(empresaDTO);
         }
 
         [HttpPost]
         [AllowAnonymous]
         [Route("Comprobar_Sus_Premium")]
-        public string ComprobarSuscripcionPremium(EmpresaDTO empresaDTO)
+        public ActionResult<FacturaDTO> ComprobarSuscripcionPremium(int empresaId)
         {
+              var f= facturaBL.ObtenerFacturaPagadaMasReciente(empresaId);
+            if (f!=null)
+            {
+                return Ok(f);
 
-            return contratoBL.CrearSuscripcionPremium(empresaDTO);
+            }
+            else
+            {
+                return NotFound();
+            }
         }
     }
 }
