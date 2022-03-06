@@ -32,10 +32,10 @@ namespace ProyectoIntegrado.API.Controllers
             return mensajeBL.ObtenerMensajesPorEmpresaId(empresaId);
         }
         [HttpGet]
-        [Route("Obtener_Mensajes_Segun_Alumno_Y_Lectura")]
-        public List<MensajeDTO> ObtenerMensajesSegunLecturaPorAlumnoId(int alumnoId, bool leido)
+        [Route("Obtener_Mensajes_No_Leidos")]
+        public List<MensajeDTO> ObtenerMensajesNoLeidos(int alumnoId)
         {
-            return mensajeBL.ObtenerMensajesSegunLecturaPorAlumnoId(alumnoId, leido);
+            return mensajeBL.ObtenerMensajesNoLeidos(alumnoId);
         }
         [HttpPut]
         [Route("Cambiar_Estado_Lectura")]
@@ -50,13 +50,13 @@ namespace ProyectoIntegrado.API.Controllers
             return mensajeBL.CrearMensaje(mensaje);
         }
         [HttpDelete]
-        [Route("Obtener_Mensajes_Por_Alumno")]
+        [Route("Borrar_Mensaje")]
         public bool BorrarMensaje(int mensajeId, int empresaId)
         {
             return mensajeBL.BorrarMensaje(mensajeId,empresaId);
         }
         [HttpGet]
-        [Route("Cambiar_Estado_Lectura")]
+        [Route("Comprobar_Existencia")]
         public MensajeDTO existMensaje(int idMensaje)
         {
             return mensajeBL.existMensaje(idMensaje);

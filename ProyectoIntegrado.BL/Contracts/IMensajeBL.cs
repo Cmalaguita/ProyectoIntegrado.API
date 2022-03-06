@@ -9,7 +9,7 @@ namespace ProyectoIntegrado.BL.Contracts
     {
         List<MensajeDTO> ObtenerMensajesPorAlumnoId(int alumnoId);
         List<MensajeDTO> ObtenerMensajesPorEmpresaId(int empresaId);
-        List<MensajeDTO> ObtenerMensajesSegunLecturaPorAlumnoId(int alumnoId, bool leido);
+        List<MensajeDTO> ObtenerMensajesNoLeidos(int alumnoId);
         bool CambiarEstadoLecturaMensaje(int idmensaje, bool leido);
         MensajeDTO CrearMensaje(CrearMensajeDTO mensaje);
         bool BorrarMensaje(int mensajeId, int empresaId);
