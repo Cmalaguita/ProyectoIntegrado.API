@@ -56,9 +56,9 @@ namespace ProyectoIntegrado.BL.Implementations
             return mapper.Map<List<Mensaje>, List<MensajeDTO>>(mensajeRepository.ObtenerMensajesPorEmpresaId(empresaId));
         }
 
-        public List<MensajeDTO> ObtenerMensajesNoLeidos(int alumnoId)
+        public List<MensajeDTO> ObtenerMensajesSegunLecturaPorAlumnoId(int alumnoId, bool leido)
         {
-            return mapper.Map<List<Mensaje>, List<MensajeDTO>>(mensajeRepository.ObtenerMensajesNoLeidos(alumnoId));
+            return mapper.Map<List<Mensaje>, List<MensajeDTO>>(mensajeRepository.ObtenerMensajesSegunLecturaPorAlumnoId(alumnoId,leido));
         }
     }
 }
