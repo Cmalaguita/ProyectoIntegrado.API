@@ -77,6 +77,12 @@ namespace ProyectoIntegrado.CORE.AutomapperProfile
 
                 CreateMap<CrearFacturaDTO, Factura>();
                 CreateMap<Factura, CrearFacturaDTO>();
+
+                CreateMap<MensajeDTO, Mensaje>();
+                CreateMap<Mensaje, MensajeDTO>();
+
+                CreateMap<CrearMensajeDTO, Mensaje>();
+                CreateMap<Mensaje, CrearMensajeDTO>();
             }
         }
     }

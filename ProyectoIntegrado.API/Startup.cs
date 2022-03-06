@@ -115,8 +115,12 @@ namespace ProyectoIntegrado.API
             services.AddScoped<IContratoRepository, ContratoRepository>();
             services.AddScoped<IContratoBL, ContratoBL>();
 
+            services.AddScoped<IMensajeRepository, MensajeRepository>();
+            services.AddScoped<IMensajeBL, MensajeBL>();
+
             services.AddScoped<IFacturaRepository, FacturaRepository>();
             services.AddScoped<IFacturaBL, FacturaBL>();
+
             services.AddScoped<IStripe, StripeImpl>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
