@@ -90,6 +90,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
                 empresa.Password = eu.Password;
                 empresa.EmailVerificado = eu.EmailVerificado;
                 empresa.CodigoVerificacion = eu.CodigoVerificacion;
+                empresa.empresaStripeID = eu.empresaStripeID;
                     _context.Entry(eu).CurrentValues.SetValues(empresa);
                 _context.SaveChanges();
                 var e = ExistsUnicamenteEmail(eu.Email);
