@@ -56,9 +56,9 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             return _context.Mensajes.Where(m => m.empresaId == empresaId).Include(m => m.alumno).ThenInclude(c => c.ciclo).Include(m => m.empresa).ThenInclude(e => e.Provincia).ToList();
         }
 
-        public List<Mensaje> ObtenerMensajesNoLeidos(int alumnoId)
+        public List<Mensaje> ObtenerMensajesSegunLecturaPorAlumnoId(int alumnoId, bool leido)
         {
-            return _context.Mensajes.Where(m => m.alumnoId == alumnoId && m.leido==false).Include(m => m.alumno).ThenInclude(c => c.ciclo).Include(m => m.empresa).ThenInclude(e => e.Provincia).ToList();
+            return _context.Mensajes.Where(m => m.id == alumnoId && m.leido==leido).Include(m => m.alumno).ThenInclude(c => c.ciclo).Include(m => m.empresa).ThenInclude(e => e.Provincia).ToList();
         }
 
         public Mensaje CrearMensaje(Mensaje mensaje)

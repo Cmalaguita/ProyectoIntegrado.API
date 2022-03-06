@@ -9,7 +9,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Contracts
     {
         List<Mensaje> ObtenerMensajesPorAlumnoId(int alumnoId);
         List<Mensaje> ObtenerMensajesPorEmpresaId(int empresaId);
-        List<Mensaje> ObtenerMensajesNoLeidos(int alumnoId);
+        List<Mensaje> ObtenerMensajesSegunLecturaPorAlumnoId(int alumnoId, bool leido);
         bool CambiarEstadoLecturaMensaje(int idmensaje,bool leido);
         Mensaje CrearMensaje(Mensaje mensaje);
         bool BorrarMensaje(int mensajeId, int empresaId);
