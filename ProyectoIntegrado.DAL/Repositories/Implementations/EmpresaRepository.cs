@@ -30,10 +30,18 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public Empresa CreateEmpresa(Empresa empresa)
         {
+            if (ExistsUnicamenteEmail(empresa.Email)==null)
+            {
             _context.Empresas.Add(empresa);   
             _context.SaveChanges();
            var e= ExistsUnicamenteEmail(empresa.Email);
             return e;
+
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public bool Exists(Empresa empresa)

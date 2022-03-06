@@ -32,9 +32,20 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
 
         public bool CreateAlumno(Alumno alumno)
         {
-            _context.Alumnos.Add(alumno);
-            _context.SaveChanges();
-            return true;
+
+            if (ExistsUnicamenteEmail(alumno.Email) == null)
+            {
+                _context.Alumnos.Add(alumno);
+                _context.SaveChanges();
+                var e = ExistsUnicamenteEmail(alumno.Email);
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+           
         }
         public bool ExistsEmail(Alumno alumno)
         {

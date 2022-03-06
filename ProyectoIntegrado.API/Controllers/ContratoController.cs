@@ -72,7 +72,6 @@ namespace ProyectoIntegrado.API.Controllers
 
             try
             {
-               
                 var stripeEvent = EventUtility.ParseEvent(json);
                 stripeEvent = EventUtility.ConstructEvent(json,
     Request.Headers["Stripe-Signature"], endpointSecret);
