@@ -22,5 +22,6 @@ namespace ProyectoIntegrado.CORE.DTO
         public Provincia provincia { get; set; }
         public double NotaMedia { get; set; }
         public bool EmailVerificado { get; set; }
+        public string imagen { get; set; }
     }
 }

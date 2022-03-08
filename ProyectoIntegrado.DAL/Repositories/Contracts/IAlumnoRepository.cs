@@ -17,5 +17,6 @@ namespace ProyectoIntegrado.DAL.Contracts
         bool CompararCodigo(string email,string codigo);
         bool CompararCodigoParaEmail(string codigo,string email);
         bool CambiarPassAlumno(string pass, string email);
+        Alumno CambiarImagenAlumno(Alumno alumno);
     }
 }

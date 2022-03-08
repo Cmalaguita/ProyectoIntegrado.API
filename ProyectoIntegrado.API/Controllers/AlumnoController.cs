@@ -124,5 +124,21 @@ namespace ProyectoIntegrado.API.Controllers
         {
             return AlumnoBL.CambiarPassAlumno(pass, email);
         }
+
+        [HttpPut]
+        [Route("Cambiar_Imagen_Alumno")]
+        public ActionResult<AlumnoDTO> CambiarImagenAlumno(AlumnoUpdateDTO alumno)
+        {
+            var a=AlumnoBL.CambiarImagenAlumno(alumno);
+            if (a!=null)
+            {
+
+                return Ok(a);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
     }
 }

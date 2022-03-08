@@ -28,6 +28,6 @@ namespace ProyectoIntegrado.DAL.Entities
         public double NotaMedia { get; set; }
         public string CodigoVerificacion{ get; set; }
         public bool EmailVerificado { get; set; }
-
+        public string imagen { get; set; }
     }
 }

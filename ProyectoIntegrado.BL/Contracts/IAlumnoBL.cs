@@ -20,5 +20,6 @@ namespace ProyectoIntegrado.BL.Contracts
         bool CompararCodigo(string email, string codigo);
         bool CompararCodigoParaEmail(string codigo, string email);
         public bool CambiarPassAlumno(string pass, string email);
+        public AlumnoDTO CambiarImagenAlumno(AlumnoUpdateDTO alumno);
     }
 }

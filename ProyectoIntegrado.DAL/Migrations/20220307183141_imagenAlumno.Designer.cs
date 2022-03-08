@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProyectoIntegrado.DAL.Entities;
 
 namespace ProyectoIntegrado.DAL.Migrations
 {
     [DbContext(typeof(proyectointegradodbContext))]
-    partial class proyectointegradodbContextModelSnapshot : ModelSnapshot
+    [Migration("20220307183141_imagenAlumno")]
+    partial class imagenAlumno
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,8 +77,8 @@ namespace ProyectoIntegrado.DAL.Migrations
                     b.Property<int>("idCiclo")
                         .HasColumnType("int");
 
-                    b.Property<string>("imagen")
-                        .HasColumnType("longtext");
+                    b.Property<byte[]>("imagen")
+                        .HasColumnType("longblob");
 
                     b.HasKey("Id");
 

@@ -16,5 +16,6 @@ namespace ProyectoIntegrado.CORE.DTO
         public string Localidad { get; set; }
         public int IdProvincia { get; set; }
         public double NotaMedia { get; set; }
+        public string imagen { get; set; }
     }
 }

@@ -29,6 +29,7 @@ namespace ProyectoIntegrado.API.Controllers
             this.facturaBL = facturaBL;
             this.contratoBL = contratoBL;
         }
+
         [HttpPost]
         [AllowAnonymous]
         public ActionResult<string> CrearPago(ContratoDTO contratoDTO)

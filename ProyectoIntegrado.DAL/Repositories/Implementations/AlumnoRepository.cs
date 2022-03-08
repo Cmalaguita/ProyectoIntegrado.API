@@ -103,7 +103,21 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
             }
             return null;
         }
-
+        public Alumno CambiarImagenAlumno(Alumno alumno)
+        {
+            var eu = ExistsUnicamenteEmail(alumno.Email);
+            var imagen = alumno.imagen;
+            if (eu != null)
+            {
+                var a = eu;
+                a.imagen = imagen;
+                _context.Entry(eu).CurrentValues.SetValues(a);
+                _context.SaveChanges();
+                var e = ExistsUnicamenteEmail(eu.Email);
+                return e;
+            }
+            return null;
+        }
         public bool CompararCodigo(string email,string codigo)
         {
             var a = ExistsUnicamenteEmail(email);

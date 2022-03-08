@@ -129,5 +129,19 @@ namespace ProyectoIntegrado.BL.Implementations
         {
             return mapper.Map<Alumno, AlumnoDTO>(alumnoRepository.ExistsUnicamenteEmail(email));
         }
+
+        public AlumnoDTO CambiarImagenAlumno(AlumnoUpdateDTO alumno)
+        {
+           var a= ExistsUnicamenteEmail(alumno.Email);
+            if (a!=null)
+            {
+                var al= mapper.Map<AlumnoUpdateDTO, Alumno>(alumno);
+                return mapper.Map<Alumno, AlumnoDTO>(alumnoRepository.CambiarImagenAlumno(al));
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
