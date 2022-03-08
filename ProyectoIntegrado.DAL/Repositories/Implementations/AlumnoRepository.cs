@@ -97,6 +97,7 @@ namespace ProyectoIntegrado.DAL.Repositories.Implementations
                 alumno.Password = eu.Password;
                 alumno.EmailVerificado = eu.EmailVerificado;
                 alumno.CodigoVerificacion = eu.CodigoVerificacion;
+                alumno.imagen = eu.imagen;
                 _context.Entry(eu).CurrentValues.SetValues(alumno);
                 _context.SaveChanges();
                 var e = ExistsUnicamenteEmail(eu.Email);
