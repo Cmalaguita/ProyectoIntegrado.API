@@ -1,13 +1,11 @@
 # ProyectoIntegradoAPI
 
+Proyecto para la asignatura: Programacion de servicios y procesos del segundo año de DAM. Este no es el proyecto de fin de grado
+
 ## Sinopsis
 
 * Este proyecto es parte de un proyecto mayor, compuesto por una api proveedora de servicios, una aplicación flutter para dispositivos móviles y una aplicación web en Angular. Se trata de una aplicación que conecta a las empresas con estudiantes de ciclos formativos de todos los niveles para realizar las prácticas y/o la FP dual en estas.
-* Estado del proyecto: En proceso
-
-## Instalación
-
-No necesita
+* Estado del proyecto: Finalizado
 
 ## Uso
 * Servicios para el acceso y registro a alumnos y empresas en sus respectivas aplicaciones.
